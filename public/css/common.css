@@ -1,0 +1,27 @@
+.owl_hub_background{
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/fixed_background2.png");
+  /* background-color:#4E4E4E; */
+  /* background-color:#333333; */
+  background-position:center;
+  background-size:cover;
+  position: absolute;
+}
+
+.owl_hub_green {
+  color: #1A9957;
+}
+
+.owl_hub_gray {
+  color: #4E4E4E;
+}
+
+.form-control{
+  min-width: 100px;
+  border-radius: 50px;
+}
+.form-control:focus {
+  border-color: forestgreen;
+  box-shadow: none;
+}
