@@ -19,3 +19,15 @@ Route::get('/', function () {
 
 });
 
+//Routes for authentication from LANDING PAGE
+    //login
+Route::get('login', 'AuthController@index');
+Route::post('post-login', 'AuthController@postLogin'); 
+
+    //register
+Route::post('postregister', 'AuthController@postRegister'); 
+
+Route::get('logout', 'AuthController@logout');
+
+
+

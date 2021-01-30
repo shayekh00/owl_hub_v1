@@ -25,3 +25,7 @@
   border-color: forestgreen;
   box-shadow: none;
 }
+
+.error{
+  color: red;
+}
