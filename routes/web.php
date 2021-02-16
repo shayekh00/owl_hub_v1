@@ -26,7 +26,7 @@ Route::get('/', function () {
          });
      Route::get('/', function () {
        //    return view('search');
-           return view('students.courseexpertlist');
+          return view('students.courseexpertlist');
         
        });
 //Routes for authentication from LANDING PAGE

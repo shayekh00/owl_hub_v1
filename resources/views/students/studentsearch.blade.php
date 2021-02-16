@@ -13,15 +13,16 @@
 <div class="container">
     
     <h2>
-    <div class="input-group">
-   
-    <form class="search" action="/action_page.php" style="margin:auto;max-width:400px">
-<input id="searchBox" type="text" placeholder="Search Your Course here" onkeyup="usersearchTxt(document.getElementById('searchBox').value);">
-<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-<div id="searchTxt">
     
-</div>
-</div>
-</form>
+    <form class="search" action="/action_page.php" style="margin:auto;max-width:400px">
+        <div class="input-group">
+
+            <input id="searchBox" type="text" placeholder="Search Your Course here" onkeyup="usersearchTxt(document.getElementById('searchBox').value);">
+             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+            
+                <div id="searchTxt">
+                </div>
+    </form>
 </div>
 @endsection
