@@ -13,22 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-//    return view('welcome');
-    return view('commons.landing');
-
-})->name('commons.landing');
-Route::get('/students.studentsearch', 'PagesController@studentsearch')->name('students.studentsearch');
- 
-Route::get('/', function () {
-    //    return view('search');
-       return view('students.studentsearch');
-         });
-     Route::get('/', function () {
-       //    return view('search');
-          return view('students.courseexpertlist');
-        
-       });
 //Routes for authentication from LANDING PAGE
     //login
 Route::get('login', 'AuthController@index');
@@ -38,6 +22,37 @@ Route::post('post-login', 'AuthController@postLogin');
 Route::post('postregister', 'AuthController@postRegister'); 
 
 Route::get('logout', 'AuthController@logout');
+
+
+Route::get('/expertcourses', function () {
+    return view('courseexperts.courseexpertcourses');
+
+});
+
+
+Route::get('/experttiming', function () {
+    return view('courseexperts.courseexperttiming');
+});
+
+
+Route::get('/', function () {
+    //return view('welcome');
+    return view('commons.landing');
+
+});
+
+Route::get('/expertcourses', function () {
+    return view('courseexperts.courseexpertcourses');
+
+});
+
+
+Route::get('/experttiming', function () {
+    return view('courseexperts.courseexperttiming');
+});
+
+
+
 
 
 
