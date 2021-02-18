@@ -22,7 +22,6 @@
 
                 <div class="container">
 
-                        <h2><img src="Annonymus.jpg"  style="width:100%"></h2>
                             <p >Expert Id:</p>
                             <p>Course:</p>
                             <p>University:</p>

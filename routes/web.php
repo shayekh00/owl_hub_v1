@@ -35,23 +35,24 @@ Route::get('/experttiming', function () {
 });
 
 
+// Route::get('/students.studentsearch', 'PagesController@studentsearch')->name('students.studentsearch');
+ 
+Route::get('/studentsearch', function () {
+    //    return view('search');
+       return view('students.studentsearch');
+         });
+         
+Route::get('/courseexpertlist', function () {
+//    return view('search');
+    return view('students.courseexpertlist');
+
+});
+
 Route::get('/', function () {
-    //return view('welcome');
+//return view('welcome');
     return view('commons.landing');
 
 });
-
-Route::get('/expertcourses', function () {
-    return view('courseexperts.courseexpertcourses');
-
-});
-
-
-Route::get('/experttiming', function () {
-    return view('courseexperts.courseexperttiming');
-});
-
-
 
 
 
