@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 class student extends Authenticatable
 {
     use Notifiable;
+    protected $primaryKey = 'student_id';
 
     protected $guard = 'student';
     /**
