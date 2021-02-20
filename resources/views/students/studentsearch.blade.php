@@ -9,7 +9,8 @@
 
 @section('content')
 
-@extends('commons.navbar')
+@extends('students.studentsnavbar')
+
 <div class="container">
     
     <form class="search" action="/action_page.php" style="margin:auto;max-width:400px">

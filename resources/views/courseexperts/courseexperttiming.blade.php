@@ -8,7 +8,7 @@
 
 @section('content')
 
-@extends('commons.navbar')
+@extends('courseexperts.courseexpertnavbar')
 <div class="container">
     <h1 class="white" >Course Expert Timing</h1>
 </div>

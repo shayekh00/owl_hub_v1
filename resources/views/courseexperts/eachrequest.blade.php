@@ -8,7 +8,7 @@
 
 @section('content')
 
-@extends('commons.navbar')
+@extends('courseexperts.courseexpertnavbar')
 <div class="container">
     <h1 class=" owl_hub_green" >Welcome To Owl Hub</h1>
 </div>
