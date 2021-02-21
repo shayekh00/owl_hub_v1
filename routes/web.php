@@ -54,6 +54,18 @@ Route::get('/', function () {
 
 });
 
+// Route::get('/courseexperts.studentrequest', 'PagesController@studentsearch')->name('courseexperts.studentrequest');
+ 
+Route::get('/studentrequest', function () {
+    //    return view('search');
+       return view('courseexperts.studentrequest');
+         });
 
+         // Route::get('/students.requestcourseexpert', 'PagesController@studentsearch')->name('students.requestcourseexpert');
+ 
+Route::get('/requestcourseexpert', function () {
+    //    return view('search');
+       return view('students.requestcourseexpert');
+         });
 
 
