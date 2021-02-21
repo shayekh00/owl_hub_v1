@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Routes for authentication from LANDING PAGE
     //login
 Route::get('login', 'AuthController@index');
-Route::post('post-login', 'AuthController@postLogin'); 
+Route::post('post-login', 'AuthController@postLogin2'); 
 
     //register
 Route::post('postregister', 'AuthController@postRegister'); 

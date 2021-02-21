@@ -76,6 +76,71 @@ class AuthController extends Controller
 
 
     }
+
+    public function postLogin2(Request $request)
+    {
+        request()->validate([
+        'email' => 'required',
+        'password' => 'required',
+        ]);
+
+        switch ($request->input('action')) {
+            case 'student':
+                $student = student::where('email', $request->email)->first();
+        
+                if (!$student) {
+                    echo('Not a Student');
+                }
+
+                //login in student
+                if (Hash::check($request->password, $student->password)) {
+ 
+                    if (Auth::guard('student')->attempt(['email' => $request->email  , 'password' => $request->password ] )) {
+                        // dd(Auth::guard('courseexpert')->user()->name);
+                        return view('commons.registrationcompleted');
+                    }
+                 }
+
+                // if (Hash::check($request->password, $student->password)) {
+                //     Auth::guard('student')->login($student);
+                    
+                //     return view('commons.registrationcompleted');
+                // }
+        
+                return redirect($this->loginPath)
+                    ->withInput($request->only('email', 'remember'))
+                    ->withErrors(['email' => 'Incorrect email address or password']);
+
+                break;
+    
+            case 'courseexpert' || 'both':
+                // echo('courseexpert clicked');
+                $courseexpert = courseexpert::where('email', $request->email)->first();
+        
+                if (!$courseexpert) {
+                    echo('Not a Course Expert');
+                }
+
+               
+                //login in courseexpert
+
+                 if (Hash::check($request->password, $courseexpert->password)) {
+ 
+                    if (Auth::guard('courseexpert')->attempt(['email' => $request->email  , 'password' => $request->password ] )) {
+                        // dd(Auth::guard('courseexpert')->user()->name);
+                        return view('commons.registrationcompleted');
+                    }
+                 }
+                
+                //if login fails redirect back to the login page
+                return redirect($this->loginPath)
+                    ->withInput($request->only('email', 'remember'))
+                    ->withErrors(['email' => 'Incorrect email address or password']);
+
+                break;
+        }
+
+    }
  
     public function postRegister(Request $request)
     {  
