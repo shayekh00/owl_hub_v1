@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +25,25 @@ Route::post('postregister', 'AuthController@postRegister');
 Route::get('logout', 'AuthController@logout');
 
 
-Route::get('/expertcourses', function () {
-    return view('courseexperts.courseexpertcourses');
+//COURSE_EXPERT
+Route::get('/expertcourses', 'TeacherController@courseExpertCourses');
+Route::get('/experttiming', 'TeacherController@courseExpertTiming');
+Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses');
+Route::post('/experttiming', 'TeacherController@addCourseExpertTiming');
 
-});
 
 
-Route::get('/experttiming', function () {
-    return view('courseexperts.courseexperttiming');
-});
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Route::get('/students.studentsearch', 'PagesController@studentsearch')->name('students.studentsearch');

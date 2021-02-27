@@ -2,6 +2,12 @@
 
 @section('css_file')
     <link href="{{ asset('css/course_expert_courses.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection
 
 
@@ -11,196 +17,115 @@
 
 @extends('courseexperts.courseexpertnavbar')
 
-<div class="container">
+<div class="container1">
     <h1 class="white" >Course Willing to Teach</h1>
 </div>
 
-<div class="courseexpert-course-box">
 
-<div id="Courses_div">
-    {{ csrf_field() }}
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 1</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="" >
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
 
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 2</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-            <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
+<form action="expertcourses" method="POST" >
+    @csrf
 
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 3</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
+    <div courseexpert-course-box>
+        <table class="table">
+        <thead>
+            {{ csrf_field() }}
+                    <th><a style="color: white;font-weight:Bold ; font-size:25px;">Course</a> </th>
+                    <th><a style="color: white;font-weight:Bold ; font-size:25px;">University</a> </th>
+                    <th> <a href="javascript:;" class="btn btn-info addRow">add courses</a> </th>
+                    
+        </thead>
+                    <tbody>
+      
+                        <tr>
 
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 4</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
+                        <td> <input type="text" onkeypress="return event.charCode != 32" oninput="this.value = this.value.toUpperCase()" class="course-teach1" name="course_code1[]"  placeholder="  --choose course" >
 
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 5</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
+                        </td>
+                        <td>
+                            <select class="select-box-university1" name="university_name1[]">
+                                <option disabled ="disabled" selected ="selected">--choose university</option>
+                                <option>NSU</option>
+                                <option>BRAC</option>
+                                <option>EWU</option>
+                                <option>AIUB</option>
+                                <option>IUB</option>
+                                <option>DU</option>
+                                <option>JU</option>
+                                <option>JNU</option>
+                                <option>BUET</option>
+                                <option>SUST</option>
+                                <option>MIST</option>
+                                <option>BUP</option>
+                                <option>IUBAT</option>
 
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 6</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
+                            </select>
+                        </td>
+        
+                        <!-- <th> <a href="javascript:;" class="btn btn-danger deleteRow">-</a> </th> -->
+                        </tr>
 
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 7</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
-
-        <div class="input-group">
-            <a style="color: white;font-weight:Bold ; font-size:25px;">Course 8</a>
-            <input id="courses" type="text" class="course-teach" name="courses" placeholder="">
-                <select class="select-box-university">
-                        <option disabled ="disabled" selected ="selected">--choose university</option>
-                        <option>NSU</option>
-                        <option>BRAC</option>
-                        <option>EWU</option>
-                        <option>AIUB</option>
-                        <option>IUB</option>
-                        <option>DU</option>
-                        <option>JU</option>
-                        <option>JNU</option>
-                        <option>BUET</option>
-                        <option>SUST</option>
-                        <option>MIST</option>
-                        <option>BUP</option>
-                        <option>IUBAT</option>
-                </select>
-        </div>
-
+                    </tbody>
+                    
+    
+        </table>
 
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" name="action" value="student" class="btn btn-success owl_hub_green">Finish</button>
+                    <button type="submit"  class="btn btn-success owl_hub_green">Finish</button>
                 </div>
             </div>
         </div>
 
+    </div> 
 
 
-    </form>
-</div>
-</div>
+<script>
+
+$('thead').on('click',('.addRow'),function(){
+            
+            var tr= '<tr>'+
+        '<td> <input type="text" class="course-teach1" name="course_code1[]"  placeholder="--choose course" >'+
+        
+        '</td>'+
+
+        '<td>'+
+            '<select class="select-box-university1" name="university_name1[]">'+
+                '<option disabled ="disabled" selected ="selected">--choose university</option>'+
+                '<option>NSU</option>'+
+                '<option>BRAC</option>'+
+                '<option>EWU</option>'+
+                '<option>AIUB</option>'+
+                '<option>IUB</option>'+
+                '<option>DU</option>'+
+                '<option>JU</option>'+
+                '<option>JNU</option>'+
+                '<option>BUET</option>'+
+                '<option>SUST</option>'+
+                '<option>MIST</option>'+
+                '<option>BUP</option>'+
+                '<option>IUBAT</option>'+
+
+            '</select>'+
+        '</td>'+
+        
+        '<th> <a href="javascript:;" class="btn btn-danger deleteRow">-</a> </th>'+
+        '</tr>';
+
+        $('tbody').append(tr);
+        });
+
+
+        $('tbody').on('click', '.deleteRow', function(){
+
+        $(this).parent().parent().remove();
+
+        })
+
+</script>
+</form>
+
 
 
 
