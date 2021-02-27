@@ -14,21 +14,27 @@
 <div class="center">
                  <h1 class=" owl_hub_green" >Course Expert List</h1>
 </div>
-    
-    <div class="row">
 
-        <div class="column">
+    @foreach ($courseexperts_table_data as  $key => $data )
+        
+        <div class="row">
 
-            <div class="card">
+            <div class="column">
 
-                <div class="container">
+                <div class="card">
 
-                            <p >Expert Id:</p>
-                            <p>Course:</p>
-                            <p>University:</p>
-                            <p><button class="button">Continue</button></p>
+
+                    <br>
+                    <div class="container">
+                                <p > <b> Expert ID: </b>  {{ $data->courseexpert_id }} </p>
+                                <p> <b> Course: </b> {{ $course_code }}   </p>
+                                <p> <b> University: </b> {{ $university_name1 }}  </p>
+                                <p><button class="button">Continue</button></p>
+                    </div>
                 </div>
             </div>
-         </div>
-    </div>
+        </div>
+        <br>
+    @endforeach
+
 @endsection
