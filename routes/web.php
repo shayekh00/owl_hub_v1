@@ -84,4 +84,7 @@ Route::get('/live_search', 'LiveSearch@index');
 Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 
 Route::get('/course_expert_list/{course_code1}/{university_name1}', 'LiveSearch@list')->name('course_expert_list.create_list');
+
+Route::get('/multiuploads', 'UploadController@uploadForm');
+Route::post('/multiuploads', 'UploadController@uploadSubmit');
          
