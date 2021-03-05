@@ -25,6 +25,11 @@ class accepted_appointment extends Model
         return $this->hasOne(course::class);
     }
 
+    // public function student()
+    // {
+    //     return $this->hasOne(student::class);
+    // }
+
     public function images()
     {
         return $this->hasMany(appointment_images::class);

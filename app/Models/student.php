@@ -38,4 +38,9 @@ class student extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function appointment_accepted()
+    {
+        return $this->hasMany(appointment_accepted::class);
+    }
 }

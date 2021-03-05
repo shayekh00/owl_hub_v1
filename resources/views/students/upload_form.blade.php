@@ -51,9 +51,9 @@
                         </div>
                         <label style="color:white;" for="Product Name">Attach Resources (can attach more than one):</label>
                         <br />
-                        <input type="file" class="form-control" name="photos[]" multiple />
+                        <input type="file" class="form-control" name="photos[]" multiple="multiple" />
                         <br /><br />
-                        <input type="submit" class="btn btn-primary" value="Upload" />
+                        <button type="submit" class="btn btn-primary" value="Upload" > Submit </button>
                     </form>
                 </div>
             </div>

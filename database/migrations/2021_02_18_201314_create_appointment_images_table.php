@@ -14,7 +14,7 @@ class CreateAppointmentImagesTable extends Migration
     public function up()
     {
         Schema::create('appointment_images', function (Blueprint $table) {
-            $table->increments('appointment_images_id');
+            $table->id('appointment_images_id');
 
             $table->unsignedBigInteger('accepted_appointment_id');
 
