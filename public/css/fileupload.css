@@ -1,0 +1,14 @@
+.form-control{
+    min-width: 200px;
+    border-radius: 50px;
+  }
+
+#problem_description_box{
+    min-width: 200px;
+    min-height: 100px;
+    border-radius: 50px;
+}
+  .form-control:focus {
+    border-color: forestgreen;
+    box-shadow: none;
+  }

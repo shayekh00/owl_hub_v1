@@ -7,22 +7,31 @@ use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
-public function uploadForm()
+public function uploadForm($courseexpert_id)
 {
-return view('students.upload_form');
+    // dd($courseexpert_id);
+    // echo("<script>console.log('PHP: " . $courseexpert_id . "');</script>");
+
+    return view('students.upload_form', 
+    ['courseexpert_id' => $courseexpert_id]);
 }
-public function uploadSubmit(Request $request)
+
+public function uploadSubmit(Request $request,$courseexpert_id)
 {
-    echo("<script>console.log('New Test 22');</script>");
+        //dd($courseexpert_id);
+        
         $this->validate($request, [
         'name' => 'required',
         'photos'=>'required',
         ]);
 
+        //checking if the files are empty or not and checking if the extensions of the files are allowed
         if($request->hasFile('photos'))
         {
                 $allowedfileExtension=['pdf','jpg','png','docx'];
                 $files = $request->file('photos');
+
+                $allow = 0;
                 foreach($files as $file){
 
                     $filename = $file->getClientOriginalName();
@@ -33,28 +42,49 @@ public function uploadSubmit(Request $request)
                     // dd($request->name);
                     if($check)
                     {
-                        $items= appointment_images::create($request->all());
-
-                        foreach ($request->photos as $photo) {
-                            $filename = $photo->store('student_resources');                            
-                        }
-
-                        accepted_appointment::insert([
-                        'appointment_images_id' => $items->appointment_images_id,
-                        'problem_text' => $request->name,
-                        'student_id' =>Auth::guard('student')->user()->student_id,
-                        'filename' => $filename,
-                        'created_at' => date('Y-m-d H:i:s'),
-                        'updated_at' => date('Y-m-d H:i:s')
-                        ]);
-
-                        echo "Upload Successfully";
+                        $allow=1;
+                        //$items= appointment_images::create($request->all());
                     }
                     else
                     {
                     echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>';
                     }
+               }
+
+        if($allow==1){
+            // dd($allow);
+            $items = accepted_appointment::create([
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ]);
+
+
+            accepted_appointment::where('accepted_appointment_id', '=', $items->accepted_appointment_id )
+                                ->update( array('student_id' => Auth::guard('student')->user()->student_id,
+                                                'courseexpert_id' => $courseexpert_id
+                                        ) );
+
+            foreach ($request->photos as $photo) {
+                //   dd(gettype($request->photos));
+                    $filename = $photo->store('student_resources');
+                    
+                    appointment_images::insert([
+                        'accepted_appointment_id' =>$items->accepted_appointment_id,
+                        'problem_text' => $request->name,
+                        'filename' => $filename
+                    ]);
+
+            }
+
+
+
+            echo "Upload Successfully";
+
+
         }
+
+
+
     }
 }
 

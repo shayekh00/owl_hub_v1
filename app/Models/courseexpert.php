@@ -28,7 +28,8 @@ class courseexpert extends Authenticatable
         'course_timing_monday','course_timing_tuesday',
         'course_timing_wednesday', 'course_timing_thursday',
         'course_timing_friday','teachers_skype_link',
-        'is_verified','course_id','appointment_accepted_id'
+        'is_verified','course_id','appointment_accepted_id',
+        'video_call_link'
     ];
 
 
