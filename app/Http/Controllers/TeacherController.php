@@ -5,6 +5,8 @@ Use App\Models\courseexpert;
 Use App\Models\course;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Fomvasss\Youtube\Facades\Youtube;
+
 
 
 use Illuminate\Http\Request;
@@ -20,26 +22,7 @@ class TeacherController extends Controller
         return view('courseexperts.courseexperttiming');
     }
 
-    public function extra(){
-        return view('courseexperts.extra');
-    }
-    public function extraa(){
-        return view('courseexperts.extraa');
-    }
-
-    
-    // public function addCourseExpertCourses(Request $request){
-
-    //     $course = new course;
-    //     // dd(Auth::guard('courseexpert')->user()->courseexpert_id);
-
-    //     $course->courseexpert_id =Auth::guard('courseexpert')->user()->courseexpert_id;
-    //     $course->course_code1=$request->course_code1;
-    //     $course->university_name1=$request->university_name1;      
-    //     $course->save();
-        
-    // }
-
+     
 
     public function addCourseExpertCourses(Request $request){
         $course = new course;
@@ -54,7 +37,7 @@ class TeacherController extends Controller
         
     }
 
-    public function addCourseExpertTiming(Request $request ){
+    public function addCourseExpertTiming(Request $request){
         
         $coursetime1=$request->course_timing_saturday;
         $coursetime2=$request->course_timing_sunday;
@@ -73,6 +56,21 @@ class TeacherController extends Controller
         $update = DB::update('update courseexperts set course_timing_thursday =? where courseexpert_id= ? ',[$coursetime6,$courseexpert_id]);
         $update = DB::update('update courseexperts set course_timing_friday =? where courseexpert_id= ? ',[$coursetime7,$courseexpert_id]);
 
+    }
+
+     public function skypeLink(){
+
+        return view('courseexperts.skypeLink');
+    
+    }
+
+
+    public function addskypeLink(Request $request){
+        
+        $skypeLink=$request->skype_link;
+        $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
+        $update = DB::update('update courseexperts set teachers_skype_link =? where courseexpert_id= ? ',[$skypeLink,$courseexpert_id]);
+        
     }
 
 }

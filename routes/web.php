@@ -30,6 +30,8 @@ Route::get('/expertcourses', 'TeacherController@courseExpertCourses');
 Route::get('/experttiming', 'TeacherController@courseExpertTiming');
 Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses');
 Route::post('/experttiming', 'TeacherController@addCourseExpertTiming');
+Route::get('/skypeLink', 'TeacherController@skypeLink');
+Route::post('/skypeLink', 'TeacherController@addskypeLink');
 
 
 

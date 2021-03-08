@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6558f74828bca9ebecac73d90cea4b1a",
+    "content-hash": "8ef67fe43fa3bcbcce4d1a91d2f78223",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -519,6 +519,64 @@
                 "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.1"
             },
             "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
+            "name": "fomvasss/youtube",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fomvasss/youtube.git",
+                "reference": "3c85cf86fc5b65147ac73985a44e26344605e70f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fomvasss/youtube/zipball/3c85cf86fc5b65147ac73985a44e26344605e70f",
+                "reference": "3c85cf86fc5b65147ac73985a44e26344605e70f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fomvasss\\Youtube\\YoutubeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fomvasss\\Youtube\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WebWest",
+                    "homepage": "http://web-west.net.ua",
+                    "role": "Company"
+                },
+                {
+                    "name": "Fomin Vasyl",
+                    "email": "fomvasss@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Package for generate IFrame with youtube-link",
+            "keywords": [
+                "laravel",
+                "video",
+                "youtube"
+            ],
+            "support": {
+                "issues": "https://github.com/fomvasss/youtube/issues",
+                "source": "https://github.com/fomvasss/youtube/tree/v1.3.0"
+            },
+            "time": "2018-06-13T20:13:34+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
