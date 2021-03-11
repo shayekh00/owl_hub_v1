@@ -33,19 +33,9 @@ Route::post('/experttiming', 'TeacherController@addCourseExpertTiming');
 Route::get('/skypelink', 'TeacherController@skypeLink');
 Route::post('/skypeLink', 'TeacherController@addskypeLink');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//EachRequest
+Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest');
+//Route::get('/courseexperts/eachrequest/image', 'EachRequestController@imagerequest')->name('eachrequest.image');
 
 
 // Route::get('/students.studentsearch', 'PagesController@studentsearch')->name('students.studentsearch');
