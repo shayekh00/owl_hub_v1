@@ -30,7 +30,7 @@ Route::get('/expertcourses', 'TeacherController@courseExpertCourses');
 Route::get('/experttiming', 'TeacherController@courseExpertTiming');
 Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses');
 Route::post('/experttiming', 'TeacherController@addCourseExpertTiming');
-Route::get('/skypeLink', 'TeacherController@skypeLink');
+Route::get('/skypelink', 'TeacherController@skypeLink');
 Route::post('/skypeLink', 'TeacherController@addskypeLink');
 
 
@@ -68,11 +68,9 @@ Route::get('/', function () {
 });
 
 // Route::get('/courseexperts.studentrequest', 'PagesController@studentsearch')->name('courseexperts.studentrequest');
- 
-Route::get('/studentrequest', function () {
-    //    return view('search');
-       return view('courseexperts.studentrequest');
-         });
+Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
+
+Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
 
          // Route::get('/students.requestcourseexpert', 'PagesController@studentsearch')->name('students.requestcourseexpert');
  
@@ -82,11 +80,11 @@ Route::get('/requestcourseexpert', function () {
          });
 
 
-Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search', 'LiveSearch@index')->name('live_search.index');
 Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 
-Route::get('/course_expert_list/{course_code1}/{university_name1}', 'LiveSearch@list')->name('course_expert_list.create_list');
+Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 'LiveSearch@list')->name('course_expert_list.create_list');
 
-Route::get('/multiuploads/{courseexpert_id}', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
-Route::post('/multiuploads/{courseexpert_id}', 'UploadController@uploadSubmit');
+Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
+Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
          

@@ -30,7 +30,8 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <form action="/multiuploads/{{$courseexpert_id}}" method="post" enctype="multipart/form-data">
+                   
+                    <form action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label style="color:white;" for="Product Name">

@@ -572,10 +572,6 @@
                 "video",
                 "youtube"
             ],
-            "support": {
-                "issues": "https://github.com/fomvasss/youtube/issues",
-                "source": "https://github.com/fomvasss/youtube/tree/v1.3.0"
-            },
             "time": "2018-06-13T20:13:34+00:00"
         },
         {
@@ -7022,5 +7018,5 @@
         "php": "^7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

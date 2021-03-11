@@ -27,11 +27,14 @@
                     <br>
                     <div class="container">
                                 <p > <b> Expert ID: </b>  {{ $data->courseexpert_id }} </p>
-                                <p> <b> Course: </b> {{ $course_code }}   </p>
+                                <p> <b> Course: </b> {{ $course_code }}    </p>
                                 <p> <b> University: </b> {{ $university_name1 }}  </p>
-
+                                
                                 <p>
-                                    <a href="{{ route('multiuploads.uploadForm',  $data->courseexpert_id  ) }}">
+
+                                    
+                                    <a href="{{ url('multiuploads/'.$data->courseexpert_id.'/'.$course_id.'/') }}">
+                            
                                         <button class="button">Continue</button>
                                     </a>
                                 </p>

@@ -7,18 +7,18 @@ use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
-public function uploadForm($courseexpert_id)
+public function uploadForm($courseexpert_id, $course_id)
 {
-    // dd($courseexpert_id);
+    // dd($course_id);
     // echo("<script>console.log('PHP: " . $courseexpert_id . "');</script>");
 
     return view('students.upload_form', 
-    ['courseexpert_id' => $courseexpert_id]);
+    ['courseexpert_id' => $courseexpert_id ,'course_id'=> $course_id ]);
 }
 
-public function uploadSubmit(Request $request,$courseexpert_id)
+public function uploadSubmit(Request $request,$courseexpert_id,$course_id)
 {
-        //dd($courseexpert_id);
+        // dd($course_id);
         
         $this->validate($request, [
         'name' => 'required',
@@ -61,6 +61,7 @@ public function uploadSubmit(Request $request,$courseexpert_id)
 
             accepted_appointment::where('accepted_appointment_id', '=', $items->accepted_appointment_id )
                                 ->update( array('student_id' => Auth::guard('student')->user()->student_id,
+                                                'course_id' => $course_id,
                                                 'courseexpert_id' => $courseexpert_id
                                         ) );
 

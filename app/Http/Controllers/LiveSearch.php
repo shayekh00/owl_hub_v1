@@ -65,7 +65,9 @@ function action(Request $request)
                     <td>'.$row->course_code1.'</td>
                     <td>'.$row->university_name1.'</td>
                     <td >
-                        <a class= "btn btn-success" href= "  '.route('course_expert_list.create_list', ['course_code1' => $row->course_code1,'university_name1' => $row->university_name1]   ) .  '  "      "role="button"  > SELECT NOW </a>
+                        <a class= "btn btn-success" href= "  '.route('course_expert_list.create_list',
+                                    ['course_code1' => $row->course_code1,'university_name1' => $row->university_name1,
+                                        'course_id' => $row->course_id ]   ) .  '  "      "role="button"  > SELECT NOW </a>
 
                     </td>
 
@@ -96,7 +98,7 @@ function action(Request $request)
 
 
 
-function list($course_code , $university_name1){
+function list($course_code , $university_name1,$course_id ){
     
  
     $courseexperts_table_data = DB::table('courseexperts')
@@ -110,7 +112,8 @@ function list($course_code , $university_name1){
     // dd($courseexperts_table_data);
 
     return view('students.courseexpertlist', 
-        ['courseexperts_table_data' => $courseexperts_table_data , 'university_name1'=>$university_name1,'course_code'=>$course_code   ]);
+        ['courseexperts_table_data' => $courseexperts_table_data , 'university_name1'=>$university_name1,'course_code'=>$course_code,
+            'course_id'=>$course_id   ]);
 
 }
 
