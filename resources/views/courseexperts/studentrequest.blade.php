@@ -35,14 +35,6 @@
                     <p> Problem </p>
                     <p> {{ $data->problem_text  }} </p>
                 </div>
-                <!-- <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm"> Course Name </span>
-                        
-                    </div>
-                    <input type="text" class="form-control" aria-label="" aria-describedby="inputGroup-sizing-sm">
-                    <p> Course Name </p>
-                </div> -->
                 <div style="text-align:center;">
                     <button type="button" class="btn btn-success">View more</button>
                 </div>

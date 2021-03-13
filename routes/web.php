@@ -26,30 +26,30 @@ Route::get('logout', 'AuthController@logout');
 
 
 //COURSE_EXPERT
-Route::get('/expertcourses', 'TeacherController@courseExpertCourses');
-Route::get('/experttiming', 'TeacherController@courseExpertTiming');
-Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses');
-Route::post('/experttiming', 'TeacherController@addCourseExpertTiming');
-Route::get('/skypelink', 'TeacherController@skypeLink');
-Route::post('/skypeLink', 'TeacherController@addskypeLink');
+Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('expertcourses');
+Route::get('/experttiming', 'TeacherController@courseExpertTiming')->name('experttiming');
+Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name('expertcourses');
+Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('experttiming');
+Route::get('/skypelink', 'TeacherController@skypeLink')->name('skypelink');
+Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
 
 //EachRequest
-Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest');
+Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
 //Route::get('/courseexperts/eachrequest/image', 'EachRequestController@imagerequest')->name('eachrequest.image');
 
 
 // Route::get('/students.studentsearch', 'PagesController@studentsearch')->name('students.studentsearch');
  
-Route::get('/studentsearch', function () {
-    //    return view('search');
-       return view('students.studentsearch');
-         });
+// Route::get('/studentsearch', function () {
+//     //    return view('search');
+//        return view('students.studentsearch');
+//          });
          
-Route::get('/courseexpertlist', function () {
-//    return view('search');
-    return view('students.courseexpertlist');
+// Route::get('/courseexpertlist', function () {
+// //    return view('search');
+//     return view('students.courseexpertlist');
 
-});
+// });
 
 Route::get('/', function () {
 //return view('welcome');

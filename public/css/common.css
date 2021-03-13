@@ -12,6 +12,9 @@
  
 }
 
+body{
+  background-image: url("../images/fixed_background2.png");
+}
 
 .owl_hub_green {
   color: #1A9957;
