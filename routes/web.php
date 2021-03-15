@@ -33,6 +33,18 @@ Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('e
 Route::get('/skypelink', 'TeacherController@skypeLink')->name('skypelink');
 Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
 
+Route::get('/welcome', function () {
+
+    return view('commons.welcome');
+    
+    });
+
+    Route::get('/profile', function () {
+
+        return view('courseexperts.courseexpertprofile');
+        
+    });
+
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
 //Route::get('/courseexperts/eachrequest/image', 'EachRequestController@imagerequest')->name('eachrequest.image');

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end" >
     <a class="navbar-brand" href="#">
         <img src="{{ asset('images/logo.png') }}"  width="60" height="60" alt="">
     </a>
@@ -9,13 +9,11 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+    <div class="navbar-nav" >
       <a class="nav-item nav-link " href="#">Home</a>
       <a class="nav-item nav-link" href="#">Edit Profile</a>
       <a class="nav-item nav-link" href="#">Logout</a>
     </div>
-  </div>
-
-
+    </div>
 </nav>
