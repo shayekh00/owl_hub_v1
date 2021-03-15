@@ -42,7 +42,7 @@ class AuthController extends Controller
                 //login in student
                 if (Hash::check($request->password, $student->password)) {
                     Auth::guard('student')->login($student);
-                    return view('commons.registrationcompleted');
+                    return view('students.live_search');
                 }
         
                 return redirect($this->loginPath)
@@ -62,7 +62,7 @@ class AuthController extends Controller
                 //login in courseexpert
                 if (Hash::check($request->password, $courseexpert->password)) {
                     Auth::guard('student')->login($courseexpert);
-                    return view('commons.registrationcompleted');
+                    return view('course_expert.studentrequest');
                 }
                 
                 //if login fails redirect back to the login page
@@ -97,7 +97,8 @@ class AuthController extends Controller
  
                     if (Auth::guard('student')->attempt(['email' => $request->email  , 'password' => $request->password ] )) {
                         // dd(Auth::guard('courseexpert')->user()->name);
-                        return view('commons.registrationcompleted');
+                        // return view('commons.registrationcompleted');
+                        return view('students.live_search');
                     }
                  }
 
@@ -128,7 +129,9 @@ class AuthController extends Controller
  
                     if (Auth::guard('courseexpert')->attempt(['email' => $request->email  , 'password' => $request->password ] )) {
                         // dd(Auth::guard('courseexpert')->user()->name);
-                        return view('commons.registrationcompleted');
+                        // return view('commons.registrationcompleted');
+                        // return view('courseexperts.studentrequest');
+                        return redirect()->route( 'student_request.index' );
                     }
                  }
                 
@@ -204,7 +207,7 @@ class AuthController extends Controller
     public function logout() {
         Session::flush();
         Auth::logout();
-        return Redirect('login');
+        return Redirect('/');
     }
 
 

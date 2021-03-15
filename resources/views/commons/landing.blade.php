@@ -67,7 +67,7 @@
                     <div class="col text-center">
                         <button type="submit" name="action" value="student" class="btn btn-success">Student</button>
                         <button type="submit" name="action" value="courseexpert" class="btn btn-success">Course Expert</button>
-                        <button type="submit" name="action" value="both" class="btn btn-success">Both</button>
+                        <!-- <button type="submit" name="action" value="both" class="btn btn-success">Both</button> -->
                     </div>
                 </div>
                 
@@ -108,7 +108,7 @@
                 <div class="col text-center">
                 <button type="submit" name="action" value="student" class="btn btn-success owl_hub_green">STUDENT</button>
                 <button type="submit" name="action" value="courseexpert" class="btn btn-success owl_hub_green">COURSE EXPERT</button>
-                <button type="submit" name="action" value="both" class="btn btn-success owl_hub_green">BOTH</button>
+                <!-- <button type="submit" name="action" value="both" class="btn btn-success owl_hub_green">BOTH</button> -->
                 
                 <br>
                 <a href="" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot your password ?</a>

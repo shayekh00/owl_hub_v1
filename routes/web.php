@@ -17,12 +17,12 @@ use App\Http\Controllers\TeacherController;
 //Routes for authentication from LANDING PAGE
     //login
 Route::get('login', 'AuthController@index');
-Route::post('post-login', 'AuthController@postLogin2'); 
+Route::post('post-login', 'AuthController@postLogin2')->name('post-login'); 
 
     //register
-Route::post('postregister', 'AuthController@postRegister'); 
+Route::post('postregister', 'AuthController@postRegister')->name('postregister'); 
 
-Route::get('logout', 'AuthController@logout');
+Route::get('logout', 'AuthController@logout')->name('logout');
 
 
 //COURSE_EXPERT
@@ -67,7 +67,7 @@ Route::get('/', function () {
 //return view('welcome');
     return view('commons.landing');
 
-});
+})->name('landing');;
 
 // Route::get('/courseexperts.studentrequest', 'PagesController@studentsearch')->name('courseexperts.studentrequest');
 Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
