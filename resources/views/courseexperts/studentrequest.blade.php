@@ -9,7 +9,7 @@
 
     @section('content')
 
-    @extends('students.studentsnavbar')
+    @extends('courseexperts.courseexpertnavbar')
 
     <div class="center" style="width:30rem; height:auto; width: 100%;">
         <h1 class=" owl_hub_green" >Student Request</h1>
