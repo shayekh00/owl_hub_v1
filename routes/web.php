@@ -91,3 +91,7 @@ Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 
 Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
 Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
          
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
