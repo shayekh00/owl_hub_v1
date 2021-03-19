@@ -15,7 +15,7 @@
         <h1 class=" owl_hub_green" >Student Request</h1>
 
         @foreach ($appointment_images_data as  $key => $data )
-        @if( count($appointment_images_data) > 3)
+
         <div class="card" style="width: 30rem;">
          
 
@@ -32,16 +32,18 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Problem</span>
                     </div>
-                    <p> Problem </p>
                     <p> {{ $data->problem_text  }} </p>
                 </div>
                 <div style="text-align:center;">
-                    <button type="button" class="btn btn-success">View more</button>
+                    <a  href="{{ url('/courseexperts/eachrequest/'.$data->course_code1.'/'.$data->problem_text.'/') }}" >
+                        <button type="button" class="btn btn-success">View more</button>
+                    </a>
                 </div>
+
             </div>
         </div>
         <br>
-        @endif
+
         @endforeach
 
 

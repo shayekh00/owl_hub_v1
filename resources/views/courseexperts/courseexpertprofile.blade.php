@@ -19,7 +19,7 @@
   <a href="#your_timing">Your Timing</a>
 </div>
 
-<!-- Page content -->
+Page content
 <div class="content">
   ..
 </div>

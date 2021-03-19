@@ -47,6 +47,7 @@ Route::get('/welcome', function () {
 
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
+Route::get('/courseexperts/eachrequest/{course_id}/{problem_text}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
 //Route::get('/courseexperts/eachrequest/image', 'EachRequestController@imagerequest')->name('eachrequest.image');
 
 

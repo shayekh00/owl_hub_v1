@@ -18,21 +18,22 @@
     <div class="row justify-content-center">
       <div class="col-sm-4">  
           <div class="card"> 
-             @foreach($accepted_appointments as $key => $data)
+            @foreach($accepted_appointments as $key => $data)
                  <div class="card-body">
                     <div class="text-success">
                     <h2 class="text-center">{{$data->course_id}}</h2>
                     <h2 class="text-center">{{$data->appointment_timing}}</h2>
-                @endforeach
-                    @foreach($appointment_images as $key => $variable)
-                    <h2 class="text-center">{{$variable->problem_text}}</h2>
-                    <h2 class="text-center">Resources                                     
-                            <a href="#">
-                            <span class="text-success">{{$variable->filename}}</span>
-                            </a> 
-                            </p>
-                            <button type="button" class="btn btn-success">Accept</button> 
-                    @endforeach
+            @endforeach
+
+            @foreach($appointment_images as $key => $variable)
+            <h2 class="text-center">{{$variable->problem_text}}</h2>
+            <h2 class="text-center">Resources                                     
+                    <a href="#">
+                    <span class="text-success">{{$variable->filename}}</span>
+                    </a> 
+                    </p>
+                    <button type="button" class="btn btn-success">Accept</button> 
+            @endforeach
                   </div>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

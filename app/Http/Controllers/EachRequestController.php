@@ -16,6 +16,11 @@ class EachRequestController extends Controller
         return view('courseexperts.eachrequest', ['accepted_appointments' => $accepted_appointment,'appointment_images' => $appointment_images]);
     }
 
+    public function index($course_id , $problem_text )
+    {
+        dd($problem_text);
+    }
+
   //  public function imagerequest()
   //  {
       //  $appointment_images = DB::table('appointment_images')->get();
