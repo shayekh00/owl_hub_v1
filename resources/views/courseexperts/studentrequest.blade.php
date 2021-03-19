@@ -12,7 +12,8 @@
     @extends('courseexperts.courseexpertnavbar')
 
     <div class="center" style="width:30rem; height:auto; width: 100%;">
-        <h1 class=" owl_hub_green" >Student Request</h1>
+        <br />
+        <h3 align="center" class="owl_hub_green">All of Your Student Request</h3><br />
 
         @foreach ($appointment_images_data as  $key => $data )
 
