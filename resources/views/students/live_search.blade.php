@@ -13,7 +13,6 @@
  </head>
  <body>
     @extends('students.studentsnavbar')
-    <br />
     <div class="owl_hub_background">
         <br />
         <div class="container box">
