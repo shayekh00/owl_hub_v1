@@ -107,6 +107,7 @@ function list($course_code , $university_name1,$course_id ){
         ->inRandomOrder()
         ->limit(5)
         ->select('courseexperts.*')
+        ->distinct()
         ->get();
 
     // dd($courseexperts_table_data);
