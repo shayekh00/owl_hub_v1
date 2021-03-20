@@ -13,7 +13,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link " href="{{route('live_search.index')}}">Home</a>
       <a class="nav-item nav-link" href="#">Edit Profile</a>
-      <a class="nav-item nav-link" href="#">My Requests</a>
+      <a class="nav-item nav-link" href="{{route('student.allrequest')}}">My Requests</a>
       <a class="nav-item nav-link" href="{{route('logout')}}">Logout</a>
     </div>
   </div>

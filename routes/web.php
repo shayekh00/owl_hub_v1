@@ -48,21 +48,7 @@ Route::get('/welcome', function () {
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
 Route::get('/courseexperts/eachrequest/{course_id}/{problem_text}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
-//Route::get('/courseexperts/eachrequest/image', 'EachRequestController@imagerequest')->name('eachrequest.image');
 
-
-// Route::get('/students.studentsearch', 'PagesController@studentsearch')->name('students.studentsearch');
- 
-// Route::get('/studentsearch', function () {
-//     //    return view('search');
-//        return view('students.studentsearch');
-//          });
-         
-// Route::get('/courseexpertlist', function () {
-// //    return view('search');
-//     return view('students.courseexpertlist');
-
-// });
 
 Route::get('/', function () {
 //return view('welcome');
@@ -75,7 +61,7 @@ Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.ind
 
 Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
 
-         // Route::get('/students.requestcourseexpert', 'PagesController@studentsearch')->name('students.requestcourseexpert');
+// Route::get('/students.requestcourseexpert', 'PagesController@studentsearch')->name('students.requestcourseexpert');
  
 Route::get('/requestcourseexpert', function () {
     //    return view('search');
@@ -90,7 +76,8 @@ Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 
 
 Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
 Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
-         
+
+Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
