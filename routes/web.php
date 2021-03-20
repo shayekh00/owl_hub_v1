@@ -24,6 +24,9 @@ Route::post('postregister', 'AuthController@postRegister')->name('postregister')
 
 Route::get('logout', 'AuthController@logout')->name('logout');
 
+Route::get('contactus', 'Commons@contactus')->name('contactus');
+
+
 
 //COURSE_EXPERT
 Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('expertcourses');
