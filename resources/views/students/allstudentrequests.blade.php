@@ -30,13 +30,17 @@
                                 <p > <b> Course Name: </b>  {{ $data->course_code1 }} </p>
                                 <p > <b> Problem Description: </b> {{ $data->problem_text }} </p>
                                 
-                                @if(  $data->is_accepted   )
+                                @if(  ($data->is_accepted) == 1   )
                                     <div class="alert alert-success" role="alert">
-                                            Your appointment request has been accepted by the Course Expert.
+                                            Your appointment request has been <b>accepted</b> by the Course Expert.
+                                    </div>
+                                @elseif(  ($data->is_accepted) == -1   )
+                                    <div class="alert alert-primary" role="alert">
+                                                Your appointment request is <b>pending</b> to be accepted by the Course Expert.
                                     </div>
                                 @else
                                     <div class="alert alert-danger" role="alert">
-                                        Your appointment request has still not been accepted by the Course Expert.
+                                        Your appointment request has <b>still not been accepted</b> by the Course Expert.
                                     </div>
                                 @endif 
                                 
