@@ -15,6 +15,7 @@
                  <h1 class=" owl_hub_green" > Requested Appointments </h1>
 </div>
 
+
     @foreach ($accepted_appointments as  $key => $data )
         
         <div class="row">
@@ -26,9 +27,9 @@
 
                     <br>
                     <div class="container">
-                                <p > <b> Expert ID: </b>  {{ $data->courseexpert_id }} </p>
-                                <p > <b> Course Name: </b>  {{ $data->course_code1 }} </p>
-                                <p > <b> Problem Description: </b> {{ $data->problem_text }} </p>
+                                <p > <b> Expert ID: </b>      {{ $data->courseexpert_id }} </p>
+                                <p > <b> Course Name: </b>      {{ $data->course_code1 }} </p>
+                                <p > <b> Problem Description: </b>    {{ $data->problem_text }} </p>
                                 
                                 @if(  ($data->is_accepted) == 1   )
                                     <div class="alert alert-success" role="alert">

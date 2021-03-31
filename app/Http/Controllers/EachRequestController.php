@@ -16,9 +16,35 @@ class EachRequestController extends Controller
         return view('courseexperts.eachrequest', ['accepted_appointments' => $accepted_appointment,'appointment_images' => $appointment_images]);
     }
 
-    public function index($course_id , $problem_text )
+    public function index($course_id , $problem_text ,$accepted_appointment_id)
     {
-        dd($problem_text);
+        $accepted_appointment_timing = DB::table('accepted_appointments')
+                            // ->select('appointment_timing')
+                                ->where('accepted_appointment_id', '=' , $accepted_appointment_id)
+                                ->get();
+
+        
+        $appointment_images = DB::table('appointment_images')->get();
+
+        //dd( $accepted_appointment_timing );
+
+        $course_name= $course_id;
+        // $course_name = DB::table('courses')
+        //             ->select('course_code1')
+        //             ->where('course_id', '=', $course_id)
+        //             ->get();
+        
+
+        return view('courseexperts.eachrequest',
+        ['accepted_appointment_timing' => $accepted_appointment_timing,
+        'appointment_images' => $appointment_images,
+        'course_name' => $course_name,
+        'problem_text' => $problem_text
+        ]
+        
+        );
+
+        // dd($problem_text);
     }
 
   //  public function imagerequest()

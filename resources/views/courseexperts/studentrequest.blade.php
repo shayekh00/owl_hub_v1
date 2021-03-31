@@ -36,7 +36,7 @@
                     <p> {{ $data->problem_text  }} </p>
                 </div>
                 <div style="text-align:center;">
-                    <a  href="{{ url('/courseexperts/eachrequest/'.$data->course_code1.'/'.$data->problem_text.'/') }}" >
+                    <a  href="{{ url('/courseexperts/eachrequest/'.$data->course_code1.'/'.$data->problem_text.'/'.$data->accepted_appointment_id.'/') }}" >
                         <button type="button" class="btn btn-success">View more</button>
                     </a>
                 </div>

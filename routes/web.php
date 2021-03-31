@@ -58,7 +58,7 @@ Route::get('/welcome', 'TeacherController@welcomeMessage');
 
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
-Route::get('/courseexperts/eachrequest/{course_id}/{problem_text}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
+Route::get('/courseexperts/eachrequest/{course_id}/{problem_text}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
 
 
 Route::get('/', function () {

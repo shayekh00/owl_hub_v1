@@ -21,17 +21,20 @@
 <div class="container">
   <!--  <h1 class=" owl_hub_green" >Welcome To Owl Hub</h1>---->
 </div>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-4">  
           <div class="card"> 
-             
+          @foreach ($accepted_appointment_timing as  $key => $data )
                  <div class="card-body">
                     <div class="text-success">
-                    <h4>Course ID</h4>
-                    <h4>Course Timing</h4>
-                    <h4>Problem Text</h4>
-                    <h4>Resources                                     
+                    <h4>Course ID : {{$course_name}} </h4>
+                    <h4>Appointment Timing : {{ $data -> appointment_timing }} </h4>
+                    <h4>Problem Text : {{$problem_text}} </h4>
+                    <h4>Resources :                                    
                             <a href="#">
                             <span class="glyphicon glyphicon-picture" style="color:green;"></span>
                             </a> 
@@ -47,6 +50,7 @@
                             <button type="button" class="btn btn-danger" >Reject</button> 
                             </div>     
                  </div>
+            @endforeach
                    @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
