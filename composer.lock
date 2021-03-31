@@ -5780,6 +5780,10 @@
                 "laravel",
                 "panel"
             ],
+            "support": {
+                "issues": "https://github.com/the-control-group/voyager/issues",
+                "source": "https://github.com/the-control-group/voyager"
+            },
             "funding": [
                 {
                     "url": "https://github.com/[user1",
@@ -8221,5 +8225,5 @@
         "php": "^7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

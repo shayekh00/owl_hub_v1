@@ -28,7 +28,7 @@
                     <div class="container">
                                 <p > <b> Expert ID: </b>  {{ $data->courseexpert_id }} </p>
                                 <p> <b> Course: </b> {{ $course_code }}    </p>
-                                <p> <b> University: </b> {{ $university_name1 }}  </p>
+                                <p> <b> University: </b> {{ $university_name1}}  </p>
                                 
                                 <p>
 

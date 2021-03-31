@@ -35,18 +35,26 @@ Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name(
 Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('experttiming');
 Route::get('/skypelink', 'TeacherController@skypeLink')->name('skypelink');
 Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
+// Route::get('/profile', 'TeacherController@expertProfile');
+Route::get('/expert_profile', 'TeacherController@expertProfile');
+Route::post('/profile-update', 'TeacherController@updateExpertProfile');
+Route::get('/view_timing', 'TeacherController@viewExpertTiming');
+Route::get('/view_timing', 'TeacherController@viewExpertTiming');
+Route::get('/view_courses', 'TeacherController@viewExpertCourses');
+Route::get('/update_courses', 'TeacherController@updateExpertCourses');
+Route::post('/update_courses', 'TeacherController@updatecourses');
+Route::get('/profile', 'TeacherController@viewProfile');
+Route::get('/welcome', 'TeacherController@welcomeMessage');
 
-Route::get('/welcome', function () {
 
-    return view('commons.welcome');
+
+// Route::get('/welcome', function () {
+
+//     return view('commons.welcome');
     
-    });
+//     });
 
-    Route::get('/profile', function () {
-
-        return view('courseexperts.courseexpertprofile');
-        
-    });
+ 
 
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');

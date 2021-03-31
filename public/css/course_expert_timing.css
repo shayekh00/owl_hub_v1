@@ -20,6 +20,14 @@
     float: middle;
     overflow: hidden;
 }
+.x{
+  
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
 
 .msg{
     width: fit-content;

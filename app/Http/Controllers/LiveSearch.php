@@ -100,7 +100,6 @@ function action(Request $request)
 
 function list($course_code , $university_name1,$course_id ){
     
- 
     $courseexperts_table_data = DB::table('courseexperts')
         ->join('courses', 'courseexperts.courseexpert_id', '=', 'courses.courseexpert_id')
         ->where('courses.course_code1', '=', $course_code)
