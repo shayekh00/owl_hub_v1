@@ -79,7 +79,7 @@ Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@upl
 Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
 
 Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
-Route::post('/students/thankyou', 'StudentRequest@transaction_id')->name('student.transaction_id');;
+Route::post('/students/thankyou/{accepted_appointment_id}', 'StudentRequest@transaction_id')->name('student.transaction_id');;
 
 Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.uploadForm');
 Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.uploadForm');

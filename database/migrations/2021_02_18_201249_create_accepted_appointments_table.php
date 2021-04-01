@@ -30,6 +30,12 @@ class CreateAcceptedAppointmentsTable extends Migration
             // $table->string('problem_text');
             // $table->string('filename');
             $table->string('appointment_timing');
+
+            $table->unsignedBigInteger('appointment_hours');
+            $table->string('appointment_transaction_id');
+            $table->string('is_confirmed');
+            $table->string('is_finished');
+
             $table->integer('is_accepted');
 
             $table->timestamps();

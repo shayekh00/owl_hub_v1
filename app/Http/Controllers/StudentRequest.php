@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\accepted_appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
@@ -36,8 +36,9 @@ class StudentRequest extends Controller
         ->where('student_id', '=', $student_id)
         ->get();
 
-        $appointment_images_data = DB::select("SELECT DISTINCT A.courseexpert_id,A.is_accepted, C.course_code1, 
-                                                B.problem_text
+        $appointment_images_data = DB::select("SELECT DISTINCT A.accepted_appointment_id, 
+        A.courseexpert_id,A.is_accepted, A.appointment_transaction_id , A.is_confirmed,
+        C.course_code1, B.problem_text
         FROM accepted_appointments AS A , appointment_images AS B, courses AS C
         WHERE A.accepted_appointment_id = B.accepted_appointment_id
         AND A.course_id = C.course_id
@@ -48,9 +49,17 @@ class StudentRequest extends Controller
 
     }
 
-    function transaction_id(Request $request)
+    function transaction_id(Request $request , $accepted_appointment_id )
     {
+        $data = $request->all();
+        // dd($data['transaction_id']);
 
+        accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        ->update( array(
+                        'appointment_transaction_id' => $data['transaction_id']
+                ) );
+
+        
         return view('students.appointment_thank_you');
     }
 

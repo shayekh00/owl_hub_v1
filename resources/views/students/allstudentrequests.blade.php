@@ -27,27 +27,43 @@
 
                     <br>
                     <div class="container">
+                                
                                 <p > <b> Expert ID: </b>      {{ $data->courseexpert_id }} </p>
                                 <p > <b> Course Name: </b>      {{ $data->course_code1 }} </p>
                                 <p > <b> Problem Description: </b>    {{ $data->problem_text }} </p>
                                 
+                                <!-- check if the appointment is accepted by a course expert  -->
                                 @if(  ($data->is_accepted) == 1   )
+
+                                    <!-- if the bkash transaction id is not given and confirmed  -->
+                                    @if ($data->appointment_transaction_id == '')
                                     <div class="alert alert-success" role="alert">
                                             Your appointment request has been <b>accepted</b> by the Course Expert.
                                             Please pay to 01622808768 to confirm your appointment.
                                     </div>
 
-                                    <form action="/students/thankyou" method="post">
+                                    <form action="/students/thankyou/{{$data->accepted_appointment_id}}" method="post">
                                         {{ csrf_field() }}
                                         <label for="exampleFormControlInput1"> Bkash Transaction ID :</label>
-                                        <input class="form-control" type="text" placeholder="Bkash Transaction ID">
+                                        <input name="transaction_id" class="form-control" type="text" placeholder="Bkash Transaction ID">
                                         <br>
                                         <button type="submit" class="button">Submit</button>
                                         <br>
                                         <br>
                                     </form>
 
-                                @elseif(  ($data->is_accepted) == -1   )
+                                    <!-- if the bkash transaction id is given and not confirmed -->
+                                    @elseif( $data->appointment_transaction_id !== ''  && $data->is_confirmed !==1 )
+                                    <div class="alert alert-primary" role="alert">
+                                            Your appointment is being confirmed .
+                                    </div>
+
+
+                                    <!-- if the bkash transaction id is given and confirmed -->
+
+                                    @endif
+
+                                @elseif(  ($data->is_accepted) == 0   )
                                     <div class="alert alert-primary" role="alert">
                                         Your appointment request is <b>pending</b> to be accepted by the Course Expert.
                                     </div>
