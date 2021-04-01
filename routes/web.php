@@ -46,16 +46,6 @@ Route::post('/update_courses', 'TeacherController@updatecourses');
 Route::get('/profile', 'TeacherController@viewProfile');
 Route::get('/welcome', 'TeacherController@welcomeMessage');
 
-
-
-// Route::get('/welcome', function () {
-
-//     return view('commons.welcome');
-    
-//     });
-
- 
-
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
 Route::get('/courseexperts/eachrequest/{course_id}/{problem_text}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
@@ -89,6 +79,11 @@ Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@upl
 Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
 
 Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
+Route::post('/students/thankyou', 'StudentRequest@transaction_id')->name('student.transaction_id');;
+
+Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.uploadForm');
+Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.uploadForm');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

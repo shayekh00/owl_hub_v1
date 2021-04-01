@@ -37,6 +37,7 @@ class EachRequestController extends Controller
 
         return view('courseexperts.eachrequest',
         ['accepted_appointment_timing' => $accepted_appointment_timing,
+          'accepted_appointment_id' => $accepted_appointment_id,
         'appointment_images' => $appointment_images,
         'course_name' => $course_name,
         'problem_text' => $problem_text
@@ -45,6 +46,24 @@ class EachRequestController extends Controller
         );
 
         // dd($problem_text);
+    }
+
+    function accepted($accepted_appointment_id)
+    {
+        accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        ->update( array(
+                        'is_accepted' => 1
+                ) );
+
+        // dd($accepted_appointment_id);
+    }
+
+    function rejected($accepted_appointment_id)
+    {
+        accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        ->update( array(
+                        'is_accepted' => -1
+                ) );
     }
 
   //  public function imagerequest()

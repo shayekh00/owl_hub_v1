@@ -45,10 +45,17 @@
                             <span class="glyphicon glyphicon-picture" style="color:green;"></span>
                             </a>
                             </p>
+                            @if ( ($data->is_accepted) == 0 )
                             <div class="text-center">
-                            <button type="button" class="btn btn-success">Accept</button> 
-                            <button type="button" class="btn btn-danger" >Reject</button> 
-                            </div>     
+                            <a href="{{ url('/student/accepted/'.$accepted_appointment_id.'/') }}"> <button type="button" class="btn btn-success">Accept</button> </a> 
+                            <a href="{{ url('/student/rejected/'.$accepted_appointment_id.'/') }}"> <button type="button" class="btn btn-danger" >Reject</button> </a>
+                            </div>
+
+                            @else
+                            <div class="alert alert-primary" role="alert">
+                               You have already responded to this appointment request.
+                            </div>
+                            @endif
                  </div>
             @endforeach
                    @if (session('status'))

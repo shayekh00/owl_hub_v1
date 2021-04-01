@@ -34,14 +34,26 @@
                                 @if(  ($data->is_accepted) == 1   )
                                     <div class="alert alert-success" role="alert">
                                             Your appointment request has been <b>accepted</b> by the Course Expert.
+                                            Please pay to 01622808768 to confirm your appointment.
                                     </div>
+
+                                    <form action="/students/thankyou" method="post">
+                                        {{ csrf_field() }}
+                                        <label for="exampleFormControlInput1"> Bkash Transaction ID :</label>
+                                        <input class="form-control" type="text" placeholder="Bkash Transaction ID">
+                                        <br>
+                                        <button type="submit" class="button">Submit</button>
+                                        <br>
+                                        <br>
+                                    </form>
+
                                 @elseif(  ($data->is_accepted) == -1   )
                                     <div class="alert alert-primary" role="alert">
-                                                Your appointment request is <b>pending</b> to be accepted by the Course Expert.
+                                        Your appointment request is <b>pending</b> to be accepted by the Course Expert.
                                     </div>
                                 @else
                                     <div class="alert alert-danger" role="alert">
-                                        Your appointment request has <b>still not been accepted</b> by the Course Expert.
+                                        Your appointment request has <b>been rejected</b> by the Course Expert.
                                     </div>
                                 @endif 
                                 

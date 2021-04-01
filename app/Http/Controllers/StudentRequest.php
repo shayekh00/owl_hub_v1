@@ -36,7 +36,8 @@ class StudentRequest extends Controller
         ->where('student_id', '=', $student_id)
         ->get();
 
-        $appointment_images_data = DB::select("SELECT DISTINCT A.courseexpert_id,A.is_accepted, C.course_code1, B.problem_text
+        $appointment_images_data = DB::select("SELECT DISTINCT A.courseexpert_id,A.is_accepted, C.course_code1, 
+                                                B.problem_text
         FROM accepted_appointments AS A , appointment_images AS B, courses AS C
         WHERE A.accepted_appointment_id = B.accepted_appointment_id
         AND A.course_id = C.course_id
@@ -47,8 +48,11 @@ class StudentRequest extends Controller
 
     }
 
-    function action(Request $request)
+    function transaction_id(Request $request)
     {
 
+        return view('students.appointment_thank_you');
     }
+
+
 }
