@@ -85,34 +85,41 @@ class TeacherController extends Controller
     
     // }
 
-    function expertProfile(){
+    // function expertProfile(){
 
-        $users = DB::table('users')
-            ->join('contacts', 'users.id', '=', 'contacts.user_id')
-            ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
-            ->get();
+    //     $users = DB::table('users')
+    //         ->join('contacts', 'users.id', '=', 'contacts.user_id')
+    //         ->join('orders', 'users.id', '=', 'orders.user_id')
+    //         ->select('users.*', 'contacts.phone', 'orders.price')
+    //         ->get();
     
-        return view('courseexperts.profile');
+    //     return view('courseexperts.profile');
     
-    }
+    // }
 
 
-    function viewProfile(){
+    function viewExpertProfile(){
 
 
-        $user = auth()->user();
-        $expert = DB::table('courses')->where('courseexpert_id', Auth::id())->get();
+        // $user = auth()->user();
+        // $expert = DB::table('courses')->where('courseexpert_id', Auth::id())->get();
         
-        return view('courseexperts.profilee');
+        return view('courseexperts.expertProfile');
     
     }
 
+    function updateExpertProfile(){
+    
+        return view('courseexperts.updateExpertProfile');
+
+    }
+    
 
 
 
 
-    function updateExpertProfile(Request $request){
+
+    function updateExpertProfilePost(Request $request){
     
         // $expert_id = Auth::guard('courseexpert')->user()->courseexpert_id;
         // $user = User:: findorFail($expert_id);
@@ -170,32 +177,5 @@ class TeacherController extends Controller
         return view('commons.welcome');
 
     }
-
- 
-
-    
-
-    // function updatecourses(Request $request){
-
-    //     $courseexperts =Auth::guard('courseexpert')->user()->courseexpert_id;
-
-
-    //     // $courses = DB::table('courses')
-    //     // ->where('courseexpert_id', '=', $courseexpert_id)
-    //     // ->update()
-
-    //     // $courses=$request->course_code1;
-    //     // $courses1=$request->university_name1;
-
-
-    //     foreach($courses as  $key => $data){
-    //         $courses = DB::table('courses')
-    //         ->where('courseexpert_id', '=', $courseexpert_id)
-    //         ->update(['course_code1' => $data])
-    //         ->update(['university_name1' => $data]);
-
-    //     }
-
-    // }
 
 }

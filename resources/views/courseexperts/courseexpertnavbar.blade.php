@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
     <div class="navbar-nav" >
       <a class="nav-item nav-link " href="{{route('student_request.index')}}">Home</a>
-      <a class="nav-item nav-link" href="#">Edit Profile</a>
+      <a class="nav-item nav-link" href="expert_profile">Profile</a>
       <a class="nav-item nav-link" href="{{route('logout')}}">Logout</a>
     </div>
     </div>

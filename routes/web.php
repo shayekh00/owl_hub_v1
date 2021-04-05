@@ -33,18 +33,36 @@ Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('exp
 Route::get('/experttiming', 'TeacherController@courseExpertTiming')->name('experttiming');
 Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name('expertcourses');
 Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('experttiming');
-Route::get('/skypelink', 'TeacherController@skypeLink')->name('skypelink');
+Route::get('/skypeLink', 'TeacherController@skypeLink')->name('skypeLink');
 Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
-// Route::get('/profile', 'TeacherController@expertProfile');
-Route::get('/expert_profile', 'TeacherController@expertProfile');
-Route::post('/profile-update', 'TeacherController@updateExpertProfile');
+// Route::get('/profile's, 'TeacherController@expertProfile');
+// Route::get('/expert_profile', 'TeacherController@expertProfile');
 Route::get('/view_timing', 'TeacherController@viewExpertTiming');
 Route::get('/view_timing', 'TeacherController@viewExpertTiming');
 Route::get('/view_courses', 'TeacherController@viewExpertCourses');
 Route::get('/update_courses', 'TeacherController@updateExpertCourses');
 Route::post('/update_courses', 'TeacherController@updatecourses');
-Route::get('/profile', 'TeacherController@viewProfile');
 Route::get('/welcome', 'TeacherController@welcomeMessage');
+
+Route::get('/expert_profile', 'TeacherController@viewExpertProfile');
+Route::get('/update_expert_profile', 'TeacherController@updateExpertProfile');
+Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost');
+
+
+//STUDENT
+Route::get('/student_profile', 'StudentRequest@StudentProfile');
+Route::get('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
+Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
+Route::get('/Appointments', 'StudentRequest@studentAppointments');
+
+
+
+    // Route::get('/student_profile', function () {
+    //     //    return view('search');
+    //        return view('students.studentprofile');
+    //          });
+
+
 
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');

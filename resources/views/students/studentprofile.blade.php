@@ -1,10 +1,4 @@
-<!-- 
-<div class="sidebar">
-  <a href="/view_timing">View your Timing</a>
-  <a href="/experttiming">Update your Timing</a>
-  <a href="/view_courses">View your Courses</a>
-  <a href="/update_courses">Update your Courses</a>
-</div> -->
+
 @extends('html_skeleton')
 
 @section('css_file')
@@ -20,11 +14,10 @@
 <div class="center">
                  <h1 class=" owl_hub_green" >My Profile</h1>
 </div>
+
 <div class="sidenav">
-    <a href="/view_timing" style="color: white;font-weight:Bold ; font-size:20px;">View your Timing</a>
-    <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a>
-    <a href="/view_courses" style="color: white;font-weight:Bold ; font-size:20px;">View your Courses</a>
-    <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a>
+    <a href="/student_profile_update" style="color: white;font-weight:Bold ; font-size:20px;">Edit Profile</a>
+    <a href="/Appointments" style="color: white;font-weight:Bold ; font-size:20px;">Appointments</a>
 </div>
 
 
@@ -45,28 +38,25 @@
             <div class="container">
                         <p>
                            <b> <label for="">Name</label> </b>
-                            <input type="text" name="name" class= "form-control" value ="{{Auth::guard('courseexpert')->user()->name}}">
+                            <a type="text" name="name" class= "form-control">{{Auth::guard('student')->user()->name}}</a>
 
                         </p>
 
 
                         <p>
                            <b> <label for="">Phone</label> </b>
-                            <input type="text" name="phone" class= "form-control" value ="{{Auth::guard('courseexpert')->user()->phone}}">
-
+                            <a type="text" name="phone" class= "form-control">{{Auth::guard('student')->user()->phone}}</a>
                         </p>
 
                         <p>
                            <b> <label for="">Email</label> </b>
-                           <a type="text" name="email" class= "form-control">{{Auth::guard('courseexpert')->user()->email}}</a>
+                           <a type="text" name="email" class= "form-control">{{Auth::guard('student')->user()->email}}</a>
 
                         </p>
 
                        
                 
-                        <p>                             
-                                <button class="button">Update Profile</button>
-                        </p>
+                       
                         <!-- <p></p> -->
             </div>
         </form>

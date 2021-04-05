@@ -64,4 +64,66 @@ class StudentRequest extends Controller
     }
 
 
+    public function StudentProfile(){
+
+        return view('students.studentprofile');
+    
+    }
+
+
+
+    function updateStudentProfile(){
+
+
+        $user = auth()->user();
+        $expert = DB::table('courses')->where('courseexpert_id', Auth::id())->get();
+        
+        return view('students.editstudentprofile');
+    
+    }
+    
+
+
+    
+    function updateStudentProfile1(Request $request){
+        
+        $name=$request->name;
+        $phone=$request->phone;
+
+        $student_id = AUTH::guard('student')->user()->student_id;
+        
+        $update = DB::update('update students set name =? where student_id= ? ',[$name,$student_id]);
+        // $update = DB::update('update courseexperts set email =? where courseexpert_id= ? ',[$email,$courseexpert_id]);
+        $update = DB::update('update students set phone =? where student_id= ? ',[$phone,$student_id]);
+
+        
+        return redirect()->back()->with('status','Profile updated');
+
+    }
+
+
+        public function studentAppointments(){
+
+            $student_id  =Auth::guard('student')->user()->student_id;
+
+            $accepted_appointments = DB::table('accepted_appointments')
+                ->where('student_id', '=', $student_id)
+                ->get();
+
+
+            $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.course_id,A.appointment_timing,
+            B.course_id,B.course_code1
+            FROM accepted_appointments AS A , courses AS B
+            WHERE A.course_id = B.course_id
+            AND A.student_id = $student_id");
+    
+    
+            return view('students.studentAppointments', 
+                    ['accepted_appointments' => $courses_data] );
+
+        }
+
+
+    
+
 }

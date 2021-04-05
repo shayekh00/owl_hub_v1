@@ -1,19 +1,26 @@
 @extends('html_skeleton')
 
 @section('css_file')
-        <link href="{{ asset('css/expertProfile.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ asset('css/expertProfile.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection
 
 
 
 @section('content')
 
-@extends('students.studentsnavbar')
+
+@extends('courseexperts.courseexpertnavbar')
 <div class="center">
     <h1 class=" owl_hub_green" >My Timing</h1>
 </div>
 <div class="sidenav">
+    <a href="/update_expert_profile" style="color: white;font-weight:Bold ; font-size:20px;">Edit Profile</a>
     <a href="/view_timing" style="color: white;font-weight:Bold ; font-size:20px;">View your Timing</a>
     <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a>
     <a href="/view_courses" style="color: white;font-weight:Bold ; font-size:20px;">View your Courses</a>

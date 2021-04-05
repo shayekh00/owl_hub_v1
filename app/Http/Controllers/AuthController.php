@@ -176,7 +176,7 @@ class AuthController extends Controller
        
         }
 
-        return view('commons.registrationcompleted');
+        return view('commons.welcome');
 
     }
 
