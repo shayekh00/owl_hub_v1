@@ -15,6 +15,11 @@
                  <h1 class=" owl_hub_green" > Requested Appointments </h1>
 </div>
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
     @foreach ($accepted_appointments as  $key => $data )
         

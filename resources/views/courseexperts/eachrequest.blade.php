@@ -28,34 +28,26 @@
     <div class="row justify-content-center">
       <div class="col-sm-4">  
           <div class="card"> 
-          @foreach ($accepted_appointment_timing as  $key => $data )
+          @foreach ($accepted_appointment as  $key => $data )
                  <div class="card-body">
                     <div class="text-success">
                     <h4>Course ID : {{$course_name}} </h4>
                     <h4>Appointment Timing : {{ $data -> appointment_timing }} </h4>
-                    <h4>Problem Text : {{$problem_text}} </h4>
-                    <h4>Resources :                                    
-                            <a href="#">
-                            <span class="glyphicon glyphicon-picture" style="color:green;"></span>
-                            </a> 
-                            <a href="#">
-                            <span class="glyphicon glyphicon-picture" style="color:green;"></span>
-                            </a>
-                            <a href="#">
-                            <span class="glyphicon glyphicon-picture" style="color:green;"></span>
-                            </a>
-                            </p>
-                            @if ( ($data->is_accepted) == 0 )
-                            <div class="text-center">
-                            <a href="{{ url('/student/accepted/'.$accepted_appointment_id.'/') }}"> <button type="button" class="btn btn-success">Accept</button> </a> 
-                            <a href="{{ url('/student/rejected/'.$accepted_appointment_id.'/') }}"> <button type="button" class="btn btn-danger" >Reject</button> </a>
-                            </div>
+                    <h4>Problem Text : {{$data -> problem_text}} </h4>
+                    <h4>Link to Resources : {{$data -> drive_link}} </h4>
 
-                            @else
-                            <div class="alert alert-primary" role="alert">
-                               You have already responded to this appointment request.
-                            </div>
-                            @endif
+                            
+                    @if ( ($data->is_accepted) == 0 )
+                    <div class="text-center">
+                    <a href="{{ url('/student/accepted/'. $data -> accepted_appointment_id.'/') }}"> <button type="button" class="btn btn-success">Accept</button> </a> 
+                    <a href="{{ url('/student/rejected/'. $data -> accepted_appointment_id.'/') }}"> <button type="button" class="btn btn-danger" >Reject</button> </a>
+                    </div>
+
+                    @else
+                    <div class="alert alert-primary" role="alert">
+                        You have already responded to this appointment request.
+                    </div>
+                    @endif
                  </div>
             @endforeach
                    @if (session('status'))

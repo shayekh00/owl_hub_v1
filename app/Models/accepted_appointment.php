@@ -13,6 +13,7 @@ class accepted_appointment extends Model
          'student_id','courseexperts_id',
         'course_id', 'problem_text', 
         'appointment_timing','is_accepted',
+        'drive_link',''
     ];
 
     // public function requested_appointments()

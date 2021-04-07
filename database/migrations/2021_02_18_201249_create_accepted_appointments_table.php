@@ -15,7 +15,10 @@ class CreateAcceptedAppointmentsTable extends Migration
     {
         Schema::create('accepted_appointments', function (Blueprint $table) {
             $table->id('accepted_appointment_id');
-            $table->unsignedBigInteger('requested_appointment_id');
+            $table->string('problem_text');
+            $table->string('drive_link');
+            $table->string('deadline_date');
+            // $table->unsignedBigInteger('requested_appointment_id');
             // $table->unsignedBigInteger('student_id,');
             $table->unsignedBigInteger('courseexpert_id');
             $table->unsignedBigInteger('course_id');
@@ -25,16 +28,12 @@ class CreateAcceptedAppointmentsTable extends Migration
             // $table->foreign('requested_appointment_id')->references('requested_appointment_id')->on('requested_appointments');
             $table->foreign('student_id')->references('student_id')->on('students');
             $table->foreign('course_id')->references('course_id')->on('courses');
-            // $table->foreign('appointment_images_id')->references('appointment_images_id')->on('appointment_images');
-
-            // $table->string('problem_text');
-            // $table->string('filename');
             $table->string('appointment_timing');
 
             $table->unsignedBigInteger('appointment_hours');
             $table->string('appointment_transaction_id');
-            $table->string('is_confirmed');
-            $table->string('is_finished');
+            $table->integer('is_confirmed');
+            $table->integer('is_finished');
 
             $table->integer('is_accepted');
 

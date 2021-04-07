@@ -66,7 +66,7 @@ Route::get('/Appointments', 'StudentRequest@studentAppointments');
 
 //EachRequest
 Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
-Route::get('/courseexperts/eachrequest/{course_id}/{problem_text}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
+Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
 
 
 Route::get('/', function () {
@@ -93,14 +93,18 @@ Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action
 
 Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 'LiveSearch@list')->name('course_expert_list.create_list');
 
-Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
-Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
+// Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
+// Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
+
+Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadResourcesPage')->name('multiuploads.uploadResourcesPage');
+Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@submitResources')->name('multiuploads.submitResources');
+
 
 Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
 Route::post('/students/thankyou/{accepted_appointment_id}', 'StudentRequest@transaction_id')->name('student.transaction_id');;
 
-Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.uploadForm');
-Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.uploadForm');
+Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
+Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
 
 
 Route::group(['prefix' => 'admin'], function () {

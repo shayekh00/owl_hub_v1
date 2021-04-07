@@ -7,6 +7,41 @@ use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
+
+    public function uploadResourcesPage($courseexpert_id, $course_id)
+    {
+        // dd($course_id);
+        // echo("<script>console.log('PHP: " . $courseexpert_id . "');</script>");
+
+        return view('students.upload_resources', 
+        ['courseexpert_id' => $courseexpert_id ,'course_id'=> $course_id ]);
+    }
+
+    public function submitResources(Request $request,$courseexpert_id,$course_id)
+    {
+        // dd(  $request->problem_text );
+
+        $items = accepted_appointment::create([
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+            ]);
+
+
+        accepted_appointment::where('accepted_appointment_id', '=', $items->accepted_appointment_id )
+                            ->update( array('student_id' => Auth::guard('student')->user()->student_id,
+                                            'course_id' => $course_id,
+                                            'courseexpert_id' => $courseexpert_id,
+                                            'deadline_date' => $request->deadline_date,
+                                            'drive_link' => $request->drive_link,
+                                            'problem_text' => $request->problem_text
+                                    ) );
+
+        return redirect()->route('student.allrequest')->with('status', 'Successfully Requested!');
+
+    }
+
+
+
 public function uploadForm($courseexpert_id, $course_id)
 {
     // dd($course_id);
