@@ -52,8 +52,13 @@ Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost
 //STUDENT
 Route::get('/student_profile', 'StudentRequest@StudentProfile');
 Route::get('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
-Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
+Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfilePost');
 Route::get('/Appointments', 'StudentRequest@studentAppointments');
+
+// common
+Route::get('/about', 'Commons@about');
+Route::get('/faq', 'Commons@faq');
+
 
 
 

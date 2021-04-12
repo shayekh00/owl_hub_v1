@@ -38,7 +38,9 @@ class TeacherController extends Controller
                 ]);
         }
         
-        
+        return redirect()->action('TeacherController@viewExpertCourses')->with('status','Course Added!');
+
+
     }
 
     public function addCourseExpertTiming(Request $request){
@@ -60,6 +62,9 @@ class TeacherController extends Controller
         $update = DB::update('update courseexperts set course_timing_thursday =? where courseexpert_id= ? ',[$coursetime6,$courseexpert_id]);
         $update = DB::update('update courseexperts set course_timing_friday =? where courseexpert_id= ? ',[$coursetime7,$courseexpert_id]);
 
+        return redirect()->action('TeacherController@viewExpertTiming')->with('status','Time Added!');
+
+
     }
 
      public function skypeLink(){
@@ -74,6 +79,10 @@ class TeacherController extends Controller
         $skypeLink=$request->skype_link;
         $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
         $update = DB::update('update courseexperts set teachers_skype_link =? where courseexpert_id= ? ',[$skypeLink,$courseexpert_id]);
+
+        return redirect()->action('TeacherController@viewExpertProfile')->with('status','Skype-link Added!');
+
+
         
     }
 
@@ -138,20 +147,22 @@ class TeacherController extends Controller
         $name=$request->name;
         // $email=$request->email;
         $phone=$request->phone;
-        $course_timing=$request->phone;
-        $coursetime3=$request->course_timing_monday;
+        $teachers_skype_link=$request->teachers_skype_link;
         $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
         
         $update = DB::update('update courseexperts set name =? where courseexpert_id= ? ',[$name,$courseexpert_id]);
         // $update = DB::update('update courseexperts set email =? where courseexpert_id= ? ',[$email,$courseexpert_id]);
         $update = DB::update('update courseexperts set phone =? where courseexpert_id= ? ',[$phone,$courseexpert_id]);
-        $update = DB::update('update courseexperts set course_timing_monday =? where courseexpert_id= ? ',[$coursetime3,$courseexpert_id]);
+        $update = DB::update('update courseexperts set teachers_skype_link =? where courseexpert_id= ? ',[$teachers_skype_link,$courseexpert_id]);
         
-        return redirect()->back()->with('status','Profile updated');
+        return redirect()->action('TeacherController@viewExpertProfile')->with('status','Profile updated');
+
+
     }
 
 
     public function viewExpertTiming(){
+
         return view('courseexperts.viewExpertTiming');
 
     }

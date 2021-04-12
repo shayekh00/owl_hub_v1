@@ -18,7 +18,11 @@
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
     <h1 class=" owl_hub_green" >My Courses</h1>
+
+   
+
 </div>
+
 <div class="sidenav">
     <a href="/update_expert_profile" style="color: white;font-weight:Bold ; font-size:20px;">Edit Profile</a>
     <a href="/view_timing" style="color: white;font-weight:Bold ; font-size:20px;">View your Timing</a>
@@ -27,7 +31,12 @@
     <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a>
 </div>
 
+
+
+           
+
 <!-- Page content -->
+
 @foreach ($courses as  $key => $data )
         
         <div class="row">
@@ -40,17 +49,24 @@
                     <br>
                     <div class="container">
                                 <p > <b> Course: </b>  {{ $data->course_code1 }} </p>
-                                <p > <b> University: </b>  {{ $data->university_name1 }} </p>
-
-                            
-                                
-                                                      
+                                <p > <b> University: </b>  {{ $data->university_name1 }} </p>                                                        
                     </div>
                 </div>
             </div>
         </div>
+        
         <br>
+       
     @endforeach
+
+    
+    @if (session('status'))
+ 
+        <div class="alert alert-success" padding ="1"> 
+            {{ session('status') }}
+        </div>
+    @endif
+    
 
 
 

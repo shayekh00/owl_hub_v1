@@ -84,7 +84,7 @@ class StudentRequest extends Controller
 
 
     
-    function updateStudentProfile1(Request $request){
+    function updateStudentProfilePost(Request $request){
         
         $name=$request->name;
         $phone=$request->phone;
@@ -92,12 +92,9 @@ class StudentRequest extends Controller
         $student_id = AUTH::guard('student')->user()->student_id;
         
         $update = DB::update('update students set name =? where student_id= ? ',[$name,$student_id]);
-        // $update = DB::update('update courseexperts set email =? where courseexpert_id= ? ',[$email,$courseexpert_id]);
         $update = DB::update('update students set phone =? where student_id= ? ',[$phone,$student_id]);
 
-        
-        return redirect()->back()->with('status','Profile updated');
-
+        return redirect()->action('StudentRequest@StudentProfile')->with('status','Profile updated');
     }
 
 

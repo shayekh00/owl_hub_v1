@@ -22,8 +22,6 @@
     <a href="/view_courses" style="color: white;font-weight:Bold ; font-size:20px;">View your Courses</a>
     <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a>
 </div>
-
-
 <div class="content">
 <div class="row">
 
@@ -52,6 +50,12 @@
 
                         </p>
 
+                        <p>
+                           <b> <label for="">Skype Link</label> </b>
+                            <input type="text" name="teachers_skype_link" class= "form-control" value ="{{Auth::guard('courseexpert')->user()->teachers_skype_link}}">
+
+                        </p>
+
 
                        
                 
@@ -59,9 +63,20 @@
                                 <button class="button">Update Profile</button>
                         </p>
             </div>
+            
         </form>
+        
     </div>
+    
+    <br>
+    
+    <!-- @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif -->
 </div>
+
 </div>
 <br>
 

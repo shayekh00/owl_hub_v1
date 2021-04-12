@@ -1,5 +1,7 @@
 
+<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end" > -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end" >
+
     <a class="navbar-brand" href="#">
         <img src="{{ asset('images/logo.png') }}"  width="60" height="60" alt="">
     </a>

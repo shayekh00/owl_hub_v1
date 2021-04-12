@@ -86,7 +86,7 @@
 $('thead').on('click',('.addRow'),function(){
             
             var tr= '<tr>'+
-        '<td> <input type="text" class="course-teach1" name="course_code1[]"  placeholder="--choose course" >'+
+        '<td> <input type="text" onkeypress="return event.charCode != 32" oninput="this.value = this.value.toUpperCase()" class="course-teach1" name="course_code1[]"  placeholder="  --choose course" >'+
         
         '</td>'+
 

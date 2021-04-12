@@ -28,13 +28,14 @@
 
     <div class="card">
     <!-- <h4>My Profile</h4> -->
-        
-
+  
     
 
         <br>
+        
         <form action="student_profile_update"  method="POST">
                 {{ csrf_field() }}
+                
             <div class="container">
                         <p>
                            <b> <label for="">Name</label> </b>
@@ -58,6 +59,15 @@
             </div>
         </form>
     </div>
+    <br>
+<!-- 
+    @if (session('status'))
+        <div class="alert alert-success" padding ="1">
+            {{ session('status') }}
+        </div>
+    @endif -->
+
+   
 </div>
 </div>
 <br>

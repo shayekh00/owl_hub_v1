@@ -36,29 +36,24 @@
         <form action="profile-update"  method="POST">
                 {{ csrf_field() }}
             <div class="container">
-                        <p>
-                           <b> <label for="">Name</label> </b>
-                            <a type="text" name="name" class= "form-control">{{Auth::guard('student')->user()->name}}</a>
+                        
+                            <p > <b> Name: </b>  {{Auth::guard('student')->user()->name}} </p>
 
-                        </p>
+                            <p > <b> Phone: </b>  {{Auth::guard('student')->user()->phone}} </p>
 
+                            <p > <b> Email: </b>  {{Auth::guard('student')->user()->email}} </p>
 
-                        <p>
-                           <b> <label for="">Phone</label> </b>
-                            <a type="text" name="phone" class= "form-control">{{Auth::guard('student')->user()->phone}}</a>
-                        </p>
-
-                        <p>
-                           <b> <label for="">Email</label> </b>
-                           <a type="text" name="email" class= "form-control">{{Auth::guard('student')->user()->email}}</a>
-
-                        </p>
 
                        
                 
                        
                         <!-- <p></p> -->
             </div>
+            @if (session('status'))
+                <div class="alert alert-success" padding ="1">
+                    {{ session('status') }}
+                </div>
+            @endif
         </form>
     </div>
 </div>

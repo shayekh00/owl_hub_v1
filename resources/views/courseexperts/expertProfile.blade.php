@@ -39,32 +39,24 @@
         <form action="profile-update"  method="POST">
                 {{ csrf_field() }}
             <div class="container">
+                        
+                            <p > <b> Name: </b>  {{Auth::guard('courseexpert')->user()->name}} </p>
+
+                            <p > <b> Phone: </b>  {{Auth::guard('courseexpert')->user()->phone}} </p>
+
+                            <p > <b> Email: </b>  {{Auth::guard('courseexpert')->user()->email}} </p>
+
+                            <p > <b> Skype Link: </b>  {{Auth::guard('courseexpert')->user()->teachers_skype_link}} </p>
+
+<!-- 
+            
                         <p>
                            <b> <label for="">Name</label> </b>
                             <a type="text" name="name" class= "form-control">{{Auth::guard('courseexpert')->user()->name}}</a>
 
 
-                        </p>
+                        </p> -->
 
-
-                        <p>
-                           <b> <label for="">Phone</label> </b>
-                            <a type="text" name="phone" class= "form-control">{{Auth::guard('courseexpert')->user()->phone}}</a>
-
-
-                        </p>
-
-                        <p>
-                           <b> <label for="">Email</label> </b>
-                           <a type="text" name="email" class= "form-control">{{Auth::guard('courseexpert')->user()->email}}</a>
-
-                        </p>
-
-                        <p>
-                           <b> <label for="">Skype Link</label> </b>
-                           <a type="text" name="skype" class= "form-control">{{Auth::guard('courseexpert')->user()->teachers_skype_link}}</a>
-
-                        </p>
 
                        
                 
@@ -73,6 +65,11 @@
                         </p> -->
                         <!-- <p></p> -->
             </div>
+            @if (session('status'))
+                <div class="alert alert-success" padding ="1">
+                    {{ session('status') }}
+                </div>
+            @endif
         </form>
     </div>
 </div>

@@ -41,6 +41,7 @@
         <br>
         <form action="profile-update"  method="POST">
                 {{ csrf_field() }}
+                
 
             <div class="container">
             <div>
@@ -91,6 +92,11 @@
                         </p> -->
                         <!-- <p></p> -->
             </div>
+            @if (session('status'))
+                <div class="alert alert-success" padding ="1">
+                    {{ session('status') }}
+                </div>
+            @endif
         </form>
     </div>
 </div>
