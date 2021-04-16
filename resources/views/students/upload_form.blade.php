@@ -41,12 +41,15 @@
                             <!-- <input type="text" name="name" id="problem_description_box" placeholder="Problem Description" > -->
 
                             <div class="input-group">
-                                <!-- <div class="input-group-prepend">
-                                    <span class="input-group-text">With textarea</span>
-                                </div> -->
                                 <textarea class="form-control" name="name" placeholder="Problem Description" aria-label="With textarea"></textarea>
                             </div>
+
                         </div>
+
+                        
+                        <p> <b> Appointment Timing Taken: </b> {{ $appointment_timing}}  </p>
+
+                        
                         <label style="color:white;" for="Product Name">Attach Resources (can attach more than one):</label>
                         <br />
                         <input type="file" class="form-control" name="photos[]" multiple="multiple" />

@@ -19,33 +19,34 @@
 
         <form action="{{url('postregister')}}" method="POST" id="signup">
             {{ csrf_field() }}
+
+                <br>
+                @if ($errors->has('name'))
+                <br><span class="error">{{ $errors->first('name') }}</span>
+                @endif  
                 <div class="input-group">
                 <i class="fa fa-user icon"></i>
                 <input id="name" type="text" class="form-control" placeholder="Name" name="name">
                 </div>
-                @if ($errors->has('name'))
-                <br><span class="error">{{ $errors->first('name') }}</span>
-                @endif  
-
                 <br>
-
+                @if ($errors->has('email'))
+                <span class="error">{{ $errors->first('email') }}</span>
+                @endif
                 <div class="input-group">
                 <i class="fa fa-envelope-open" aria-hidden="true"></i>
                 <input id="email" type="text" class="form-control" placeholder="Email" name="email" >
                 </div>
-                @if ($errors->has('email'))
-                <br><span class="error">{{ $errors->first('email') }}</span>
-                @endif
+
                 <br>
 
-                
+                @if ($errors->has('phone'))
+                   <span class="error">{{ $errors->first('phone') }}</span>
+                @endif
                 <div class="input-group">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <input id="phone" type="tel" class="form-control" placeholder="Phone" name="phone">
                 </div>
-                @if ($errors->has('phone'))
-                   <br> <span class="error">{{ $errors->first('phone') }}</span>
-                @endif
+
 
                 <br>
 
@@ -84,22 +85,23 @@
 <div id="login_div">
     <form action="{{url('post-login')}}" method="POST" id="login">
     {{ csrf_field() }}
+        @if ($errors->has('email'))
+            <span class="error">{{ $errors->first('email') }}</span>
+        @endif
         <div class="input-group">
         <i class="fa fa-envelope-open" aria-hidden="true"></i>
         <input id="email" type="text" class="form-control" name="email" placeholder="Email">
         </div>
-        @if ($errors->has('email'))
-            <br> <span class="error">{{ $errors->first('email') }}</span>
-        @endif
         <br>
 
+        @if ($errors->has('password'))
+            <span class="error">{{ $errors->first('password') }}</span>
+        @endif
         <div class="input-group">
         <i class="fa fa-lock" aria-hidden="true"></i>
         <input id="password" type="password" class="form-control" name="password" placeholder="Password">
         </div>
-        @if ($errors->has('password'))
-            <br> <span class="error">{{ $errors->first('password') }}</span>
-        @endif
+
         <br>
 
         <div id=SIGN_UP_ID ><p class="font-weight-bolder text-center" >SIGN IN AS</p></div>

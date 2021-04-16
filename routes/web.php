@@ -102,7 +102,7 @@ Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 
 // Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
 
 Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadResourcesPage')->name('multiuploads.uploadResourcesPage');
-Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@submitResources')->name('multiuploads.submitResources');
+Route::post('/multiuploads/{courseexpert_id}/{course_id}/{seletion}/', 'UploadController@submitResources')->name('multiuploads.submitResources');
 
 
 Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');

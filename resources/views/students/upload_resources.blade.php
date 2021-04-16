@@ -31,7 +31,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                    
-                    <form action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}" method="post" enctype="multipart/form-data">
+                    <form action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}/{{$seletion}}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label style="color:white;" for="Product Name">
@@ -53,7 +53,27 @@
                         <input type="text" class="form-control" placeholder="Drive Link" name="drive_link">
                         <br />
                         <label for="example-date-input" class="col-2 col-form-label" style="color:white;">Deadline</label>
+
                         <input class="form-control" type="date" value="2021-06-25" id="example-date-input" name="deadline_date">
+
+                        <br /><br />
+                        <b> <label style="color:white;" for="Product Name"> Appointment Timing Selected:  </label> </b>
+
+                        <label style="color:white;">
+                        
+                        @foreach ($appointment_timing as  $key => $data )
+                        <br>
+                            <p>  @if(  $seletion == 1  )  Saturday: {{ $data-> course_timing_saturday }} @endif</p>
+                            <p>  @if(  $seletion == 2  )  Sunday: {{ $data-> course_timing_sunday}} @endif</p>
+                            <p>  @if(  $seletion == 3  )  Monday: {{ $data-> course_timing_monday}} @endif</p>
+                            <p>  @if(  $seletion == 4  )  Tuesday: {{ $data-> course_timing_tuesday}} @endif</p>
+                            <p>  @if(  $seletion == 5  )  Wednesday: {{ $data-> course_timing_wednesday}} @endif</p>
+                            <p>  @if(  $seletion == 6  )  Thursday: {{ $data-> course_timing_thursday}} @endif</p>
+                            <p>  @if(  $seletion == 7  )  Friday: {{ $data-> course_timing_friday }} @endif</p>
+                        @endforeach
+                        </label>
+                        
+
                         <br /><br />
                         <button type="submit" class="btn btn-success" value="Upload" > Request Course Expert </button>
                     </form>
