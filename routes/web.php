@@ -29,10 +29,10 @@ Route::get('contactus', 'Commons@contactus')->name('contactus');
 
 
 //COURSE_EXPERT
-Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('expertcourses');
-Route::get('/experttiming', 'TeacherController@courseExpertTiming')->name('experttiming');
-Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name('expertcourses');
-Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('experttiming');
+Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('TeacherController.courseExpertCourses');
+Route::get('/experttiming', 'TeacherController@courseExpertTiming')->name('TeacherController.courseExpertTiming');
+Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name('TeacherController.courseExpertCourses');
+Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('TeacherController.courseExpertTiming');
 Route::get('/skypeLink', 'TeacherController@skypeLink')->name('skypeLink');
 Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
 // Route::get('/profile's, 'TeacherController@expertProfile');
@@ -44,9 +44,13 @@ Route::get('/update_courses', 'TeacherController@updateExpertCourses');
 Route::post('/update_courses', 'TeacherController@updatecourses');
 Route::get('/welcome', 'TeacherController@welcomeMessage');
 
-Route::get('/expert_profile', 'TeacherController@viewExpertProfile');
+Route::get('/expert_profile', 'TeacherController@viewExpertProfile')->name('courseexperts.expertProfile');
 Route::get('/update_expert_profile', 'TeacherController@updateExpertProfile');
 Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost');
+
+Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
+Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
+
 
 
 //STUDENT
@@ -55,9 +59,9 @@ Route::get('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
 Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfilePost');
 Route::get('/Appointments', 'StudentRequest@studentAppointments');
 
-// common
-Route::get('/about', 'Commons@about');
-Route::get('/faq', 'Commons@faq');
+//  
+Route::get('/about', 'Commons@about')->name('about');
+Route::get('/faq', 'Commons@faq')->name('faq');
 
 
 

@@ -15,12 +15,15 @@
 <div class="center">
                  <h1 class=" owl_hub_green" >My Profile</h1>
 </div>
+
+
 <div class="sidenav">
     <a href="/update_expert_profile" style="color: white;font-weight:Bold ; font-size:20px;">Edit Profile</a>
     <a href="/view_timing" style="color: white;font-weight:Bold ; font-size:20px;">View your Timing</a>
-    <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a>
+    <!-- <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a> -->
     <a href="/view_courses" style="color: white;font-weight:Bold ; font-size:20px;">View your Courses</a>
-    <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a>
+    <!-- <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a> -->
+    <a href="/update_expert_course" style="color: white;font-weight:Bold ; font-size:20px;">Delete your Courses</a>
 </div>
 
 

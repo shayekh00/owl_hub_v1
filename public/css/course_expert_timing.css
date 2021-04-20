@@ -86,32 +86,105 @@
     font-size: 40px;
     color: #fdfffe;
   }
-
-
-h1 {
-    font-weight:bold;
-    font-size: 60px;
-}
-
-
-
-a{
-    font-weight:bold;
-    font-size: larger;
-}
-
-.btn{
-    margin: 6px;
-    background-color: #1A9957;
-    color: white;
-    border-radius: 8px;
-}
-
-
-.nav-link {
+  .nav-link {
     text-shadow: #1A9957;;
     color: #1A9957 !important;
     }
+    form.search input[type=text] {
+        padding: 20px;
+        font-size: 17px;
+        margin: 6% 1% 3% 3%;
+         position: relative;
+       opacity: 0.93;
+         border-radius: 50px;
+        float: right;
+        width: 80%;
+      overflow: hidden;
+      }
+      
+      form.search button {
+      width: 20%;
+        padding: 20px;
+        background-color: #1A9957;
+        color: white;
+        font-size: 17px;
+      position: relative;
+          border: 1px solid grey;
+           border-radius: 50px;
+      
+          cursor: pointer;
+      }
+      
+      form.search button:hover {
+        background: #008000;
+      }
+      
+      form.search::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      html {
+        box-sizing: border-box;
+      }
+      
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      
+      .column {
+        float: left;
+        width: 33.3%;
+        display: block;
+          margin-left: auto;
+          margin-right: auto;
+        padding: 0 8px;
+      }
+      
+      
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+      
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .center {
+        text-align: center;
+        
+      }
+      .container {
+        padding: 0 16px;
+      }
+      
+      .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      
+      .title {
+        color: grey;
+      }
+      
+      .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #1A9957;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+      }
+      
+      .button:hover {
+          background: #008000;
+      }
 
 
 

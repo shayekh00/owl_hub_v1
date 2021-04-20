@@ -310,7 +310,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
-                            <button type="submit" name="action" value="teacher" class="btn btn-success owl_hub_green">Next Page</button>
+                            <button type="submit"  class="btn btn-success">Next Page</button>
                         </div>
                     </div>
                 </div>

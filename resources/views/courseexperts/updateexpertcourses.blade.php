@@ -17,7 +17,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-    <h1 class=" owl_hub_green" >My Courses</h1>
+    <h1 class=" owl_hub_green" >Delete Course</h1>
 
    
 
@@ -38,19 +38,28 @@
 
 <!-- Page content -->
 
-@foreach ($courses as  $key => $data )
+@foreach ($courses as  $key => $item )
         
         <div class="row">
 
             <div class="column">
 
                 <div class="card">
-
+                
 
                     <br>
                     <div class="container">
-                                <p > <b> Course: </b>  {{ $data->course_code1 }} </p>
-                                <p > <b> University: </b>  {{ $data->university_name1 }} </p>                                                        
+                                <p > <b> Course: </b>  {{$item->course_code1}} </p>
+                                <p > <b> University: </b>  {{$item->university_name1}} </p>
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <a class ="btn btn-danger" href={{"delete/".$item->course_id}}>Delete</a>                                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                
                     </div>
                 </div>
             </div>
@@ -61,9 +70,10 @@
     @endforeach
 
     
+    
     @if (session('status'))
  
-        <div class="alert alert-success" padding ="1"> 
+        <div class="alert alert-success" padding ="1" > 
             {{ session('status') }}
         </div>
     @endif

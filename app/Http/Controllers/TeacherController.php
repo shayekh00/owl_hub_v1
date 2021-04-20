@@ -182,11 +182,64 @@ class TeacherController extends Controller
 
     }
 
-
     public function welcomeMessage(){
 
         return view('commons.welcome');
 
     }
+
+
+    public function updateExpertCourses(){
+
+
+        $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+        $courses = DB::table('courses')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->get();
+
+
+        return view('courseexperts.updateexpertcourses', 
+                ['courses' => $courses] );
+    } 
+
+
+    public function deleteCourse($course_id){
+
+            $data = course::find($course_id);
+            $data -> delete();
+
+            return redirect('update_expert_course')->with('status','Course successfully deleted');
+       
+    }
+    
+//     public function deleteExpertTime(){
+
+
+//         $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+//         $expert = DB::table('courseexperts')
+//         ->where('courseexpert_id', '=', $courseexpert_id)
+//         ->get();
+
+
+//         return view('courseexperts.deleteExpertTiming', 
+//                 ['courseexperts' => $expert] );
+//     }
+
+//     public function deleteTime($course_id){
+
+//         $data = course::find($course_id);
+//         $data -> delete();
+
+//         return redirect('update_expert_course');
+   
+// }
+
+
+    
+
+
+    
 
 }

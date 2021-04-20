@@ -28,7 +28,7 @@
                             <input type="text" class="text-field" name="skype_link"  placeholder="" >
                         </div>
                         <div class="col text-center">
-                            <button type="submit" name="action" value="teacher" class="btn btn-success owl_hub_green">Add</button>
+                            <button type="submit" name="action" value="teacher" class="btn btn-success">Add</button>
                         </div>
 
                         <div class="col text-center">

@@ -22,9 +22,10 @@
 <div class="sidenav">
     <a href="/update_expert_profile" style="color: white;font-weight:Bold ; font-size:20px;">Edit Profile</a>
     <a href="/view_timing" style="color: white;font-weight:Bold ; font-size:20px;">View your Timing</a>
-    <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a>
+    <!-- <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a> -->
     <a href="/view_courses" style="color: white;font-weight:Bold ; font-size:20px;">View your Courses</a>
-    <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a>
+    <!-- <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a> -->
+    <a href="/update_expert_course" style="color: white;font-weight:Bold ; font-size:20px;">Delete your Courses</a>
 </div>
 
 <!-- Page content -->
@@ -44,44 +45,24 @@
                 
 
             <div class="container">
-            <div>
+
+            <p > <b> Saturday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_saturday}} </p>
+            <p > <b> Sunday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_sunday}} </p>
+            <p > <b> Monday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_monday}} </p>
+            <p > <b> Tuesday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_tuesday}} </p>
+            <p > <b> Wednesday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_wednesday}} </p>
+            <p > <b> Thursday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_thursday}} </p>
+            <p > <b> Friday: </b>  {{Auth::guard('courseexpert')->user()->course_timing_friday}} </p>
+
+
+            <!-- <div>
                 <p>
                     <b> <label for="">Saturday</label> </b>
                     <a  type="text" name="course_timing_saturday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_saturday}}</a>
                 </p>
-            </div>
+            </div> -->
 
-                <p>
-                    <b> <label for="">Sunday</label> </b>
-                    <a type="text" name="course_timing_sunday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_sunday}}</a>
-                </p>
-
-                
-                      
-                <p>
-                    <b> <label for="">Monday</label> </b>
-                    <a type="text" name="course_timing_monday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_monday}}</a>
-                </p>
-
-                <p>
-                    <b> <label for="">Tuesday</label> </b>
-                    <a type="text" name="course_timing_tuesday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_tuesday}}</a>
-                </p>
-
-                <p>
-                    <b> <label for="">Wednesday</label> </b>
-                    <a type="text" name="course_timing_wednesday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_wednesday}}</a>
-                </p>
-
-                <p>
-                    <b> <label for="">Thursday</label> </b>
-                    <a type="text" name="course_timing_thursday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_thursday}}</a>
-                </p>
-
-                <p>
-                    <b> <label for="">Friday</label> </b>
-                    <a type="text" name="course_timing_friday" class= "form-control">{{Auth::guard('courseexpert')->user()->course_timing_friday}}</a>
-                </p>
+               
                         
 
                         

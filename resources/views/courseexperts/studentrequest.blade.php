@@ -17,7 +17,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-    <h1 class=" owl_hub_green" >All of Your Student Request</h1>
+    <h1 class=" owl_hub_green" >All of Your Student Requests</h1>
 </div>
 
 @if( count($appointment_images_data)== 0 )
