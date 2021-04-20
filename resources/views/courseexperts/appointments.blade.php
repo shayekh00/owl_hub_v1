@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 @endsection
 
 
@@ -16,12 +17,12 @@
 
 
 @extends('courseexperts.courseexpertnavbar')
+
 <div class="center">
-    <h1 class=" owl_hub_green" >Delete Course</h1>
-
-   
-
+    <h1 class=" owl_hub_green" >My Appointments</h1>
 </div>
+
+
 
 <div class="sidenav">
     <a href="/appointments" style="color: white;font-weight:Bold ; font-size:20px;">My Appointments</a>
@@ -34,54 +35,44 @@
     <a href="/update_expert_course" style="color: white;font-weight:Bold ; font-size:20px;">Delete Courses</a>
 </div>
 
+@if( count($accepted_appointments)== 0 )
+        <div class="alert alert-primary" role="alert">
+            Currently you have no appointments.
+        </div>
+
+@else
 
 
-           
-
-<!-- Page content -->
-
-@foreach ($courses as  $key => $item )
+@foreach ($accepted_appointments as  $key => $data )
         
         <div class="row">
 
             <div class="column">
 
                 <div class="card">
-                
+
 
                     <br>
                     <div class="container">
-                                <p > <b> Course: </b>  {{$item->course_code1}} </p>
-                                <p > <b> University: </b>  {{$item->university_name1}} </p>
 
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col text-center">
-                                            <a class ="btn btn-danger" href={{"delete/".$item->course_id}}>Delete</a>                                                        
-                                        </div>
-                                    </div>
-                                </div>
-                                
+                                <p > <b> Course Name: </b>  {{ $data->course_code1 }} </p>
+                                <p > <b> Appointment Timing: </b>  {{ $data->appointment_timing }} </p>
+                                <p > <b> Problem Text: </b>  {{ $data->problem_text }} </p> 
+                                <p > <b> Link of Resources: </b>  {{ $data->drive_link }} </p>
+                                                      
                     </div>
                 </div>
             </div>
         </div>
-        
         <br>
-       
-    @endforeach
+@endforeach
 
-    
-    
-    @if (session('status'))
- 
-        <div class="alert alert-success" padding ="1" > 
-            {{ session('status') }}
-        </div>
-    @endif
-    
+
+@endif
+
+
+
 
 
 
 @endsection
-

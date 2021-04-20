@@ -47,6 +47,8 @@ class EachRequestController extends Controller
                         'is_accepted' => 1
                 ) );
 
+        return redirect('studentrequest')->with('status','Appointment accepted successfully!');
+
         // dd($accepted_appointment_id);
     }
 
@@ -56,6 +58,11 @@ class EachRequestController extends Controller
         ->update( array(
                         'is_accepted' => -1
                 ) );
+        
+                return redirect('studentrequest')->with('status','Appointment rejected successfully!');
+
+        
+        
     }
 
   //  public function imagerequest()

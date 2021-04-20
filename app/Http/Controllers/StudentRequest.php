@@ -15,9 +15,10 @@ class StudentRequest extends Controller
         $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
         // $courseexpert_id=1;    
         
-        $appointment_images_data = DB::select("SELECT DISTINCT C.course_code1, A.problem_text ,A.accepted_appointment_id, A.drive_link
+        $appointment_images_data = DB::select("SELECT DISTINCT C.course_code1, A.problem_text ,A.is_accepted,A.accepted_appointment_id, A.drive_link
         FROM accepted_appointments AS A , courses AS C
         WHERE A.course_id = C.course_id
+        AND A.is_accepted =0
         AND A.courseexpert_id = $courseexpert_id");
 
         // dd($appointment_images_data);

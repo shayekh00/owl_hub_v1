@@ -12,11 +12,101 @@
 @section('content')
 
 @extends('courseexperts.courseexpertnavbar')
-<div class="container">
-    <h1 class="white" >Add Skype Link</h1>
+
+<div class="sidenav">
+    <a href="/appointments" style="color: white;font-weight:Bold ; font-size:20px;">My Appointments</a>
+    <a href="/update_expert_profile" style="color: white;font-weight:Bold ; font-size:20px;">Edit Profile</a>
+    <a href="/skypeLink" style="color: white;font-weight:Bold ; font-size:20px;">Add links</a>
+    <a href="/view_timing" style="color: white;font-weight:Bold ; font-size:20px;">View Timing</a>
+    <!-- <a href="/experttiming" style="color: white;font-weight:Bold ; font-size:20px;">Update your Timing</a> -->
+    <a href="/view_courses" style="color: white;font-weight:Bold ; font-size:20px;">View Courses</a>
+    <!-- <a href="/expertcourses" style="color: white;font-weight:Bold ; font-size:20px;">Update your Courses</a> -->
+    <a href="/update_expert_course" style="color: white;font-weight:Bold ; font-size:20px;">Delete Courses</a>
 </div>
 
-<form action="skypeLink" method="POST">
+
+
+
+<div class="center">
+    <h1 class="white" >Add Links</h1>
+</div>
+
+
+
+<div class="content">
+<div class="row">
+
+<div class="column">
+
+    <div class="card">
+    <!-- <h4>My Profile</h4> -->
+        
+
+    
+
+        <br>
+        <form action="skypeLink"  method="POST">
+                {{ csrf_field() }}
+            <div class="container">
+                        <p>
+                           <b> <label for="">Skype link</label> </b>
+                            <input type="text" name="skype_link" class= "form-control" value ="">
+
+                        </p>
+
+
+                        <p>
+                           <b> <label for="">Verification Drive link</label> </b>
+                            <input type="text" name="varification_drive_link" class= "form-control" value ="">
+
+                        </p>
+
+                        <p>
+                           <b> <label for="">Appointment Drive Link</label> </b>
+                            <input type="text" name="appointment_drive_link" class= "form-control" value ="">
+
+                        </p>
+
+
+                       
+                
+                        <div class="col text-center">
+                            <button type="submit" name="action" value="teacher" class="btn btn-success">Add</button>
+                        </div>
+                        <br>
+
+                        <div class="col text-center">
+                            <h1 class="skype_link" style="color: white;font-weight:Bold ; font-size:25px; " >How to add links</h1>
+                        </div>
+
+                    
+                        <iframe width="410" height="350"
+                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+            </div>
+            
+        </form>
+        
+    </div>
+    
+    <br>
+    
+    <!-- @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif -->
+</div>
+
+</div>
+<br>
+
+</div>
+
+
+
+
+<!-- <form action="skypeLink" method="POST">
     @csrf
     <div class="course-expert-timing">
 
@@ -24,15 +114,36 @@
             {{ csrf_field() }}
                 <div class="input-group">
                     <div class="container">
-                        <div class="col text-center">
-                            <input type="text" class="text-field" name="skype_link"  placeholder="" >
-                        </div>
+                    
+                        <p>
+                           <b> <label for="">Skype Link</label> </b>
+                           <input type="text" class="text-field" name="skype_link"  placeholder="" >
+
+                        </p>
+
+
+                        <p>
+                           <b> <label for="">Verification Drive link</label> </b>
+                           <input type="text" class="text-field" name="varification_drive_link"  placeholder="" >
+
+                        </p>
+
+                        <p>
+                           <b> <label for="">Appointment Drive Link</label> </b>
+                           <input type="text" class="text-field" name="appointment_drive_link"  placeholder="" >
+
+                        </p>
+
+
+                       
+                        
                         <div class="col text-center">
                             <button type="submit" name="action" value="teacher" class="btn btn-success">Add</button>
                         </div>
+                        <br>
 
                         <div class="col text-center">
-                            <h1 class="skype_link" style="color: white;font-weight:Bold ; font-size:25px; " >How to add skype link</h1>
+                            <h1 class="skype_link" style="color: white;font-weight:Bold ; font-size:25px; " >How to add links</h1>
                         </div>
 
                     
@@ -47,7 +158,7 @@
         </div>
     </div>
 
-</form>
+</form> -->
 
 
 

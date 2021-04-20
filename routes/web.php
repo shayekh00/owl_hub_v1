@@ -51,6 +51,8 @@ Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost
 Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
 Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
 
+Route::get('/appointments', 'TeacherController@myAppointments');
+
 
 
 //STUDENT

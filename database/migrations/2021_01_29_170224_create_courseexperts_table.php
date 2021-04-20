@@ -35,6 +35,9 @@ class CreateCourseexpertsTable extends Migration
             $table->string('course_timing_friday');
             $table->string('teachers_skype_link');
 
+            $table->string('varification_drive_link');
+            $table->string('appointment_drive_link');
+
             $table->integer('is_accepted');
             $table->rememberToken();
             $table->timestamps();

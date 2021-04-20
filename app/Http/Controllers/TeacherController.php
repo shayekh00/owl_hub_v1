@@ -77,10 +77,15 @@ class TeacherController extends Controller
     public function addskypeLink(Request $request){
         
         $skypeLink=$request->skype_link;
+        $varification_drive_link=$request->varification_drive_link;
+        $appointment_drive_link=$request->appointment_drive_link;
+        
         $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
         $update = DB::update('update courseexperts set teachers_skype_link =? where courseexpert_id= ? ',[$skypeLink,$courseexpert_id]);
+        $update = DB::update('update courseexperts set varification_drive_link =? where courseexpert_id= ? ',[$varification_drive_link,$courseexpert_id]);
+        $update = DB::update('update courseexperts set appointment_drive_link =? where courseexpert_id= ? ',[$appointment_drive_link,$courseexpert_id]);
 
-        return redirect()->action('TeacherController@viewExpertProfile')->with('status','Skype-link Added!');
+        return redirect()->action('TeacherController@viewExpertProfile')->with('status','link Added!');
 
 
         
@@ -142,19 +147,23 @@ class TeacherController extends Controller
         // return redirect()->back()->with('status','Profile updated');
 
 
-
         
         $name=$request->name;
         // $email=$request->email;
         $phone=$request->phone;
         $teachers_skype_link=$request->teachers_skype_link;
+        $varification_drive_link=$request->varification_drive_link;
+        $appointment_drive_link=$request->appointment_drive_link;
+
         $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
         
         $update = DB::update('update courseexperts set name =? where courseexpert_id= ? ',[$name,$courseexpert_id]);
         // $update = DB::update('update courseexperts set email =? where courseexpert_id= ? ',[$email,$courseexpert_id]);
         $update = DB::update('update courseexperts set phone =? where courseexpert_id= ? ',[$phone,$courseexpert_id]);
         $update = DB::update('update courseexperts set teachers_skype_link =? where courseexpert_id= ? ',[$teachers_skype_link,$courseexpert_id]);
-        
+        $update = DB::update('update courseexperts set varification_drive_link =? where courseexpert_id= ? ',[$varification_drive_link,$courseexpert_id]);
+        $update = DB::update('update courseexperts set appointment_drive_link =? where courseexpert_id= ? ',[$appointment_drive_link,$courseexpert_id]);
+
         return redirect()->action('TeacherController@viewExpertProfile')->with('status','Profile updated');
 
 
@@ -213,28 +222,28 @@ class TeacherController extends Controller
        
     }
     
-//     public function deleteExpertTime(){
+ 
+
+    public function myAppointments()
+    {
+        $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+            $accepted_appointments = DB::table('accepted_appointments')
+                ->where('courseexpert_id', '=', $courseexpert_id)
+                ->get();
 
 
-//         $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+            $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.course_id,A.appointment_timing,A.problem_text,A.drive_link,A.is_accepted,B.course_id,B.course_code1
+            FROM accepted_appointments AS A , courses AS B
+            WHERE A.course_id = B.course_id
+            AND A.is_accepted = 1
+            AND A.courseexpert_id = $courseexpert_id");
+    
+    
+            return view('courseexperts.appointments', 
+                    ['accepted_appointments' => $courses_data] );
 
-//         $expert = DB::table('courseexperts')
-//         ->where('courseexpert_id', '=', $courseexpert_id)
-//         ->get();
-
-
-//         return view('courseexperts.deleteExpertTiming', 
-//                 ['courseexperts' => $expert] );
-//     }
-
-//     public function deleteTime($course_id){
-
-//         $data = course::find($course_id);
-//         $data -> delete();
-
-//         return redirect('update_expert_course');
-   
-// }
+    }
 
 
     
