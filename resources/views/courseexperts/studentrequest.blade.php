@@ -20,12 +20,18 @@
     <h1 class=" owl_hub_green" >All of Your Student Requests</h1>
 </div>
 
-@if( count($appointment_images_data)== 0 )
-        <div class="alert alert-primary" role="alert">
-            You still didn't receive any request from a student.
-        </div>
+    @if( count($appointment_images_data)== 0 )
+            <div class="alert alert-primary" role="alert">
+                You still didn't receive any request from a student.
+            </div>
 
-@else
+    @else
+    
+    @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
 
     @foreach ($appointment_images_data as  $key => $data )
 
@@ -55,11 +61,7 @@
         <br>
     @endforeach
     
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
+
 
 @endif
 
