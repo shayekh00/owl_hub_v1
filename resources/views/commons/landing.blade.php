@@ -13,6 +13,12 @@
     <h1 class=" owl_hub_green" >Welcome To Owl Hub</h1>
 </div>
 
+@if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+@endif
+
 <!-- SIGN-UP FORM -->
 <div class="signup-form-box">
     <div id="signup_div">
@@ -113,7 +119,8 @@
                 <!-- <button type="submit" name="action" value="both" class="btn btn-success owl_hub_green">BOTH</button> -->
                 
                 <br>
-                <a href="" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot your password ?</a>
+                <a href="{{route('reset_student_password_request')}}" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot Student Account Password ?</a>
+                <a href="{{route('reset_courseexpert_password_request')}}" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot Course Expert Account Password ?</a>
                 </div>
             </div>
         </div>

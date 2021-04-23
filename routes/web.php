@@ -25,8 +25,20 @@ Route::post('postregister', 'AuthController@postRegister')->name('postregister')
 Route::get('logout', 'AuthController@logout')->name('logout');
 
 Route::get('contactus', 'Commons@contactus')->name('contactus');
+// Password Reset
+Route::get('student/password_reset', 'ResetPassword@index_StudentResetPage');
+Route::post('student/reset_password_without_token', 'ResetPassword@validatePasswordRequest')->name('validate_student_password_request');
+// Route::post('student/reset_password_with_token', 'ResetPassword@resetPassword')->name('reset_student_password_request');
 
+Route::get('student/password-reset', 'ResetPassword@index_StudentResetPage')->name('reset_student_password_request'); //I did not create this controller. it simply displays a view with a form to take the email
+Route::post('student/password-reset', 'ResetPassword@sendPasswordResetToken');
+Route::get('student/reset-password/{token}/', 'ResetPassword@showPasswordResetForm');
+Route::post('student/reset-password/{token}/', 'ResetPassword@resetPassword');
 
+Route::get('courseexpert/password-reset', 'ResetPassword@index_CourseExpertResetPage')->name('reset_courseexpert_password_request');
+Route::post('courseexpert/password-reset', 'ResetPassword@send_CourseExpertPasswordResetToken');
+Route::get('courseexpert/reset-password/{token}/', 'ResetPassword@showCourseExpertPasswordResetForm');
+Route::post('courseexpert/reset-password/{token}/', 'ResetPassword@resetCourseExpertPassword');
 
 //COURSE_EXPERT
 Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('TeacherController.courseExpertCourses');
