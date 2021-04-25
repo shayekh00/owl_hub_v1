@@ -133,3 +133,5 @@ Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestControlle
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('my-Test-mail','HomeController@myTestMail');
