@@ -108,10 +108,11 @@ class StudentRequest extends Controller
                 ->get();
 
 
-            $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.course_id,A.appointment_timing,
+            $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.is_confirmed,A.course_id,A.appointment_timing,
             B.course_id,B.course_code1
             FROM accepted_appointments AS A , courses AS B
             WHERE A.course_id = B.course_id
+            AND A.is_confirmed = 1
             AND A.student_id = $student_id");
     
     
