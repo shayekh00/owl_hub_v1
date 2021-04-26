@@ -1,10 +1,15 @@
 @component('mail::message')
 # {{ $details['title'] }}
-  
-The body of your message. 
-   
+
+
+
+Greetings from Owl Hub,
+
+{{ $details['message'] }}
+
+
 @component('mail::button', ['url' => $details['url']])
-Button Text
+Reset Password
 @endcomponent
    
 Thanks,

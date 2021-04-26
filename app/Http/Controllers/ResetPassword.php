@@ -12,6 +12,8 @@ use Hash;
 use Carbon\Carbon;
 Use App\Models\courseexpert;
 use Illuminate\Support\Str;
+use App\Mail\MyTestMail;
+use Mail;
 
 class ResetPassword extends Controller
 {
@@ -47,6 +49,23 @@ class ResetPassword extends Controller
         * something like url('password-reset/' . $token)
         * Sending email varies according to your Laravel version. Very easy to implement
         */
+        $message = "Messssage!!";
+        $url = config('app.url'). '/student/reset-password/' . $token;
+
+        // dd($url);
+        // postEmail($email , $url , $message);
+        $myEmail = $email;
+        $message = "We received a request to reset the password for the Owl Hub account associated with this e-mail address.
+                    Click the button below to reset your password using our secure server.";
+                    
+        $details = [
+            'title' => 'Password Reset Email from OwlHubBD.com',
+            'url' => $url,
+            'message' => $message
+        ];
+
+        Mail::to($myEmail)->send(new MyTestMail($details));
+
 
         return view('commons.reset_email_sent');
     }
@@ -116,7 +135,24 @@ class ResetPassword extends Controller
         * something like url('password-reset/' . $token)
         * Sending email varies according to your Laravel version. Very easy to implement
         */
+        $message = "We received a request to reset the password for the Owl Hub account associated with this e-mail address.
+                    Click the button below to reset your password using our secure server.";
 
+        $url = config('app.url'). '/courseexpert/reset-password/' . $token;
+
+        // dd($url);
+        // postEmail($email , $url , $message);
+        $myEmail = $email;
+
+        $details = [
+            'title' => 'Password Reset Email from OwlHubBD.com',
+            'url' => $url,
+            'message' => $message
+        ];
+
+        Mail::to($myEmail)->send(new MyTestMail($details));
+        
+        
         return view('commons.reset_email_sent');
     }
 
@@ -153,4 +189,6 @@ class ResetPassword extends Controller
        return redirect('/')->with('status','Password Successfuly Updated');
        //redirect where we want according to whether they are logged in or not.
     }
+
+
 }

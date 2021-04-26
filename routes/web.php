@@ -134,4 +134,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('my-Test-mail','HomeController@myTestMail');
+// Route::get('my-Test-mail','HomeController@myTestMail');
+Route::get('my-Test-mail/{email}/{url}/{message}','MailController@myTestMail')->name('sendEmail');

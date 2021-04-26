@@ -29,7 +29,7 @@ class MyTestMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.myTestMail')
+        return $this->markdown('commons.emails.myTestMail')
                     ->with('details', $this->details);
     }
 }
