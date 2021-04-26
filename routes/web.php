@@ -69,6 +69,8 @@ Route::group(['middleware' => ['auth:courseexpert'] ], function () {
     Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
     Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
     Route::get('/appointments', 'TeacherController@myAppointments');
+    Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
+    Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
 
 });
 
@@ -82,8 +84,6 @@ Route::group(['middleware' => ['auth:student'] ], function () {
     Route::get('/Appointments', 'StudentRequest@studentAppointments');
     Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
     Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
-    Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
-    Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
     
     Route::get('/requestcourseexpert', function () {
         //    return view('search');
