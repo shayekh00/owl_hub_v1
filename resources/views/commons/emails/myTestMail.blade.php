@@ -9,7 +9,7 @@ Greetings from Owl Hub,
 
 
 @component('mail::button', ['url' => $details['url']])
-Reset Password
+Click Here
 @endcomponent
    
 Thanks,

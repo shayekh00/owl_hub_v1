@@ -4,7 +4,8 @@ use App\Models\appointment_images;
 use App\Models\accepted_appointment;
 use Illuminate\Support\Facades\Auth;
 use DB;
-
+use App\Mail\MyTestMail;
+use Mail;
 
 class EachRequestController extends Controller
 {
@@ -42,6 +43,26 @@ class EachRequestController extends Controller
 
     function accepted($accepted_appointment_id)
     {
+
+
+
+        $email = DB::select("SELECT DISTINCT S.email
+        FROM accepted_appointments AS A , students AS S
+        WHERE A.student_id = S.student_id
+        AND  A.accepted_appointment_id = $accepted_appointment_id");
+
+        $myEmail = $email;
+        $message = "Your request has been accepted on OwlHubBD.com, please log into your account to pay and confrim.";
+        $url = config('app.url'). '/' ;
+        
+        $details = [
+            'title' => 'New appointment request received.',
+            'url' => $url,
+            'message' => $message
+        ];
+
+        Mail::to($myEmail)->send(new MyTestMail($details));
+
         accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
         ->update( array(
                         'is_accepted' => 1
@@ -54,12 +75,31 @@ class EachRequestController extends Controller
 
     function rejected($accepted_appointment_id)
     {
+
+                
+        $email = DB::select("SELECT DISTINCT S.email
+        FROM accepted_appointments AS A , students AS S
+        WHERE A.student_id = S.student_id
+        AND  A.accepted_appointment_id = $accepted_appointment_id");
+
+        $myEmail = $email;
+        $message = "Your request has been rejected on OwlHubBD.com by a course expert, please log into your account to request again.";
+        $url = config('app.url'). '/' ;
+        
+        $details = [
+            'title' => 'New appointment request received.',
+            'url' => $url,
+            'message' => $message
+        ];
+
+        Mail::to($myEmail)->send(new MyTestMail($details));    
+
         accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
         ->update( array(
                         'is_accepted' => -1
                 ) );
-        
-                return redirect('studentrequest')->with('status','Appointment rejected successfully!');
+                
+        return redirect('studentrequest')->with('status','Appointment rejected successfully!');
 
         
         

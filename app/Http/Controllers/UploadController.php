@@ -5,6 +5,8 @@ use App\Models\accepted_appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Mail\MyTestMail;
+use Mail;
 
 class UploadController extends Controller
 {
@@ -150,6 +152,23 @@ class UploadController extends Controller
                                             'problem_text' => $request->problem_text,
                                             'appointment_timing' => $timing_string
                                     ) );
+
+        $email = DB::table('courseexperts')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->select('email')
+        ->get();
+
+        $myEmail = $email;
+        $message = "You have received a new request for a course on OwlHubBD.com, please log into your account to confrim.";
+        $url = config('app.url'). '/' ;
+        
+        $details = [
+            'title' => 'New appointment request received.',
+            'url' => $url,
+            'message' => $message
+        ];
+
+        Mail::to($myEmail)->send(new MyTestMail($details));
 
         return redirect()->route('student.allrequest')->with('status', 'Successfully Requested!');
 
