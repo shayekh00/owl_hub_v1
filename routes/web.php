@@ -13,24 +13,30 @@ use App\Http\Controllers\TeacherController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Commons
+Route::get('/about', 'Commons@about')->name('about');
+Route::get('/faq', 'Commons@faq')->name('faq');
+Route::get('contactus', 'Commons@contactus')->name('contactus');
+Route::get('/', function () {
+        return view('commons.landing');
+})->name('landing');;
+
+Route::get('my-Test-mail/{email}/{url}/{message}','MailController@myTestMail')->name('sendEmail');
 
 //Routes for authentication from LANDING PAGE
     //login
 Route::get('login', 'AuthController@index');
 Route::post('post-login', 'AuthController@postLogin2')->name('post-login'); 
 
-    //register
+    //Register
 Route::post('postregister', 'AuthController@postRegister')->name('postregister'); 
-
 Route::get('logout', 'AuthController@logout')->name('logout');
 
-Route::get('contactus', 'Commons@contactus')->name('contactus');
-// Password Reset
+    // Password Reset
 Route::get('student/password_reset', 'ResetPassword@index_StudentResetPage');
 Route::post('student/reset_password_without_token', 'ResetPassword@validatePasswordRequest')->name('validate_student_password_request');
-// Route::post('student/reset_password_with_token', 'ResetPassword@resetPassword')->name('reset_student_password_request');
 
-Route::get('student/password-reset', 'ResetPassword@index_StudentResetPage')->name('reset_student_password_request'); //I did not create this controller. it simply displays a view with a form to take the email
+Route::get('student/password-reset', 'ResetPassword@index_StudentResetPage')->name('reset_student_password_request');
 Route::post('student/password-reset', 'ResetPassword@sendPasswordResetToken');
 Route::get('student/reset-password/{token}/', 'ResetPassword@showPasswordResetForm');
 Route::post('student/reset-password/{token}/', 'ResetPassword@resetPassword');
@@ -40,99 +46,64 @@ Route::post('courseexpert/password-reset', 'ResetPassword@send_CourseExpertPassw
 Route::get('courseexpert/reset-password/{token}/', 'ResetPassword@showCourseExpertPasswordResetForm');
 Route::post('courseexpert/reset-password/{token}/', 'ResetPassword@resetCourseExpertPassword');
 
-//COURSE_EXPERT
-Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('TeacherController.courseExpertCourses');
-Route::get('/experttiming', 'TeacherController@courseExpertTiming')->name('TeacherController.courseExpertTiming');
-Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name('TeacherController.courseExpertCourses');
-Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('TeacherController.courseExpertTiming');
-Route::get('/skypeLink', 'TeacherController@skypeLink')->name('skypeLink');
-Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
-// Route::get('/profile's, 'TeacherController@expertProfile');
-// Route::get('/expert_profile', 'TeacherController@expertProfile');
-Route::get('/view_timing', 'TeacherController@viewExpertTiming');
-Route::get('/view_timing', 'TeacherController@viewExpertTiming');
-Route::get('/view_courses', 'TeacherController@viewExpertCourses');
-Route::get('/update_courses', 'TeacherController@updateExpertCourses');
-Route::post('/update_courses', 'TeacherController@updatecourses');
-Route::get('/welcome', 'TeacherController@welcomeMessage');
 
-Route::get('/expert_profile', 'TeacherController@viewExpertProfile')->name('courseexperts.expertProfile');
-Route::get('/update_expert_profile', 'TeacherController@updateExpertProfile');
-Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost');
+ //COURSE_EXPERT ROUTES
+Route::group(['middleware' => ['auth:courseexpert'] ], function () {
 
-Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
-Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
+   
+    Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('TeacherController.courseExpertCourses');
+    Route::get('/experttiming', 'TeacherController@courseExpertTiming')->name('TeacherController.courseExpertTiming');
+    Route::post('/expertcourses', 'TeacherController@addCourseExpertCourses')->name('TeacherController.courseExpertCourses');
+    Route::post('/experttiming', 'TeacherController@addCourseExpertTiming')->name('TeacherController.courseExpertTiming');
+    Route::get('/skypeLink', 'TeacherController@skypeLink')->name('skypeLink');
+    Route::post('/skypeLink', 'TeacherController@addskypeLink')->name('skypeLink');
+    Route::get('/view_timing', 'TeacherController@viewExpertTiming');
+    Route::get('/view_timing', 'TeacherController@viewExpertTiming');
+    Route::get('/view_courses', 'TeacherController@viewExpertCourses');
+    Route::get('/update_courses', 'TeacherController@updateExpertCourses');
+    Route::post('/update_courses', 'TeacherController@updatecourses');
+    Route::get('/welcome', 'TeacherController@welcomeMessage');
+    Route::get('/expert_profile', 'TeacherController@viewExpertProfile')->name('courseexperts.expertProfile');
+    Route::get('/update_expert_profile', 'TeacherController@updateExpertProfile');
+    Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost');
+    Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
+    Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
+    Route::get('/appointments', 'TeacherController@myAppointments');
 
-Route::get('/appointments', 'TeacherController@myAppointments');
+});
 
+//STUDENT ROUTES
 
+Route::group(['middleware' => ['auth:student'] ], function () {
 
-//STUDENT
-Route::get('/student_profile', 'StudentRequest@StudentProfile');
-Route::get('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
-Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfilePost');
-Route::get('/Appointments', 'StudentRequest@studentAppointments');
+    Route::get('/student_profile', 'StudentRequest@StudentProfile');
+    Route::get('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
+    Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfilePost');
+    Route::get('/Appointments', 'StudentRequest@studentAppointments');
+    Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
+    Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
+    Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
+    Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
+    
+    Route::get('/requestcourseexpert', function () {
+        //    return view('search');
+        return view('students.requestcourseexpert');
+            });
 
-//  
-Route::get('/about', 'Commons@about')->name('about');
-Route::get('/faq', 'Commons@faq')->name('faq');
+    Route::get('/live_search', 'LiveSearch@index')->name('live_search.index');
+    Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+    Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 'LiveSearch@list')->name('course_expert_list.create_list');
+    Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadResourcesPage')->name('multiuploads.uploadResourcesPage');
+    Route::post('/multiuploads/{courseexpert_id}/{course_id}/{seletion}/', 'UploadController@submitResources')->name('multiuploads.submitResources');
+    Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
+    Route::post('/students/thankyou/{accepted_appointment_id}', 'StudentRequest@transaction_id')->name('student.transaction_id');;
+    Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
+    Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
+});
 
-
-
-
-    // Route::get('/student_profile', function () {
-    //     //    return view('search');
-    //        return view('students.studentprofile');
-    //          });
-
-
-
-//EachRequest
-Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
-Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
-
-
-Route::get('/', function () {
-//return view('welcome');
-    return view('commons.landing');
-
-})->name('landing');;
-
-// Route::get('/courseexperts.studentrequest', 'PagesController@studentsearch')->name('courseexperts.studentrequest');
-Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
-
-Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
-
-// Route::get('/students.requestcourseexpert', 'PagesController@studentsearch')->name('students.requestcourseexpert');
- 
-Route::get('/requestcourseexpert', function () {
-    //    return view('search');
-       return view('students.requestcourseexpert');
-         });
-
-
-Route::get('/live_search', 'LiveSearch@index')->name('live_search.index');
-Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
-
-Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 'LiveSearch@list')->name('course_expert_list.create_list');
-
-// Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadForm')->name('multiuploads.uploadForm');
-// Route::post('/multiuploads/{courseexpert_id}/{course_id}', 'UploadController@uploadSubmit')->name('multiuploads.uploadSubmit');
-
-Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadResourcesPage')->name('multiuploads.uploadResourcesPage');
-Route::post('/multiuploads/{courseexpert_id}/{course_id}/{seletion}/', 'UploadController@submitResources')->name('multiuploads.submitResources');
-
-
-Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
-Route::post('/students/thankyou/{accepted_appointment_id}', 'StudentRequest@transaction_id')->name('student.transaction_id');;
-
-Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
-Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
-
-
+//Admin
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 // Route::get('my-Test-mail','HomeController@myTestMail');
-Route::get('my-Test-mail/{email}/{url}/{message}','MailController@myTestMail')->name('sendEmail');
