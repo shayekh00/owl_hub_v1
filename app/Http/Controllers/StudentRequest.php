@@ -5,6 +5,8 @@ use App\Models\accepted_appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use App\Mail\MyTestMail;
+use Mail;
 
 class StudentRequest extends Controller
 {
@@ -54,6 +56,27 @@ class StudentRequest extends Controller
         $data = $request->all();
         // dd($data['transaction_id']);
 
+        $email = "pritthi17@gmail.com";
+
+        // $email = "shayekhnavid20@gmail.com";
+
+        $myEmail = $email;
+        $message = "Transaction Key Entered, please confirm for accepted_appointment_id =" . $accepted_appointment_id ;
+        $url = config('app.url'). '/' ;
+        
+        $details = [
+            'title' => 'New appointment request received.',
+            'url' => $url,
+            'message' => $message
+        ];
+
+        Mail::to($myEmail)->send(new MyTestMail($details));
+
+        // accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        // ->update( array(
+        //                 'is_accepted' => 1
+        //         ) );
+        
         accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
         ->update( array(
                         'appointment_transaction_id' => $data['transaction_id']
