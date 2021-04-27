@@ -14,6 +14,7 @@ use App\Http\Controllers\TeacherController;
 |
 */
 //Commons
+Route::get('/new_landing', 'Commons@about')->name('new_landing');
 Route::get('/about', 'Commons@about')->name('about');
 Route::get('/faq', 'Commons@faq')->name('faq');
 Route::get('contactus', 'Commons@contactus')->name('contactus');
