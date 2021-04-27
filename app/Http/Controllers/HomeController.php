@@ -26,4 +26,12 @@ class HomeController extends Controller
    
         dd("Mail Send Successfully");
     }
+
+    public function index()
+    {
+        return view('commons.new_landing');
+    }
+
+
+    
 }
