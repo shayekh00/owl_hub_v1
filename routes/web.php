@@ -14,11 +14,11 @@ use App\Http\Controllers\TeacherController;
 |
 */
 //Commons
-Route::get('/new_landing', 'HomeController@index')->name('new_landing');
+Route::get('/', 'HomeController@index')->name('new_landing');
 Route::get('/about', 'Commons@about')->name('about');
 Route::get('/faq', 'Commons@faq')->name('faq');
 Route::get('contactus', 'Commons@contactus')->name('contactus');
-Route::get('/', function () {
+Route::get('/login_signup', function () {
         return view('commons.landing');
 })->name('landing');;
 

@@ -207,7 +207,7 @@ class AuthController extends Controller
     public function logout() {
         Session::flush();
         Auth::logout();
-        return Redirect('/');
+        return Redirect('/login_signup');
     }
 
 

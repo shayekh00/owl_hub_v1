@@ -4,7 +4,7 @@
         <img src="{{ asset('images/logo.png') }}"  width="60" height="60" alt="">
     </a>
 
-    <a class="navbar-brand ml-auto mr-1" href="{{route('landing')}}"><i class="fa fa-home"></i>
+    <a class="navbar-brand ml-auto mr-1" href="{{route('new_landing')}}"><i class="fa fa-home"></i>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
