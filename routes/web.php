@@ -72,6 +72,10 @@ Route::group(['middleware' => ['auth:courseexpert'] ], function () {
     Route::get('/appointments', 'TeacherController@myAppointments');
     Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
     Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
+    Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
+    Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
+    Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
+    Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
 
 });
 
@@ -83,8 +87,6 @@ Route::group(['middleware' => ['auth:student'] ], function () {
     Route::get('/student_profile_update', 'StudentRequest@UpdateStudentProfile');
     Route::post('/student_profile_update', 'StudentRequest@UpdateStudentProfilePost');
     Route::get('/Appointments', 'StudentRequest@studentAppointments');
-    Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
-    Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
     
     Route::get('/requestcourseexpert', function () {
         //    return view('search');
@@ -98,8 +100,6 @@ Route::group(['middleware' => ['auth:student'] ], function () {
     Route::post('/multiuploads/{courseexpert_id}/{course_id}/{seletion}/', 'UploadController@submitResources')->name('multiuploads.submitResources');
     Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');
     Route::post('/students/thankyou/{accepted_appointment_id}', 'StudentRequest@transaction_id')->name('student.transaction_id');;
-    Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
-    Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
 });
 
 //Admin
