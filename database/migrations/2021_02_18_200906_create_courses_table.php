@@ -31,7 +31,7 @@ class CreateCoursesTable extends Migration
             $table->foreign('courseexpert_id')->references('courseexpert_id')->on('courseexperts');
             $table->foreign('accepted_appointment_id')->references('accepted_appointment_id')->on('accepted_appointments');
 
-            
+            $table->integer('is_verified');
             $table->string('course_code1');
             $table->string('university_name1');
 

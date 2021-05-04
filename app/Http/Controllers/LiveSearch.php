@@ -33,7 +33,7 @@ function action(Request $request)
         {
             $data = DB::table('courses')
                 ->where('course_code1', 'like', '%'.$query.'%')
-                // ->orWhere('Address', 'like', '%'.$query.'%')
+                ->orWhere('university_name1', 'like', '%'.$query.'%')
                 // ->orWhere('City', 'like', '%'.$query.'%')
                 // ->orWhere('PostalCode', 'like', '%'.$query.'%')
                 // ->orWhere('Country', 'like', '%'.$query.'%')
@@ -79,7 +79,7 @@ function action(Request $request)
         {
             $output = '
             <tr>
-                <td align="center" colspan="5">No Data Found</td>
+                <td align="center" colspan="5"> No Courses Found </td>
             </tr>
             ';
             }
