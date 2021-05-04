@@ -9,6 +9,18 @@
 @section('content')
 
 @extends('courseexperts.courseexpertnavbar')
+<style>
+
+a {
+  text-align: left;
+  padding: 8px;
+}
+/* select {
+  align-self: right;
+  padding: 8px;
+} */
+</style>
+
 <div class="container">
     <h1 class="white" >Course Expert Timing</h1>
 </div>
