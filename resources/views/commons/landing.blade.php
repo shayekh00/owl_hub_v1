@@ -23,7 +23,7 @@
 <div class="signup-form-box">
     <div id="signup_div">
 
-        <form action="{{url('postregister')}}" method="POST" id="signup">
+        <form action="{{url('postregister')}}" method="POST" id="signup" onkeydown="return event.key != 'Enter';">
             {{ csrf_field() }}
 
                 <br>
@@ -89,7 +89,7 @@
 <div class="login-form-box">
 
 <div id="login_div">
-    <form action="{{url('post-login')}}" method="POST" id="login">
+    <form action="{{url('post-login')}}" method="POST" id="login" onkeydown="return event.key != 'Enter';">
     {{ csrf_field() }}
         @if ($errors->has('email'))
             <span class="error">{{ $errors->first('email') }}</span>
