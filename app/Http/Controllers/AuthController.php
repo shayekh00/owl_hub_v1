@@ -12,7 +12,7 @@ use Session;
 
 class AuthController extends Controller
 {
-    protected $loginPath = '/';
+    protected $loginPath = '/login_signup';
 
     public function index()
     {
@@ -24,58 +24,58 @@ class AuthController extends Controller
         return view('register');
     }
      
-    public function postLogin(Request $request)
-    {
-        request()->validate([
-        'email' => 'required',
-        'password' => 'required',
-        ]);
+    // public function postLogin(Request $request)
+    // {
+    //     request()->validate([
+    //     'email' => 'required',
+    //     'password' => 'required',
+    //     ]);
 
-        switch ($request->input('action')) {
-            case 'student':
-                $student = student::where('email', $request->email)->first();
+    //     switch ($request->input('action')) {
+    //         case 'student':
+    //             $student = student::where('email', $request->email)->first();
         
-                if (!$student) {
-                    echo('Not a Student');
-                }
+    //             if (!$student) {
+    //                 echo('Not a Student');
+    //             }
 
-                //login in student
-                if (Hash::check($request->password, $student->password)) {
-                    Auth::guard('student')->login($student);
-                    return view('students.live_search');
-                }
+    //             //login in student
+    //             if (Hash::check($request->password, $student->password)) {
+    //                 Auth::guard('student')->login($student);
+    //                 return view('students.live_search');
+    //             }
         
-                return redirect($this->loginPath)
-                    ->withInput($request->only('email', 'remember'))
-                    ->withErrors(['email' => 'Incorrect email address or password']);
+    //             return redirect($this->loginPath)
+    //                 ->withInput($request->only('email', 'remember'))
+    //                 ->withErrors(['email' => 'Incorrect email address or password']);
 
-                break;
+    //             break;
     
-            case 'courseexpert' || 'both':
-                // echo('courseexpert clicked');
-                $courseexpert = courseexpert::where('email', $request->email)->first();
+    //         case 'courseexpert' || 'both':
+    //             // echo('courseexpert clicked');
+    //             $courseexpert = courseexpert::where('email', $request->email)->first();
         
-                if (!$courseexpert) {
-                    echo('Not a Course Expert');
-                }
+    //             if (!$courseexpert) {
+    //                 echo('Not a Course Expert');
+    //             }
 
-                //login in courseexpert
-                if (Hash::check($request->password, $courseexpert->password)) {
-                    Auth::guard('student')->login($courseexpert);
-                    return view('course_expert.studentrequest');
-                }
+    //             //login in courseexpert
+    //             if (Hash::check($request->password, $courseexpert->password)) {
+    //                 Auth::guard('student')->login($courseexpert);
+    //                 return view('course_expert.studentrequest');
+    //             }
                 
-                //if login fails redirect back to the login page
-                return redirect($this->loginPath)
-                    ->withInput($request->only('email', 'remember'))
-                    ->withErrors(['email' => 'Incorrect email address or password']);
+    //             //if login fails redirect back to the login page
+    //             return redirect($this->loginPath)
+    //                 ->withInput($request->only('email', 'remember'))
+    //                 ->withErrors(['email' => 'Incorrect email address or password']);
 
-                break;
-        }
+    //             break;
+    //     }
 
 
 
-    }
+    // }
 
     public function postLogin2(Request $request)
     {
@@ -83,7 +83,7 @@ class AuthController extends Controller
         'email' => 'required',
         'password' => 'required',
         ]);
-
+        
         switch ($request->input('action')) {
             case 'student':
                 $student = student::where('email', $request->email)->first();
@@ -117,23 +117,35 @@ class AuthController extends Controller
             case 'courseexpert' || 'both':
                 // echo('courseexpert clicked');
                 $courseexpert = courseexpert::where('email', $request->email)->first();
-        
+                
+                // $email = strtolower($request->email);
+
+                $email = $request->email ;
+                //dd($email);
                 if (!$courseexpert) {
                     echo('Not a Course Expert');
                 }
-
-               
+                
+                $password = $request->password;
+                $hashed_db_password = $courseexpert->password;
+                //dd(Hash::make($password));
                 //login in courseexpert
-
+                //dd(Hash::check($password , $courseexpert->password));
                  if (Hash::check($request->password, $courseexpert->password)) {
- 
-                    if (Auth::guard('courseexpert')->attempt(['email' => $request->email  , 'password' => $request->password ] )) {
-                        // dd(Auth::guard('courseexpert')->user()->name);
-                        // return view('commons.registrationcompleted');
-                        // return view('courseexperts.studentrequest');
+                    
+                    if (Auth::guard('courseexpert')->attempt(['email' => $email  , 'password' => $request->password ] )) {
                         return redirect()->route( 'student_request.index' );
                     }
+
+                    if (Auth::guard('courseexpert')->attempt(['email' => $email  , 'password' => $request->password ] )) {
+                        return redirect()->route( 'student_request.index' );
+                    }
+
+
                  }
+                //  else{
+                //     dd($request->password);   
+                //  }
                 
                 //if login fails redirect back to the login page
                 return redirect($this->loginPath)

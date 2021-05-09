@@ -20,7 +20,24 @@
     <h1 class=" owl_hub_green" >All of Your Student Requests</h1>
 </div>
 
-    @if( count($appointment_images_data)== 0 )
+
+@if ($check_timing == 0)
+    <div class="alert alert-danger" role="alert">
+         Please 
+         <a href="{{route('TeacherController.courseExpertTiming')}}"> click here </a>
+         to insert your available time for taking appointments
+    </div>
+@endif
+
+@if ($check_courses == 0)
+    <div class="alert alert-danger" role="alert">
+         Please 
+         <a href="{{route('TeacherController.courseExpertCourses')}}"> click here </a>
+         to insert your the courses you wish to teach.
+    </div>
+@endif
+
+@if( count($appointment_images_data)== 0 )
             <div class="alert alert-primary" role="alert">
                 You still didn't receive any request from a student.
             </div>
@@ -31,7 +48,9 @@
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
-        @endif
+    @endif
+
+
 
     @foreach ($appointment_images_data as  $key => $data )
 

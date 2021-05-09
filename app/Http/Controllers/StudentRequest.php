@@ -25,8 +25,23 @@ class StudentRequest extends Controller
 
         // dd($appointment_images_data);
 
+        //dd( $courseexperts->first()->course_timing_tuesday );
+        $check_timing = $this->timing_is_filled();
+        
+        // dd($check);
+        $courses = DB::table('courses')
+                        ->where('courseexpert_id', '=', 2)
+                        ->get()
+                        ->first();
+        //dd($courses);
+        $check_courses = 1;
+        if( $courses ){
+            $check_courses = 0;
+        }
+
+        //dd($check_courses);
         return view('courseexperts.studentrequest',
-        ['appointment_images_data' => $appointment_images_data    ]);
+        ['appointment_images_data' => $appointment_images_data ,'check_timing' => $check_timing ,'check_courses' => $check_courses   ]);
 
     }
 
@@ -142,6 +157,41 @@ class StudentRequest extends Controller
             return view('students.studentAppointments', 
                     ['accepted_appointments' => $courses_data] );
 
+        }
+
+       public  function timing_is_filled(){
+
+            // Returning 1 means one of the timing field was filled
+
+            $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+            $courseexperts = DB::table('courseexperts')
+            ->where('courseexpert_id', '=', $courseexpert_id)
+            ->get();
+
+            $check = 0;
+            if( $courseexperts->first()->course_timing_sunday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_monday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_tuesday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_wednesday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_thursday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_friday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_saturday != ""){
+                $check =1;
+            }
+            return $check;
         }
 
 
