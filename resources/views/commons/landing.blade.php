@@ -21,18 +21,22 @@
 
 <!-- SIGN-UP FORM -->
 <div class="signup-form-box">
+    <div class="col text-center">
+        <h4 class=" owl_hub_green" >Sign Up Here</h4>
+    </div>
+
     <div id="signup_div">
 
         <form action="{{url('postregister')}}" method="POST" id="signup" onkeydown="return event.key != 'Enter';">
             {{ csrf_field() }}
 
-                <br>
+                <!-- <br> -->
                 @if ($errors->has('name'))
                 <br><span class="error">{{ $errors->first('name') }}</span>
                 @endif  
                 <div class="input-group">
-                <i class="fa fa-user icon"></i>
-                <input id="name" type="text" class="form-control" placeholder="Name" name="name">
+                    <i class="fa fa-user icon"></i>
+                    <input id="name" type="text" class="form-control" placeholder="Name" name="name">
                 </div>
                 <br>
                 @if ($errors->has('email'))
@@ -87,6 +91,10 @@
 
 <!-- SIGN-IN FORM  -->
 <div class="login-form-box">
+
+    <div class="col text-center">
+            <h4 class=" owl_hub_green" >Log In Here</h4>
+    </div>
 
 <div id="login_div">
     <form action="{{url('post-login')}}" method="POST" id="login" onkeydown="return event.key != 'Enter';">
