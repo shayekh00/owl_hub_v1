@@ -19,4 +19,8 @@ class Commons extends Controller
     public function faq(){
         return view('commons.faq');
     }
+
+    public function not_accept(){
+        return view('commons.not_accept');
+    }
 }

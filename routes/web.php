@@ -17,6 +17,8 @@ use App\Http\Controllers\TeacherController;
 Route::get('/', 'HomeController@index')->name('new_landing');
 Route::get('/about', 'Commons@about')->name('about');
 Route::get('/faq', 'Commons@faq')->name('faq');
+
+Route::get('/not', 'Commons@not_accept');
 Route::get('contactus', 'Commons@contactus')->name('contactus');
 Route::get('/login_signup', function () {
         return view('commons.landing');
@@ -49,6 +51,11 @@ Route::post('courseexpert/reset-password/{token}/', 'ResetPassword@resetCourseEx
 
 
  //COURSE_EXPERT ROUTES
+//  Route::get('/man', 'TeacherController@not_accept');
+//  Route::post('/man', 'TeacherController@not_accept_post');
+
+
+
 Route::group(['middleware' => ['auth:courseexpert'] ], function () {
 
    

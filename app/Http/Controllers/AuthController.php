@@ -6,9 +6,12 @@ use Validator,Redirect,Response;
 // Use App\User;
 Use App\Models\courseexpert;
 Use App\Models\student;
+Use App\Models\admin_settings;
+Use App\Models\course;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use DB;
 
 class AuthController extends Controller
 {
@@ -86,7 +89,7 @@ class AuthController extends Controller
         
         switch ($request->input('action')) {
             case 'student':
-                $student = student::where('email', $request->email)->first();
+                $student = student::a('email', $request->email)->first();
         
                 if (!$student) {
                     echo('Not a Student');
@@ -158,37 +161,59 @@ class AuthController extends Controller
     }
  
     public function postRegister(Request $request)
-    {  
-        
+    { 
+        $data = DB::table('admin_settings')->select('accepting_course_expert')->get();
+
         switch ($request->input('action')) {
             case 'student':
-                // error_log('From student');
-                // echo("student");
+                
                 request()->validate([
                     'name' => 'required',
                     'email' => 'required|email|unique:students',
                     'phone' => 'required|numeric|unique:students',
                     'password' => 'required|min:6',
                 ]);
+
                 $data = $request->all();
                 $check = $this->createStudent($data);
+                return view('commons.welcome');
                 break;     
 
             case 'courseexpert' || 'both':
-                // echo("courseexpert");
-                request()->validate([
-                    'name' => 'required',
-                    'email' => 'required|email|unique:courseexperts',
-                    'phone' => 'required|numeric|unique:courseexperts',
-                    'password' => 'required|min:6',
-                ]);
-                $data = $request->all();
-                $check = $this->createCourseExpert($data);
+
+                if( $data != '[{"accepting_course_expert":0}]' )
+                {
+
+                    request()->validate([
+                        'name' => 'required',
+                        'email' => 'required|email|unique:courseexperts',
+                        'phone' => 'required|numeric|unique:courseexperts',
+                        'password' => 'required|min:6',
+                    ]);
+                    $data = $request->all();
+                    $check = $this->createCourseExpert($data);
+
+                    return view('commons.welcome');
+                   
+                    
+                    
+                }
+                
+                else{
+
+                   
+                    return view('commons.not_accept');
+
+                    
+                }
+           
                 break;
        
         }
+       
 
-        return view('commons.welcome');
+       
+        
 
     }
 

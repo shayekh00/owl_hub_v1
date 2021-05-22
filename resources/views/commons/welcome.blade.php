@@ -18,7 +18,7 @@
 </div>
 
 <div class="msg">
-    <a href="/" style="color:white; font-weight:normal ; font-size:20px;">Please click the link to go back and sign in to your account.</a>
+    <a href="{{route('landing')}}" style="color:white; font-weight:normal ; font-size:20px;">Please click the link to go back and sign in to your account.</a>
 </div>
 
 @endsection

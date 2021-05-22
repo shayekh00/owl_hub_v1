@@ -127,8 +127,9 @@
                 <!-- <button type="submit" name="action" value="both" class="btn btn-success owl_hub_green">BOTH</button> -->
                 
                 <br>
-                <a href="{{route('reset_student_password_request')}}" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot Student Account Password ?</a>
-                <a href="{{route('reset_courseexpert_password_request')}}" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot Course Expert Account Password ?</a>
+                <a href="{{route('reset_student_password_request')}}" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot Student Password ?</a>
+                <br>
+                <a href="{{route('reset_courseexpert_password_request')}}" style="color:#1A9957; font-weight:normal ; font-size:20px;">Forgot Course Expert Password ?</a>
                 </div>
             </div>
         </div>

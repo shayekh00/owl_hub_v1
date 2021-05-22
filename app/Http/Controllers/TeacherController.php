@@ -244,11 +244,6 @@ class TeacherController extends Controller
                     ['accepted_appointments' => $courses_data] );
 
     }
-
-
-    
-
-
-    
+   
 
 }
