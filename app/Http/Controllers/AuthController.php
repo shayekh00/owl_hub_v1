@@ -89,7 +89,7 @@ class AuthController extends Controller
         
         switch ($request->input('action')) {
             case 'student':
-                $student = student::a('email', $request->email)->first();
+                $student = student::where('email', $request->email)->first();
         
                 if (!$student) {
                     echo('Not a Student');
