@@ -12,6 +12,13 @@ class Commons extends Controller
         return view('commons.contactus');
     }
 
+    function how_it_works()
+    {
+        //   redirects to contact us page
+        return view('commons.how_it_works');
+    }
+
+
     public function about(){
         return view('commons.about');
     }
