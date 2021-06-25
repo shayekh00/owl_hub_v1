@@ -23,8 +23,8 @@
 
 <div class="center">
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Student')"> How Student Account Works </button>
-            <button class="tablinks" onclick="openCity(event, 'Teacher')"> How Teacher Account Works  </button>
+            <button class="tablinks" onclick="openCity(event, 'Student')"> Click Here for Student Account  </button>
+            <button class="tablinks" onclick="openCity(event, 'Teacher')"> Click Here for Teacher Account   </button>
         </div>
 </div>
 

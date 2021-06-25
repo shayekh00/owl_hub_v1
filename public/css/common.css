@@ -10,12 +10,13 @@
   background-size:100%;
   position: absolute;
   /* background:#4E4E4E; */
- 
+  font-family: "Maven Pro" ;
 }
 
 body{
   /* background-image: url("../images/fixed_background2.png"); */
   background-image: url("../images/b3.jpg");
+  font-family: "Maven Pro";
 }
 
 .owl_hub_green {

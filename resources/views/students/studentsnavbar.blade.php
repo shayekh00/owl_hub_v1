@@ -1,3 +1,9 @@
+<style>
+  .nav-item {
+    margin-right: 30px;
+}
+</style>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
 
     <a class="navbar-brand" href="{{route('live_search.index')}}">

@@ -72,7 +72,7 @@ class UploadController extends Controller
         }
 
         // dd($timing[0]->course_timing_sunday);
-
+        
         return view('students.upload_resources', 
         ['courseexpert_id' => $courseexpert_id ,'course_id'=> $course_id,'seletion' => $selected_appointment, 'appointment_timing' => $timing  ]);
     }

@@ -7,6 +7,12 @@
 
 
 @section('content')
+<script>
+
+document.getElementById('example-date-input').valueAsDate = new Date();
+
+
+</script>
 
 @extends('students.studentsnavbar')
 
@@ -54,25 +60,38 @@
                         <br />
                         <label for="example-date-input" class="col-2 col-form-label" style="color:white;">Deadline</label>
 
-                        <input class="form-control" type="date" value="2021-06-25" id="example-date-input" name="deadline_date">
+                        <input class="form-control" type="date" value="<?php date_default_timezone_set("Asia/Dhaka");
+                                                                            $date = new DateTime();
+                                                                            $interval = new DateInterval('P1D');
+                                                                            $date->add($interval);
+                                                                            echo $date->format("Y-m-d"); 
+                                                                        ?>"
+                                                                id="example-date-input" 
+                                                                name="deadline_date"
+                        >
+
+
 
                         <br /><br />
-                        <b> <label style="color:white;" for="Product Name"> Appointment Timing Selected:  </label> </b>
 
-                        <label style="color:white;">
+                        <div class="alert alert-secondary" role="alert">
+                            <b> <label style="color:black;" for="Product Name"> Appointment Timing Selected:  </label> </b>
+                            
+                            <label style="color:black;">
+                            
+                            @foreach ($appointment_timing as  $key => $data )
+                            <!-- <br> -->
+                                <p>  @if(  $seletion == 1  )  Saturday: {{ $data-> course_timing_saturday }} @endif</p>
+                                <p>  @if(  $seletion == 2  )  Sunday: {{ $data-> course_timing_sunday}} @endif</p>
+                                <p>  @if(  $seletion == 3  )  Monday: {{ $data-> course_timing_monday}} @endif</p>
+                                <p>  @if(  $seletion == 4  )  Tuesday: {{ $data-> course_timing_tuesday}} @endif</p>
+                                <p>  @if(  $seletion == 5  )  Wednesday: {{ $data-> course_timing_wednesday}} @endif</p>
+                                <p>  @if(  $seletion == 6  )  Thursday: {{ $data-> course_timing_thursday}} @endif</p>
+                                <p>  @if(  $seletion == 7  )  Friday: {{ $data-> course_timing_friday }} @endif</p>
+                            @endforeach
+                            </label>
                         
-                        @foreach ($appointment_timing as  $key => $data )
-                        <br>
-                            <p>  @if(  $seletion == 1  )  Saturday: {{ $data-> course_timing_saturday }} @endif</p>
-                            <p>  @if(  $seletion == 2  )  Sunday: {{ $data-> course_timing_sunday}} @endif</p>
-                            <p>  @if(  $seletion == 3  )  Monday: {{ $data-> course_timing_monday}} @endif</p>
-                            <p>  @if(  $seletion == 4  )  Tuesday: {{ $data-> course_timing_tuesday}} @endif</p>
-                            <p>  @if(  $seletion == 5  )  Wednesday: {{ $data-> course_timing_wednesday}} @endif</p>
-                            <p>  @if(  $seletion == 6  )  Thursday: {{ $data-> course_timing_thursday}} @endif</p>
-                            <p>  @if(  $seletion == 7  )  Friday: {{ $data-> course_timing_friday }} @endif</p>
-                        @endforeach
-                        </label>
-                        
+                        </div>
 
                         <br /><br />
                         <button type="submit" class="btn btn-success" value="Upload" > Request Course Expert </button>
