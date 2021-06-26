@@ -45,14 +45,12 @@
             <!--Grid column-->
 
             <div class="col-lg-4 col-md-6 mb-4">
-                <img src="{{ asset('images/step-01.png') }}" alt="img" class="img-fluid">
-                
-                <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(74).jpg" class="img-fluid mb-4" alt=""
-                data-wow-delay="0.1s">
 
-                <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(64).jpg" class="img-fluid mb-4" alt=""
-                data-wow-delay="0.4s">
-
+               <img src="{{ asset('images/how_it_works/students/student tut-01-min.jpg') }}" alt="img" class="img-fluid">
+                <img src="{{ asset('images/how_it_works/students/student tut-02-min.jpg') }}" alt="img" class="img-fluid">
+                <img src="{{ asset('images/how_it_works/students/student tut-03-min.jpg') }}" alt="img" class="img-fluid">
+                <img src="{{ asset('images/how_it_works/students/student tut-04-min.jpg') }}" alt="img" class="img-fluid">
+                <img src="{{ asset('images/how_it_works/students/student tut-05-min.jpg') }}" alt="img" class="img-fluid">
             </div>
             <!--Grid column-->
 
@@ -70,8 +68,38 @@
 </div>
 
 <div id="Teacher" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+          <div class="container my-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-12 mb-4">
+              <!-- NOTHING SHOULD GO HERE. THIS SHOULD REMAIN EMPTY -->
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+
+          <div class="col-lg-4 col-md-6 mb-4">
+
+            <img src="{{ asset('images/how_it_works/teachers/expert tut-01-min.jpg') }}" alt="img" class="img-fluid">
+              <img src="{{ asset('images/how_it_works/teachers/expert tut-02-min.jpg') }}" alt="img" class="img-fluid">
+              <img src="{{ asset('images/how_it_works/teachers/expert tut-03-min.jpg') }}" alt="img" class="img-fluid">
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-6 mb-4">
+              <!-- NOTHING SHOULD GO HERE. THIS SHOULD REMAIN EMPTY -->
+          </div>
+          <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+          </div>
+          <!-- STUDENT PICTURE DIV ENDS -->
 </div>
 
 
