@@ -92,7 +92,7 @@ class AuthController extends Controller
                 $student = student::where('email', $request->email)->first();
         
                 if (!$student) {
-                    echo('Not a Student');
+                    return view('commons.not_student_message');
                 }
 
                 //login in student
@@ -126,7 +126,7 @@ class AuthController extends Controller
                 $email = $request->email ;
                 //dd($email);
                 if (!$courseexpert) {
-                    echo('Not a Course Expert');
+                    return view('commons.not_teacher_message');
                 }
                 
                 $password = $request->password;

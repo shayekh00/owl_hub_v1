@@ -30,4 +30,12 @@ class Commons extends Controller
     public function not_accept(){
         return view('commons.not_accept');
     }
+
+    // public function not_teacher(){
+    //     return view('commons.not_teacher_message');
+    // }
+
+    // public function not_student(){
+    //     return view('commons.not_student_message');
+    // }
 }

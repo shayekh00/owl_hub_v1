@@ -24,6 +24,9 @@ Route::get('/login_signup', function () {
         return view('commons.landing');
 })->name('landing');;
 
+Route::get('/not_a_teacher', 'Commons@not_teacher');
+Route::get('/not_a_student', 'Commons@not_student');
+
 
 Route::get('/how_it_works', 'Commons@how_it_works')->name('how_it_works');
 Route::get('my-Test-mail/{email}/{url}/{message}','MailController@myTestMail')->name('sendEmail');
