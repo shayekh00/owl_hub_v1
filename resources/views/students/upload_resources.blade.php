@@ -1,6 +1,7 @@
 @extends('html_skeleton')
 
 @section('css_file')
+<link href="{{ asset('css/search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fileupload.css') }}" rel="stylesheet">
 
 @endsection
@@ -11,6 +12,15 @@
 
 document.getElementById('example-date-input').valueAsDate = new Date();
 
+function validateForm() {
+  let x = document.forms["request_form"]["problem_text"].value;
+
+  
+  if (x == "") {
+    alert("Description about the problem must be filled out");
+    return false;
+  }
+}
 
 </script>
 
@@ -37,7 +47,8 @@ document.getElementById('example-date-input').valueAsDate = new Date();
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                    
-                    <form action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}/{{$seletion}}" method="post" enctype="multipart/form-data">
+                    <form name="request_form" action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}/{{$seletion}}" 
+                           method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label style="color:white;" for="Product Name">
@@ -53,7 +64,7 @@ document.getElementById('example-date-input').valueAsDate = new Date();
                                 <textarea class="form-control" name="problem_text" placeholder="Problem Description" aria-label="With textarea"></textarea>
                             </div>
                         </div>
-                        <label style="color:white;" for="Product Name">Attach Google Drive Link To any Resource(s) :</label>
+                        <label style="color:white;" for="Product Name">Attach Google Drive Link To any Resources (PPT / Slides / Book PDF) :</label>
                         <label style="color:white;" for="Product Name"> (Please make sure its publicly accessible )</label>
                         <br />
                         <input type="text" class="form-control" placeholder="Drive Link" name="drive_link">
@@ -94,7 +105,7 @@ document.getElementById('example-date-input').valueAsDate = new Date();
                         </div>
 
                         <br /><br />
-                        <button type="submit" class="btn btn-success" value="Upload" > Request Course Expert </button>
+                        <button type="submit" class="button" value="Upload" > Request Course Expert </button>
                     </form>
                 </div>
             </div>
