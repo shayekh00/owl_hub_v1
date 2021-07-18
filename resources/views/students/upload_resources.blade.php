@@ -38,15 +38,15 @@ function validateForm() {
         <div class="container">
             <div class="row">
                 <!-- <div class="col-md-2"> <img src="/32114.svg" width="80" /></div> -->
-                <div class="container">
+                <!-- <div class="container">
                     <h1 class=" owl_hub_green" >Write information about your problem</h1>
-                </div>
+                </div> -->
             </div>
             <br>
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                   
+                <h1 align="center" class=" owl_hub_green" >Write information about your problem</h1> <br><br>
                     <form name="request_form" action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}/{{$seletion}}" 
                            method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
                         {{ csrf_field() }}

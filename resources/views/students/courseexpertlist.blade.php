@@ -36,7 +36,7 @@
                                     <p> <b> University: </b> {{ $university_name1}}  </p>
 
                                     <p> <b> Select Appointment Timing: </b> 
-                                        <select class="form-select" name="appointment_timing" aria-label="Default select example">
+                                        <select id="timing_selection" class="form-select" name="appointment_timing" aria-label="Default select example">
                                             <option disabled ="disabled" selected ="selected">  </option>
                                             @if(  $data->course_timing_monday  )<option value="1"> <b> Saturday: </b>  {{ $data->course_timing_saturday }}</option>@endif
                                             @if(  $data->course_timing_monday  )<option value="2"> <b> Sunday: </b>  {{ $data->course_timing_sunday }}</option>@endif
@@ -51,7 +51,9 @@
                                     </div>
 
                                     <br /><br />
-                                    <button class="button">Continue</button>
+                                    <!-- <button class="button">Continue</button> -->
+                                    <input class="button" type="submit" value="Continue" onclick="return Validate()" />
+
                                      <!-- <a href="{{ url('multiuploads/'.$data->courseexpert_id.'/'.$course_id.'/') }}">
                             
                                         <button class="button">Continue</button>
@@ -71,5 +73,17 @@
         </div>
         <br>
     @endforeach
+
+<script type="text/javascript">
+    function Validate() {
+        var timing_selection = document.getElementById("timing_selection");
+        if (timing_selection.value == "") {
+            //If the "Please Select" option is selected display error.
+            alert("Please select a timing for the appointment!");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 @endsection
