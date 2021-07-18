@@ -5,7 +5,7 @@
 </style>
 
 <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end" > -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end" >
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end sticky-top" >
 
     <a class="navbar-brand" href="{{route('student_request.index')}}">
         <img src="{{ asset('images/logo.png') }}"  width="60" height="60" alt="">

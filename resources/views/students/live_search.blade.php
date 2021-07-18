@@ -20,7 +20,7 @@
         <br />
         <br />
         <br />
-        <h3 align="center" class="owl_hub_green">Search For Course Experts</h3><br />
+        <h2 align="center" class="owl_hub_green">Search For Course Experts</h2><br />
         <div class="panel panel-default">
 
             <div class="form-group">
