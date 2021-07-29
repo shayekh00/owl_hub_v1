@@ -6,6 +6,12 @@
         <link href="{{ asset('css/how_it_works.css') }}" rel="stylesheet">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+          .img-fluid {
+              width: 50%;
+            }
+        </style>
 @endsection
 
 
@@ -26,81 +32,24 @@
             <button class="tablinks" onclick="openCity(event, 'Student')"> Click Here for Student Account  </button>
             <button class="tablinks" onclick="openCity(event, 'Teacher')"> Click Here for Teacher Account   </button>
         </div>
+
+
+        <div id="Student" class="tabcontent">
+          <img src="{{ asset('images/how_it_works/students/student tut-01-min.jpg') }}" alt="img" class="img-fluid"><br>
+          <img src="{{ asset('images/how_it_works/students/student tut-02-min.jpg') }}" alt="img" class="img-fluid"><br>
+          <img src="{{ asset('images/how_it_works/students/student tut-03-min.jpg') }}" alt="img" class="img-fluid"><br>
+          <img src="{{ asset('images/how_it_works/students/student tut-04-min.jpg') }}" alt="img" class="img-fluid"><br>
+          <img src="{{ asset('images/how_it_works/students/student tut-05-min.jpg') }}" alt="img" class="img-fluid">
+        </div>
+
+        <div id="Teacher" class="tabcontent">
+          <img src="{{ asset('images/how_it_works/teachers/expert tut-01-min.jpg') }}" alt="img" class="img-fluid"><br>
+          <img src="{{ asset('images/how_it_works/teachers/expert tut-02-min.jpg') }}" alt="img" class="img-fluid"><br>
+          <img src="{{ asset('images/how_it_works/teachers/expert tut-03-min.jpg') }}" alt="img" class="img-fluid">
+        </div>
 </div>
 
 
-<!-- Tab content -->
-<div id="Student" class="tabcontent">
-            <div class="container my-4">
-
-            <!--Grid row-->
-            <div class="row">
-
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-12 mb-4">
-                <!-- NOTHING SHOULD GO HERE. THIS SHOULD REMAIN EMPTY -->
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-
-            <div class="col-lg-4 col-md-6 mb-4">
-
-               <img src="{{ asset('images/how_it_works/students/student tut-01-min.jpg') }}" alt="img" class="img-fluid">
-                <img src="{{ asset('images/how_it_works/students/student tut-02-min.jpg') }}" alt="img" class="img-fluid">
-                <img src="{{ asset('images/how_it_works/students/student tut-03-min.jpg') }}" alt="img" class="img-fluid">
-                <img src="{{ asset('images/how_it_works/students/student tut-04-min.jpg') }}" alt="img" class="img-fluid">
-                <img src="{{ asset('images/how_it_works/students/student tut-05-min.jpg') }}" alt="img" class="img-fluid">
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <!-- NOTHING SHOULD GO HERE. THIS SHOULD REMAIN EMPTY -->
-            </div>
-            <!--Grid column-->
-
-            </div>
-            <!--Grid row-->
-
-            </div>
- <!-- STUDENT PICTURE DIV ENDS -->
-</div>
-
-<div id="Teacher" class="tabcontent">
-          <div class="container my-4">
-
-          <!--Grid row-->
-          <div class="row">
-
-          <!--Grid column-->
-          <div class="col-lg-4 col-md-12 mb-4">
-              <!-- NOTHING SHOULD GO HERE. THIS SHOULD REMAIN EMPTY -->
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-
-            <img src="{{ asset('images/how_it_works/teachers/expert tut-01-min.jpg') }}" alt="img" class="img-fluid">
-              <img src="{{ asset('images/how_it_works/teachers/expert tut-02-min.jpg') }}" alt="img" class="img-fluid">
-              <img src="{{ asset('images/how_it_works/teachers/expert tut-03-min.jpg') }}" alt="img" class="img-fluid">
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-lg-4 col-md-6 mb-4">
-              <!-- NOTHING SHOULD GO HERE. THIS SHOULD REMAIN EMPTY -->
-          </div>
-          <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
-
-          </div>
-          <!-- STUDENT PICTURE DIV ENDS -->
-</div>
 
 
 <script>
