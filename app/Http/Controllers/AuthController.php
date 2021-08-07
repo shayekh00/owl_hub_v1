@@ -8,6 +8,7 @@ Use App\Models\courseexpert;
 Use App\Models\student;
 Use App\Models\admin_settings;
 Use App\Models\course;
+use App\Models\user_logs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -101,6 +102,15 @@ class AuthController extends Controller
                     if (Auth::guard('student')->attempt(['email' => $request->email  , 'password' => $request->password ] )) {
                         // dd(Auth::guard('courseexpert')->user()->name);
                         // return view('commons.registrationcompleted');
+
+                        //LOG LOGIN DATA
+                        // Takes in $current_id ,$user_type , $page_visited ,$action_done
+                        $current_id  = Auth::guard('student')->user()->student_id; 
+                        $user_type = "Student";
+                        $page_visited = "Live Search Page";
+                        $action_done = "Logged in";
+                        $this->log_user_data( $current_id ,$user_type , $page_visited ,$action_done );
+
                         return view('students.live_search');
                     }
                  }
@@ -137,12 +147,15 @@ class AuthController extends Controller
                  if (Hash::check($request->password, $courseexpert->password)) {
                     
                     if (Auth::guard('courseexpert')->attempt(['email' => $email  , 'password' => $request->password ] )) {
+                        $current_id  = Auth::guard('courseexpert')->user()->student_id; 
+                        $user_type = "Course Expert";
+                        $page_visited = "Live Search Page";
+                        $action_done = "Logged in";
+                        $this->log_user_data( $current_id ,$user_type , $page_visited ,$action_done );
+
                         return redirect()->route( 'student_request.index' );
                     }
 
-                    if (Auth::guard('courseexpert')->attempt(['email' => $email  , 'password' => $request->password ] )) {
-                        return redirect()->route( 'student_request.index' );
-                    }
 
 
                  }
@@ -238,6 +251,19 @@ class AuthController extends Controller
       ]);
     }
     
+    function log_user_data( $current_id ,$user_type , $page_visited ,$action_done ){
+        $items = user_logs::create([
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+            ]);
+
+            user_logs::where('id', '=', $items->id )
+                       ->update( array('user_id' => $current_id,
+                                            'user_type' => $user_type,
+                                            'page_visited' => $page_visited,
+                                            'action_done' => $action_done,
+            ) );
+    }
  
 
      
