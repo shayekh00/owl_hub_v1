@@ -107,7 +107,7 @@ Route::group(['middleware' => ['auth:student'] ], function () {
 
     Route::get('/live_search', 'LiveSearch@index')->name('live_search.index');
     Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
-    Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}', 'LiveSearch@list')->name('course_expert_list.create_list');
+    Route::get('/course_expert_list/{course_code1}/{university_name1}/{course_id}/{courseexpert_id}', 'LiveSearch@list')->name('course_expert_list.create_list');
     Route::get('/multiuploads/{courseexpert_id}/{course_id}/', 'UploadController@uploadResourcesPage')->name('multiuploads.uploadResourcesPage');
     Route::post('/multiuploads/{courseexpert_id}/{course_id}/{seletion}/', 'UploadController@submitResources')->name('multiuploads.submitResources');
     Route::get('/allstudentrequest', 'StudentRequest@allrequest')->name('student.allrequest');

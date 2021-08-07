@@ -58,8 +58,9 @@ function action(Request $request)
         $total_row = $data->count();
         if($total_row > 0)
         {
+            
             foreach($data as $row)
-            {
+            {   
                 $output .= '
                 <tr>
                     <td>'.$row->course_code1.'</td>
@@ -67,7 +68,7 @@ function action(Request $request)
                     <td >
                         <a class= "btn btn-success" href= "  '.route('course_expert_list.create_list',
                                     ['course_code1' => $row->course_code1,'university_name1' => $row->university_name1,
-                                        'course_id' => $row->course_id ]   ) .  '  "      "role="button"  > SELECT NOW </a>
+                                        'course_id' => $row->course_id ,'courseexpert_id' => $row->courseexpert_id, ]   ) .  '  "      "role="button"  > SELECT NOW </a>
 
                     </td>
 
@@ -98,11 +99,11 @@ function action(Request $request)
 
 
 
-function list($course_code , $university_name1,$course_id ){
+function list($course_code , $university_name1,$course_id ,$courseexpert_id){
     
     $courseexperts_table_data = DB::table('courseexperts')
         ->join('courses', 'courseexperts.courseexpert_id', '=', 'courses.courseexpert_id')
-        ->where('courses.course_code1', '=', $course_code)
+        ->where('courses.courseexpert_id', '=', $courseexpert_id)
         ->inRandomOrder()
         ->limit(5)
         ->select('courseexperts.*')
