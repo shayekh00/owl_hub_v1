@@ -12,7 +12,7 @@
 @extends('students.studentsnavbar')
 
 <div class="center">
-                 <h1 class=" owl_hub_green" > Requested Appointments </h1>
+                 <h1 class="owl_hub_green display-4 font-weight-bold" > Requested Appointments </h1>
 </div>
 
     @if (session('status'))

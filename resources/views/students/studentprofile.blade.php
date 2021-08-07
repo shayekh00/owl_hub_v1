@@ -12,7 +12,7 @@
 
 @extends('students.studentsnavbar')
 <div class="center">
-                 <h1 class=" owl_hub_green" >My Profile</h1>
+                 <h1 class="owl_hub_green display-4 font-weight-bold" >My Profile</h1>
 </div>
 
 <div class="sidenav">
