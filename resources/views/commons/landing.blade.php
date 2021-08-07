@@ -168,8 +168,8 @@
             </div>
 
             <div class="center">
-                <a class="special" role="link" href="#">Forgot your password for Student Account ? Click here</a> <br>
-                <a class="special" role="link" href="#">Forgot your password for Course Expert Account ? Click here</a> <br> <br>
+                <a class="special" role="link" href="{{route('reset_student_password_request')}}" >Forgot your password for Student Account ? Click here</a> <br>
+                <a class="special" role="link" href="{{route('reset_courseexpert_password_request')}}" >Forgot your password for Course Expert Account ? Click here</a> <br> <br>
                 
             </div>
           
