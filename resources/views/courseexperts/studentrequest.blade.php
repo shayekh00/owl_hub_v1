@@ -29,7 +29,7 @@
     </div>
 @endif
 
-@if ($check_courses == 0)
+@if ($check_courses == 0 )
     <div class="alert alert-danger" role="alert">
          Please 
          <a href="{{route('TeacherController.courseExpertCourses')}}"> click here </a>
