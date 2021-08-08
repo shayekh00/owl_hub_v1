@@ -38,8 +38,8 @@
                                     <p> <b> Select Appointment Timing: </b> 
                                         <select id="timing_selection" class="form-select" name="appointment_timing" aria-label="Default select example">
                                             <option disabled ="disabled" selected ="selected">  </option>
-                                            @if(  $data->course_timing_monday  )<option value="1"> <b> Saturday: </b>  {{ $data->course_timing_saturday }}</option>@endif
-                                            @if(  $data->course_timing_monday  )<option value="2"> <b> Sunday: </b>  {{ $data->course_timing_sunday }}</option>@endif
+                                            @if(  $data->course_timing_saturday  )<option value="1"> <b> Saturday: </b>  {{ $data->course_timing_saturday }}</option>@endif
+                                            @if(  $data->course_timing_sunday  )<option value="2"> <b> Sunday: </b>  {{ $data->course_timing_sunday }}</option>@endif
                                             @if(  $data->course_timing_monday  )<option value="3"> <b> Monday: </b>  {{ $data->course_timing_monday }}</option> @endif
                                             @if(  $data->course_timing_tuesday  )  <option value="4"> <b> Tuesday: </b>  {{ $data->course_timing_tuesday }}</option> @endif
                                             @if(  $data->course_timing_wednesday  )<option value="5"> <b> Wednesday: </b>  {{ $data->course_timing_wednesday }}</option> @endif

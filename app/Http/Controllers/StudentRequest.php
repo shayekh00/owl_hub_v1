@@ -30,13 +30,13 @@ class StudentRequest extends Controller
         
         // dd($check);
         $courses = DB::table('courses')
-                        ->where('courseexpert_id', '=', 2)
+                        ->where('courseexpert_id', '=', $courseexpert_id)
                         ->get()
                         ->first();
         //dd($courses);
-        $check_courses = 1;
+        $check_courses = 0;
         if( $courses ){
-            $check_courses = 0;
+            $check_courses = 1;
         }
 
         //dd($check_courses);

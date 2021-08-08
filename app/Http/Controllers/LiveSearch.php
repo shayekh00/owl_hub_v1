@@ -34,10 +34,9 @@ function action(Request $request)
             $data = DB::table('courses')
                 ->where('course_code1', 'like', '%'.$query.'%')
                 ->orWhere('university_name1', 'like', '%'.$query.'%')
-                // ->orWhere('City', 'like', '%'.$query.'%')
-                // ->orWhere('PostalCode', 'like', '%'.$query.'%')
-                // ->orWhere('Country', 'like', '%'.$query.'%')
                 ->get();
+
+           
             
         }
         else
@@ -61,19 +60,24 @@ function action(Request $request)
             
             foreach($data as $row)
             {   
-                $output .= '
-                <tr>
-                    <td>'.$row->course_code1.'</td>
-                    <td>'.$row->university_name1.'</td>
-                    <td >
-                        <a class= "btn btn-success" href= "  '.route('course_expert_list.create_list',
-                                    ['course_code1' => $row->course_code1,'university_name1' => $row->university_name1,
-                                        'course_id' => $row->course_id ,'courseexpert_id' => $row->courseexpert_id, ]   ) .  '  "      "role="button"  > SELECT NOW </a>
+                // If the course instructor at least has one timing filled
 
-                    </td>
+                if( $this->timing_is_filled($row->courseexpert_id) == 1   ){
+                    $output .= '
+                    <tr>
+                        <td>'.$row->course_code1.'</td>
+                        <td>'.$row->university_name1.'</td>
+                        <td >
+                            <a class= "btn btn-success" href= "  '.route('course_expert_list.create_list',
+                                        ['course_code1' => $row->course_code1,'university_name1' => $row->university_name1,
+                                            'course_id' => $row->course_id ,'courseexpert_id' => $row->courseexpert_id, ]   ) .  '  "      "role="button"  > SELECT NOW </a>
+    
+                        </td>
+    
+                    </tr>
+                    ';
+                }
 
-                </tr>
-                ';
             }
         }
         else
@@ -110,12 +114,48 @@ function list($course_code , $university_name1,$course_id ,$courseexpert_id){
         ->distinct()
         ->get();
 
-    // dd($courseexperts_table_data);
+    //dd($courseexperts_table_data);
 
     return view('students.courseexpertlist', 
         ['courseexperts_table_data' => $courseexperts_table_data , 'university_name1'=>$university_name1,'course_code'=>$course_code,
             'course_id'=>$course_id   ]);
 
+}
+
+
+public  function timing_is_filled( $courseexpert_id_parameter ){
+
+    // Returning 1 means one of the timing field was filled
+
+    $courseexpert_id  = $courseexpert_id_parameter;
+
+    $courseexperts = DB::table('courseexperts')
+    ->where('courseexpert_id', '=', $courseexpert_id)
+    ->get();
+
+    $check = 0;
+    if( $courseexperts->first()->course_timing_sunday != ""){
+        $check =1;
+    }
+    if( $courseexperts->first()->course_timing_monday != ""){
+        $check =1;
+    }
+    if( $courseexperts->first()->course_timing_tuesday != ""){
+        $check =1;
+    }
+    if( $courseexperts->first()->course_timing_wednesday != ""){
+        $check =1;
+    }
+    if( $courseexperts->first()->course_timing_thursday != ""){
+        $check =1;
+    }
+    if( $courseexperts->first()->course_timing_friday != ""){
+        $check =1;
+    }
+    if( $courseexperts->first()->course_timing_saturday != ""){
+        $check =1;
+    }
+    return $check;
 }
 
 
