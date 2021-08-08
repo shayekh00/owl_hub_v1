@@ -155,26 +155,26 @@ class UploadController extends Controller
                                             'appointment_timing' => $timing_string
                                     ) );
 
-        // $email = DB::table('courseexperts')
-        // ->where('courseexpert_id', '=', $courseexpert_id)
-        // ->select('email')
-        // ->get();
+        $email = DB::table('courseexperts')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->select('email')
+        ->get();
 
-        // $myEmail = $email;
-        // $message = "You have received a new request for a course on OwlHubBD.com, please log into your account to confirm.";
-        // $url = config('app.url'). '/' ;
+        $myEmail = $email;
+        $message = "You have received a new request for a course on OwlHubBD.com, please log into your account to confirm.";
+        $url = config('app.url'). '/' ;
         
-        // $details = [
-        //     'title' => 'New appointment request received.',
-        //     'url' => $url,
-        //     'message' => $message
-        // ];
+        $details = [
+            'title' => 'New appointment request received.',
+            'url' => $url,
+            'message' => $message
+        ];
 
-        // Mail::to($myEmail)->send(new MyTestMail($details));
+        Mail::to($myEmail)->send(new MyTestMail($details));
 
         //Main finished
 
-        //SMS Started
+        // //SMS Started
         $phone  = DB::table('courseexperts')
         ->where('courseexpert_id', '=', $courseexpert_id)
         ->select('phone')

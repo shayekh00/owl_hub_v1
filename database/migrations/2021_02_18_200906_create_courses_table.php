@@ -28,8 +28,8 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('courseexpert_id');
             $table->unsignedBigInteger('accepted_appointment_id');
 
-            $table->foreign('courseexpert_id')->references('courseexpert_id')->on('courseexperts');
-            $table->foreign('accepted_appointment_id')->references('accepted_appointment_id')->on('accepted_appointments');
+            // $table->foreign('courseexpert_id')->references('courseexpert_id')->on('courseexperts');
+            // $table->foreign('accepted_appointment_id')->references('accepted_appointment_id')->on('accepted_appointments');
 
             $table->integer('is_verified');
             $table->string('course_code1');

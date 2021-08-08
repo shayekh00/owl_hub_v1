@@ -24,10 +24,11 @@ class CreateAcceptedAppointmentsTable extends Migration
             $table->unsignedBigInteger('course_id');
             // $table->unsignedBigInteger('appointment_images_id');
             $table->unsignedBigInteger('student_id');
-            $table->foreign('courseexpert_id')->references('courseexpert_id')->on('courseexperts');
-            // $table->foreign('requested_appointment_id')->references('requested_appointment_id')->on('requested_appointments');
-            $table->foreign('student_id')->references('student_id')->on('students');
-            $table->foreign('course_id')->references('course_id')->on('courses');
+
+            // $table->foreign('courseexpert_id')->references('courseexpert_id')->on('courseexperts');
+            // $table->foreign('student_id')->references('student_id')->on('students');
+            // $table->foreign('course_id')->references('course_id')->on('courses');
+
             $table->string('appointment_timing');
 
             $table->unsignedBigInteger('appointment_hours');
@@ -38,6 +39,7 @@ class CreateAcceptedAppointmentsTable extends Migration
             $table->integer('is_accepted');
 
             $table->timestamps();
+            // $table->foreign('requested_appointment_id')->references('requested_appointment_id')->on('requested_appointments');
         });
     }
 
