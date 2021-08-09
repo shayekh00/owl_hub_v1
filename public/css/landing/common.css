@@ -1,0 +1,45 @@
+.owl_hub_background{
+  height:100%;
+  width: 100%;
+  /* background-image: url("../images/fixed_background2.png"); */
+  background-image: url("../images/b3.jpg");
+  background-repeat: repeat-y;
+  /* background-color:#4E4E4E; */
+  /* background-color:#333333; */
+  background-position:center;
+  background-size:100%;
+  position: absolute;
+  /* background:#4E4E4E; */
+  font-family: "Maven Pro" ;
+}
+
+body{
+  /* background-image: url("../images/fixed_background2.png"); */
+  background-image: url("../images/b3.jpg");
+  font-family: "Maven Pro";
+}
+
+.owl_hub_green {
+  color: #1A9957;
+}
+
+.owl_hub_gray {
+  color: #4E4E4E;
+}
+
+.owl_hub_white {
+  color: #fffbfb;
+}
+
+.form-control{
+  min-width: 100px;
+  border-radius: 50px;
+}
+.form-control:focus {
+  border-color: forestgreen;
+  box-shadow: none;
+}
+
+.error{
+  color: red;
+}

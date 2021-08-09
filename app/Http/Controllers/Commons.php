@@ -31,6 +31,26 @@ class Commons extends Controller
         return view('commons.not_accept');
     }
 
+    public function index(){
+        return view('commons.landing_new');
+    }
+
+    public function about_us(){
+        return view('commons.about_us');
+    }
+
+    public function blog(){
+        return view('commons.blog');
+    }
+
+    public function contact(){
+        return view('commons.contact');
+    }
+
+    public function abb(){
+        return view('commons.abb');
+    }
+
     // public function not_teacher(){
     //     return view('commons.not_teacher_message');
     // }
