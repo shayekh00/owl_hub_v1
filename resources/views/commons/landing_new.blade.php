@@ -139,11 +139,11 @@
 			<div class="slick1">
 				<div class="item-slick1 item1-slick1" style="background-image: url(images/nb4.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown" style="font-size:50px;">
 							Welcome to
 						</span>
 
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp" style="font-size:60px;">
 							OWLHUB
 						</h2>
 
@@ -156,13 +156,13 @@
 					</div>
 				</div>
 
-				<div class="item-slick1 item2-slick1" style="background-image: url(images/b3.jpg);">
+				<div class="item-slick1 item2-slick1" style="background-image: url(images/bg22.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown" style="font-size:35px;">
 							Country's ﬁrst
 						</span>
 
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37 " data-appear="fadeInUp" style="font-size:40px;">
 							P2P teaching platform
 						</h2>
 
@@ -177,11 +177,11 @@
 
 				<div class="item-slick1 item3-slick1" style="background-image: url(images/b2.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown"style="font-size:35px;">
 							Your guide to
 						</span>
 
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp"style="font-size:40px;">
 							better learning
 						</h2>
 
