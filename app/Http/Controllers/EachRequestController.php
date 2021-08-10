@@ -63,10 +63,10 @@ class EachRequestController extends Controller
 
         // Mail::to($myEmail)->send(new MyTestMail($details));
 
-        // accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
-        // ->update( array(
-        //                 'is_accepted' => 1
-        //         ) );
+        accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        ->update( array(
+                        'is_accepted' => 1
+                ) );
 
         //SMS Started
 
@@ -114,10 +114,10 @@ class EachRequestController extends Controller
 
         // Mail::to($myEmail)->send(new MyTestMail($details));    
 
-        // accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
-        // ->update( array(
-        //                 'is_accepted' => -1
-        //         ) );
+        accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        ->update( array(
+                        'is_accepted' => -1
+                ) );
         
         
         //SMS Started
