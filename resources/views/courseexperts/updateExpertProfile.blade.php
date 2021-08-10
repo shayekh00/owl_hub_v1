@@ -16,8 +16,6 @@
                  <h1 class=" owl_hub_green" >Edit My Profile</h1>
 </div>
 
-@extends('courseexperts.courseexpertsidebar')
-
 
 <div class="content">
 <div class="row">

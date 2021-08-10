@@ -13,7 +13,6 @@
 
 @extends('courseexperts.courseexpertnavbar')
 
-@extends('courseexperts.courseexpertsidebar')
 
 
 

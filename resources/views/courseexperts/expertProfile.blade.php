@@ -3,7 +3,7 @@
 
 @section('css_file')
     <link href="{{ asset('css/expertProfile.css') }}" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 @endsection
 
 
@@ -16,7 +16,6 @@
                  <h1 class=" owl_hub_green" >My Profile</h1>
 </div>
 
-@extends('courseexperts.courseexpertsidebar')
 
 
 
