@@ -43,7 +43,7 @@
 
 
 <!-- partial:index.partial.html -->
-<div class="logmod">
+<div class="logmod" style="padding-right:10% ;  padding-left:10%">
   <div class="logmod__wrapper">
     <span class="logmod__close">Close</span>
     <div class="logmod__container">
@@ -58,13 +58,13 @@
           @endif
       </div>
 
-      <div class="logmod__tab-wrapper">
+      <div class="logmod__tab-wrapper" >
       <div class="logmod__tab lgm-1">
         <div class="logmod__heading">
           <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an acount</strong></span>
         </div>
             <!-- SIGN UP FORM STARTS HERE -->
-        <div class="logmod__form">
+        <div class="logmod__form" >
           <form accept-charset="utf-8" action="{{url('postregister')}}" method="POST" id="signup" onkeydown="return event.key != 'Enter';" class="simform">
           {{ csrf_field() }}
           <div class="sminputs">
@@ -142,7 +142,7 @@
         <div class="logmod__heading">
           <span class="logmod__heading-subtitle">Enter your email and password <strong>to sign in</strong></span>
         </div> 
-        <div class="logmod__form">
+        <div class="logmod__form" >
         <form action="{{url('post-login')}}" class="simform"  method="POST" id="login" onkeydown="return event.key != 'Enter';">
         {{ csrf_field() }}
             <div class="sminputs">
