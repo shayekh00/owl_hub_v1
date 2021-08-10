@@ -19,9 +19,25 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarid">
+
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link " href="{{route('live_search.index')}}">Home</a>
-      <a class="nav-item nav-link" href="/student_profile">Profile</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+        <a class="dropdown-item" href="/student_profile">View Profile</a>
+        <a  class="dropdown-item" href="/student_profile_update">Edit Profile</a>
+        <a  class="dropdown-item" href="/Appointments">Appointments</a>
+          <!-- <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a> -->
+        </div>
+      </li>
+      
+      <!-- <a class="nav-item nav-link" href="/student_profile">Profile</a> -->
       <a class="nav-item nav-link" href="{{route('student.allrequest')}}">My Requests</a>
       <a class="nav-item nav-link" href="{{route('logout')}}">Logout</a>
     </div>
