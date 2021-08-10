@@ -14,7 +14,7 @@
 </div>
 
 <div class="msg">
-    <h1 class="white" >Thank you for signing up with Owl hub</h1>
+    <h1 class="white" style="color:white; font-weight:normal ; font-size:35px;" >Thank you for signing up with Owl hub</h1>
 </div>
 
 <div class="msg">

@@ -47,8 +47,8 @@ class Commons extends Controller
         return view('commons.contact');
     }
 
-    public function abb(){
-        return view('commons.abb');
+    public function test(){
+        return view('courseexperts.test');
     }
 
     // public function not_teacher(){

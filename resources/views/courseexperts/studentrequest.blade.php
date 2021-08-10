@@ -1,24 +1,34 @@
 @extends('html_skeleton')
 
 @section('css_file')
-    <link href="{{ asset('css/expertProfile.css') }}" rel="stylesheet">
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="{{ asset('css/course_expert_timing.css') }}" rel="stylesheet">
 @endsection
 
 
 
 @section('content')
 
-
 @extends('courseexperts.courseexpertnavbar')
+
+
+<style>
+
+a {
+  text-align: left;
+  padding: 8px;
+}
+/* select {
+  align-self: right;
+  padding: 8px;
+} */
+</style>
+
 <div class="center">
-    <h1 class=" owl_hub_green" >All of Your Student Requests</h1>
+    <h1 class="white" >All of Your Student Requests</h1>
+    
 </div>
+
+
 
 
 @if ($check_timing == 0)
