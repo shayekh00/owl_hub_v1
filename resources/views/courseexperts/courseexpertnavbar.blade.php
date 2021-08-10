@@ -30,15 +30,36 @@
           <a  class="dropdown-item" href="/update_expert_profile">Edit Profile</a>
           <a  class="dropdown-item" href="/appointments">Appointments</a>
           <a class="dropdown-item" href="/skypeLink">Add Links</a>
-          <a  class="dropdown-item" href="/view_timing">View Timing</a>
+
+
+          </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Courses
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{route('TeacherController.courseExpertCourses')}}">Add Course</a>
           <a  class="dropdown-item" href="/view_courses">View Courses</a>
           <a  class="dropdown-item" href="/update_expert_course">Delete Courses</a>
 
           </div>
       </li>
 
-      <a class="nav-item nav-link" href="{{route('TeacherController.courseExpertCourses')}}">Add Course</a>
-      <a class="nav-item nav-link" href="{{route('TeacherController.courseExpertTiming')}}">Add Time</a>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Timing
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <a class="dropdown-item" href="{{route('TeacherController.courseExpertTiming')}}">Add Timing</a>
+            <a  class="dropdown-item" href="/view_timing">View Timing</a>
+
+          </div>
+      </li>
+
       <a class="nav-item nav-link" href="{{route('logout')}}">Logout</a>
     </div>
     </div>
