@@ -46,7 +46,7 @@ function validateForm() {
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                <h1 align="center" class=" owl_hub_green" >Write information about your problem</h1> <br><br>
+                <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Write information about your problem</h1> <br><br>
                     <form name="request_form" action="/multiuploads/{{$courseexpert_id}}/{{$course_id}}/{{$seletion}}" 
                            method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
                         {{ csrf_field() }}

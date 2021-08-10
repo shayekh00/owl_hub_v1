@@ -23,7 +23,7 @@
             <div class="row">
                 <!-- <div class="col-md-2"> <img src="/32114.svg" width="80" /></div> -->
                 <div class="container">
-                    <h1 class=" owl_hub_green" >Write information about your problem</h1>
+                    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Write information about your problem</h1>
                 </div>
             </div>
             <br>

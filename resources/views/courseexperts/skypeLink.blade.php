@@ -18,7 +18,7 @@
 
 
 <div class="center">
-    <h1 class="white" >Add Links</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center">Add Links</h1>
 </div>
 
 

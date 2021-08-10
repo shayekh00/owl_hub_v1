@@ -13,7 +13,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-                 <h1 class=" owl_hub_green" >Edit My Profile</h1>
+                 <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Edit Profile</h1>
 </div>
 
 

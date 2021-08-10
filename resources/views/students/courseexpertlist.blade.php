@@ -12,7 +12,7 @@
 @extends('students.studentsnavbar')
 
 <div class="center">
-                 <h1 class=" owl_hub_green" >Course Expert List</h1>
+                 <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Course Expert List</h1>
 </div>
 
     @foreach ($courseexperts_table_data as  $key => $data )

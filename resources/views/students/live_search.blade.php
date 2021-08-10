@@ -26,7 +26,7 @@
         <br />
         <br />
         <br />
-        <h2 align="center" class="owl_hub_green display-4 font-weight-bold">Search For Course Experts</h2><br />
+        <h2 style="color: white;font-weight:Bold ; font-size:30px; text-align: center">Search For Course Experts</h2><br />
         <div class="panel panel-default">
 
             <div class="form-group">

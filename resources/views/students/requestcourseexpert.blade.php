@@ -11,7 +11,7 @@
 
 @extends('students.studentsnavbar')
 <div class="center">
-    <h1 class=" owl_hub_green">Request Course Expert</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center">Request Course Expert</h1>
     <div class="card" style="width: 30rem;">
         <div class="card-body">
             <div class="input-group input-group-sm mb-3">

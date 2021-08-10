@@ -32,7 +32,7 @@
         <br />
         <br />
         <br />
-        <h2 align="center" class="owl_hub_green display-4 font-weight-bold">All of Your Student Requests</h2><br />
+        <h2 style="color: white;font-weight:Bold ; font-size:30px; text-align: center">Add Courses</h2><br />
 
 
         <form action="expertcourses" method="POST" >

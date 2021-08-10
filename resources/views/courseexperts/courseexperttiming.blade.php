@@ -22,7 +22,7 @@ a {
 </style>
 
 <div class="container">
-    <h1 class="white" >Course Expert Timing</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Course Expert Timing</h1>
 </div>
 
 <form action="experttiming" method="POST">
@@ -35,6 +35,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                             <a style="color: white;font-weight:Bold ; font-size:25px;">Saturday</a>
+                            <br>
                             <select class="select-boxx" name="course_timing_saturday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>
@@ -76,6 +77,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                         <a style="color: white;font-weight:Bold ; font-size:25px;">Sunday</a>
+                        <br>
                             <select class="select-boxx" name="course_timing_sunday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>
@@ -117,6 +119,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                         <a style="color: white;font-weight:Bold ; font-size:25px;">Monday</a>
+                        <br>
                             <select class="select-boxx" name="course_timing_monday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>
@@ -158,6 +161,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                         <a style="color: white;font-weight:Bold ; font-size:25px;">Tuesday</a>
+                        <br>
                             <select class="select-boxx" name="course_timing_tuesday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>
@@ -199,6 +203,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                         <a style="color: white;font-weight:Bold ; font-size:25px;">Wednesday</a>
+                        <br>
                             <select class="select-boxx" name="course_timing_wednesday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>
@@ -240,6 +245,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                         <a style="color: white;font-weight:Bold ; font-size:25px;">Thursday</a>
+                        <br>
                             <select class="select-boxx" name="course_timing_thursday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>
@@ -281,6 +287,7 @@ a {
                     <div class="container">
                         <div class="select-box">
                         <a style="color: white;font-weight:Bold ; font-size:25px;">Friday</a>
+                        <br>
                             <select class="select-boxx" name="course_timing_friday">
                                 <option disabled ="disabled" selected ="selected">--choose time</option>
                                 <option> 8:00AM - 9:00AM</option>

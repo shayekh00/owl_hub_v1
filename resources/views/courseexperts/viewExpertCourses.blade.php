@@ -17,7 +17,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-    <h1 class=" owl_hub_green" >My Courses</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >My Courses</h1>
 
    
 

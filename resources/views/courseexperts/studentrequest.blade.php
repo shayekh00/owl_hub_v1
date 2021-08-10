@@ -24,7 +24,7 @@ a {
 </style>
 
 <div class="center">
-    <h1 class="white" >All of Your Student Requests</h1>
+    <h1style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >All of Your Student Requests</h1>
     
 </div>
 
