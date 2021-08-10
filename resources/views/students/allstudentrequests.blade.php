@@ -27,7 +27,7 @@
 
             <div class="column">
 
-                <div class="card">
+                <div class="card " style="margin:10%">
 
 
                     <br>
