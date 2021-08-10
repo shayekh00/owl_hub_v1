@@ -79,14 +79,14 @@
               <div class="input full">
 
                 <label class="string optional" for="user-name">Email*</label>
-                <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" name="email" required />
+                <input class="string optional" maxlength="255" id="user-email" placeholder="example@email.com" type="email" size="50" name="email" required />
               </div>
             </div>
 
             <div class="sminputs">
               <div class="input full">
                 <label class="string optional" for="user-name">Phone*</label>
-                <input class="string optional" maxlength="255" id="user-email" placeholder="Phone" type="tel" size="50" name="phone" required/>
+                <input class="string optional" maxlength="255" id="user-phone" placeholder="018XXXXXXXX" type="tel" size="10" pattern="[0-9]{11}" name="phone"  required />
               </div>
             </div>
 
