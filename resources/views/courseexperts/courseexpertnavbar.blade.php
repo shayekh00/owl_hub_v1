@@ -11,13 +11,13 @@
         <img src="{{ asset('images/logo.png') }}"  width="60" height="60" alt="">
     </a>
 
-    <a class="navbar-brand ml-auto mr-1" href="{{route('student_request.index')}}"><i class="fa fa-home"></i>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <!-- <a class="navbar-brand ml-auto mr-1" href="{{route('student_request.index')}}"><i class="fa fa-home"></i> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarid">
         <span class="navbar-toggler-icon"></span>
     </button>
     
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
-    <div class="navbar-nav" >
+    <div class="collapse navbar-collapse" id="navbarid" >
+    <div class="navbar-nav ml-auto" >
       <a class="nav-item nav-link " href="{{route('student_request.index')}}">Home</a>
       <a class="nav-item nav-link" href="{{route('courseexperts.expertProfile')}}">Profile</a>
       <a class="nav-item nav-link" href="{{route('TeacherController.courseExpertCourses')}}">Add Course</a>
