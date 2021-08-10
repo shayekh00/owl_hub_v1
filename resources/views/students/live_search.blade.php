@@ -36,22 +36,23 @@
             <div class="table-responsive">
             <!-- <h3 align="center"> Available Data : <span id="total_records"></span></h3> -->
             
-            <table class="table table-striped table-bordered " style="background-color:#FFFFFF" >
-                <thead>
-                    <tr>
-                        <th>Course Code</th>
-                        <th>University</th>
-                        <th>  </th>
-                    </tr>
-                </thead>
-            <tbody>
+                <table class="table table-striped table-bordered " style="background-color:#FFFFFF" >
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>University</th>
+                            <th>  </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
 
 
-            </tbody>
+                    </tbody>
 
-            </table>
-            
+                </table>
             </div>
+            
             </div>    
         </div>
         </div>
