@@ -19,7 +19,7 @@
 @extends('courseexperts.courseexpertnavbar')
 
 <div class="center">
-    <h1 class=" owl_hub_green" >My Appointments</h1>
+    <h1 class=" owl_hub_green" >My Appointmentss</h1>
 </div>
 
 
