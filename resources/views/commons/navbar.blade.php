@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarid">
     <div class="navbar-nav  ml-auto">
       <a class="nav-item nav-link" href="{{route('new_landing')}}"> Home </a>
-      <a class="nav-item nav-link" href="{{route('how_it_works')}}"> How It Works </a>
+      <!-- <a class="nav-item nav-link" href="{{route('how_it_works')}}"> How It Works </a> -->
       <a class="nav-item nav-link " href="{{route('faq')}}">FAQ</a>
       <a class="nav-item nav-link" href="{{route('about_us')}}">About Us</a>
       <a class="nav-item nav-link" href="{{route('contact_us')}}">Contact</a>
