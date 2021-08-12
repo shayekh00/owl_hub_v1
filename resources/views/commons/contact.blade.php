@@ -130,7 +130,7 @@
 
 
 	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(images/green.jpg);">
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(images/cont.jpg);">
 		<h2 class="tit6 t-center">
 			Contact
 		</h2>

@@ -71,7 +71,7 @@
                         <div class="feature-block">
                             <h4>Step 2:</h4>
                             <img src="{{ asset('images/step-02.png') }}" alt="img" class="img-fluid">    
-                            <p>Search for your course and suitable timing</p>
+                            <p> Search for your course and suitable timing  </p>
                         </div>
                     </div>
 

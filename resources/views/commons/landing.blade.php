@@ -125,10 +125,11 @@
               </div>
               <div class="connect__context">
                 <span>Create an account with <strong>Google+</strong></span>
-              </div>
+              </div>  
             </a>
           </div>
-        </div> -->
+        </div> -->    
+      
       </div>
       <div class="logmod__tab lgm-2">
         <div class="logmod__heading">
@@ -152,7 +153,10 @@
             </div>
             <div class="simform__actions ">
               <div class="center">
-                <button type="submit" name="action" value="student" class="btn btn-success">Student</button>
+              <!-- style="margin-right: 12px" -->
+                <button type="submit" name="action" value="student" class="btn btn-success" >Student</button>
+                </div>
+                <div class="center">
                 <button type="submit" name="action" value="courseexpert" class="btn btn-success">Course Expert</button>
               </div>
               <!-- <input class="sumbit" name="commit" type="sumbit" value="Student" /> 

@@ -139,11 +139,11 @@
 			<div class="slick1">
 				<div class="item-slick1 item1-slick1" style="background-image: url(images/nb4.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown" style="font-size:50px;">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown" style="font-size:35px;">
 							Welcome to
 						</span>
 
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp" style="font-size:60px;">
+						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp" style="font-size:40px;">
 							OWLHUB
 						</h2>
 
@@ -401,7 +401,7 @@
 
 						<li class="txt14 m-b-14">
 							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
-							owlhubbd.com
+							owlhub@gmail.com
 						</li>
 					
 				</div>

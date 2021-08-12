@@ -329,7 +329,7 @@ a {
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
-                            <button type="submit"  class="btn btn-success">Next Page</button>
+                            <button type="submit"  class="btn btn-success">Submit</button>
                         </div>
                     </div>
                 </div>

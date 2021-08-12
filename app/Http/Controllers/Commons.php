@@ -48,7 +48,7 @@ class Commons extends Controller
     }
 
     public function test(){
-        return view('courseexperts.test');
+        return view('commons.error');
     }
 
     // public function not_teacher(){
