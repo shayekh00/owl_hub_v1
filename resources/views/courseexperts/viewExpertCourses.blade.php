@@ -10,14 +10,12 @@
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 @endsection
 
-<link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
 
 
 @section('content')
 
 
 @extends('courseexperts.courseexpertnavbar')
-
 <div class="center">
     <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >My Courses</h1>
 
@@ -35,6 +33,8 @@
 
 @foreach ($courses as  $key => $data )
         
+
+
         <div class="row">
 
             <div class="column">
@@ -45,13 +45,28 @@
                     <br>
                     <div class="container">
                                 <p > <b> Course: </b>  {{ $data->course_code1 }} </p>
-                                <p > <b> University: </b>  {{ $data->university_name1 }} </p>                                                        
+                                <p > <b> University: </b>  {{ $data->university_name1 }} </p>  
+                                <td>
+                                    
+                                <!-- <p > <b> Verified: </b>  {{ $data->is_verified }} </p> -->
+                                @if ($data->is_verified == 0)
+                                    <p > <b> Verified: </b>  No </p>
+                                @else
+                                    <p > <b> Verified: </b>  Yes </p>
+                                @endif    
+                                
+                            </td>                                                      
                     </div>
+
+                    
+                    
                 </div>
             </div>
         </div>
         
         <br>
+
+
        
     @endforeach
 
