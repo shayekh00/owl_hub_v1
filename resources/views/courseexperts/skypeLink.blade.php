@@ -6,6 +6,7 @@
     
 @endsection
 
+<link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
 
 
 

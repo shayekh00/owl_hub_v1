@@ -1,7 +1,8 @@
 <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
 <link href="{{ asset('css/error.css') }}" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
-
+<!-- <link rel="icon" type="image/png" src="{{ asset('images/logo.png') }}"/> -->
+<link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
 <body class="loading">
   <h1>404</h1>
   <h2 style="color: white">HMMMMMM! LOOKS LIKE WE MESSED UP! <b>:(</b></h2>

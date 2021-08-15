@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
+<link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
 
 
 @section('content')

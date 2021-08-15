@@ -10,6 +10,7 @@
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 @endsection
 
+<link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
 
 
 @section('content')

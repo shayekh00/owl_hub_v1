@@ -4,6 +4,7 @@
     <link href="{{ asset('css/course_expert_timing.css') }}" rel="stylesheet">
 @endsection
 
+<link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
 
 
 @section('content')
