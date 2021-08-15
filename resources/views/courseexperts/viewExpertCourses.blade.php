@@ -47,18 +47,19 @@
                                 <p > <b> Course: </b>  {{ $data->course_code1 }} </p>
                                 <p > <b> University: </b>  {{ $data->university_name1 }} </p>  
                                 <td>
-                                    
-                                <!-- <p > <b> Verified: </b>  {{ $data->is_verified }} </p> -->
-                                @if ($data->is_verified == 0)
-                                    <p > <b> Verified: </b>  No </p>
-                                @else
-                                    <p > <b> Verified: </b>  Yes </p>
-                                @endif    
                                 
+                                
+                                @if ($data->is_verified == 0)
+                                <p class="alert alert-secondary" role="alert"> <b> Verified: </b>  No </p>
+                                @else
+                                
+                                    <p class="alert alert-success" role="alert"> <b> Verified: </b>  Yes </p>
+                                    
+                                @endif    
+
                             </td>                                                      
                     </div>
 
-                    
                     
                 </div>
             </div>
