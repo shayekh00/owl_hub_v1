@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+Use App\Models\courseexpert;
+Use App\Models\course;
+Use App\Models\courseexpert_time;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -47,9 +52,24 @@ class Commons extends Controller
         return view('commons.contact');
     }
 
-    public function test(){
-        return view('commons.error');
-    }
+    // public function testt(){
+    //     return view('courseexperts.test');
+    // }
+
+    // public function addtestt(Request $request){
+
+    //     $courseexpert_time = new courseexpert_time;
+    //     $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
+    //     foreach($request->input('day') as $key =>$courseexpert_time){
+    //         courseexpert_time::insert([
+    //                 'courseexpert_id' =>Auth::guard('courseexpert')->user()->courseexpert_id,
+    //                 'day'=> $request->day[$key],
+    //                 'time'=>$request->time[$key],
+    //             ]);
+    //     }
+        
+    //     return view('courseexperts.test');
+    // }
 
     // public function not_teacher(){
     //     return view('commons.not_teacher_message');

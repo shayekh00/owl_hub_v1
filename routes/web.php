@@ -34,7 +34,11 @@ Route::get('/login_signup', function () {
 Route::get('/not_a_teacher', 'Commons@not_teacher');
 Route::get('/not_a_student', 'Commons@not_student');
 
-Route::get('/test', 'Commons@test');
+// Route::get('/test', 'Commons@test');
+
+// Route::get('/test', 'Commons@testt');
+// Route::post('/test', 'Commons@addtestt');
+
 
 
 Route::get('/how_it_works', 'Commons@how_it_works')->name('how_it_works');
@@ -71,6 +75,10 @@ Route::post('courseexpert/reset-password/{token}/', 'ResetPassword@resetCourseEx
 
 
 Route::group(['middleware' => ['auth:courseexpert'] ], function () {
+    
+
+    Route::get('/expert_time', 'TeacherController@experttime');
+    Route::post('/expert_time', 'TeacherController@addexperttime');
 
    
     Route::get('/expertcourses', 'TeacherController@courseExpertCourses')->name('TeacherController.courseExpertCourses');

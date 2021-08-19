@@ -54,7 +54,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{route('TeacherController.courseExpertTiming')}}">Add Timing</a>
+            <!-- <a class="dropdown-item" href="{{route('TeacherController.courseExpertTiming')}}">Add Timing</a> -->
+            <a  class="dropdown-item" href="/expert_time">Add Timing</a>
             <a  class="dropdown-item" href="/view_timing">View Timing</a>
 
           </div>

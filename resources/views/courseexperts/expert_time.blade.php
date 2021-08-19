@@ -36,7 +36,7 @@
         <h2 style="color: white;font-weight:Bold ; font-size:30px; text-align: center">Add Times</h2><br />
 
 
-        <form action="test" method="POST" >
+        <form action="expert_time" method="POST" >
         @csrf
         <div class="panel panel-default">
             

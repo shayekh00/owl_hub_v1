@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 Use App\Models\courseexpert;
 Use App\Models\course;
+Use App\Models\courseexpert_time;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Fomvasss\Youtube\Facades\Youtube;
@@ -42,6 +43,24 @@ class TeacherController extends Controller
 
 
     }
+
+
+    // public function testt(Request $request){
+
+    //     $course = new course;
+    //     $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
+    //     foreach($request->input('course_code1') as $key =>$course){
+    //             course::insert([
+    //                 'courseexpert_id' =>Auth::guard('courseexpert')->user()->courseexpert_id,
+    //                 'course_code1'=> $request->course_code1[$key],
+    //                 'university_name1'=>$request->university_name1[$key],
+    //             ]);
+    //     }
+        
+    //     return redirect()->action('TeacherController@viewExpertCourses')->with('status','Course Added!');
+
+
+    // }
 
     public function addCourseExpertTiming(Request $request){
         
@@ -172,8 +191,17 @@ class TeacherController extends Controller
 
     public function viewExpertTiming(){
 
-        return view('courseexperts.viewExpertTiming');
+        
+        $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
 
+        $courseexpert_times = DB::table('courseexpert_times')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->get();
+
+
+        return view('courseexperts.viewExpertTiming', 
+                ['courseexpert_times' => $courseexpert_times] );
+    
     }
 
 
@@ -243,6 +271,26 @@ class TeacherController extends Controller
             return view('courseexperts.appointments', 
                     ['accepted_appointments' => $courses_data] );
 
+    }
+
+
+    public function experttime(){
+        return view('courseexperts.expert_time');
+    }
+
+    public function addexperttime(Request $request){
+
+        $courseexpert_time = new courseexpert_time;
+        $courseexpert_id = AUTH::guard('courseexpert')->user()->courseexpert_id;
+        foreach($request->input('day') as $key =>$courseexpert_time){
+            courseexpert_time::insert([
+                    'courseexpert_id' =>Auth::guard('courseexpert')->user()->courseexpert_id,
+                    'day'=> $request->day[$key],
+                    'time'=>$request->time[$key],
+                ]);
+        }
+        
+        return redirect()->action('TeacherController@viewExpertTiming')->with('status','Time Added!');
     }
    
 

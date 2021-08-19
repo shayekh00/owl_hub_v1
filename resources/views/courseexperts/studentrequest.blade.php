@@ -35,7 +35,8 @@ a {
 @if ($check_timing == 0)
     <div class="alert alert-danger" role="alert">
          Please 
-         <a href="{{route('TeacherController.courseExpertTiming')}}"> click here </a>
+         <!-- <a href="{{route('TeacherController.courseExpertTiming')}}"> click here </a> -->
+         <a href="/expert_time"> click here </a>
          to insert your available time for taking appointments
     </div>
 @endif
