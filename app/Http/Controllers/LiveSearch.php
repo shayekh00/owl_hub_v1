@@ -106,11 +106,11 @@ function action(Request $request)
 function list($course_code , $university_name1,$course_id ,$courseexpert_id){
     
     $courseexperts_table_data = DB::table('courseexperts')
-        ->join('courses', 'courseexperts.courseexpert_id', '=', 'courses.courseexpert_id')
-        ->where('courses.courseexpert_id', '=', $courseexpert_id)
+        ->join('courseexpert_times', 'courseexperts.courseexpert_id', '=', 'courseexpert_times.courseexpert_id')
+        ->where('courseexpert_times.courseexpert_id', '=', $courseexpert_id)
         ->inRandomOrder()
         ->limit(5)
-        ->select('courseexperts.*')
+        ->select('courseexperts.courseexpert_id','courseexpert_times.*')
         ->distinct()
         ->get();
 

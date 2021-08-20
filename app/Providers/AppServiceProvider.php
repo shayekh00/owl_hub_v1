@@ -23,8 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //dd(env('APP_ENV'));
 
-        if(env('APP_ENV') != 'local' ){
+        // dd(        $this->app->environment('local') );
+        // if(env('APP_ENV') != 'local' )
+        if(  $this->app->environment('local') != 'local' ){
             $this->app->bind('path.public', function() {
                 return base_path().'/../public_html';
             });

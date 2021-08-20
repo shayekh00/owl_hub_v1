@@ -89,19 +89,7 @@ function validateForm() {
                         <div class="alert alert-secondary" role="alert">
                             <b> <label style="color:black;" for="Product Name"> Appointment Timing Selected:  </label> </b>
                             
-                            <label style="color:black;">
-                            
-                            @foreach ($appointment_timing as  $key => $data )
-                            <!-- <br> -->
-                                <p>  @if(  $seletion == 1  )  Saturday: {{ $data-> course_timing_saturday }} @endif</p>
-                                <p>  @if(  $seletion == 2  )  Sunday: {{ $data-> course_timing_sunday}} @endif</p>
-                                <p>  @if(  $seletion == 3  )  Monday: {{ $data-> course_timing_monday}} @endif</p>
-                                <p>  @if(  $seletion == 4  )  Tuesday: {{ $data-> course_timing_tuesday}} @endif</p>
-                                <p>  @if(  $seletion == 5  )  Wednesday: {{ $data-> course_timing_wednesday}} @endif</p>
-                                <p>  @if(  $seletion == 6  )  Thursday: {{ $data-> course_timing_thursday}} @endif</p>
-                                <p>  @if(  $seletion == 7  )  Friday: {{ $data-> course_timing_friday }} @endif</p>
-                            @endforeach
-                            </label>
+                            <label style="color:black;"> {{$appointment_timing}}    </label>
                         
                         </div>
 
