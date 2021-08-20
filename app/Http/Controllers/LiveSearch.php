@@ -140,36 +140,6 @@ public  function timing_is_filled( $courseexpert_id_parameter ){
         return $check;
 
     // Returning 1 means one of the timing field was filled
-
-    // $courseexpert_id  = $courseexpert_id_parameter;
-
-    // $courseexperts = DB::table('courseexperts')
-    // ->where('courseexpert_id', '=', $courseexpert_id)
-    // ->get();
-
-    // $check = 0;
-    // if( $courseexperts->first()->course_timing_sunday != ""){
-    //     $check =1;
-    // }
-    // if( $courseexperts->first()->course_timing_monday != ""){
-    //     $check =1;
-    // }
-    // if( $courseexperts->first()->course_timing_tuesday != ""){
-    //     $check =1;
-    // }
-    // if( $courseexperts->first()->course_timing_wednesday != ""){
-    //     $check =1;
-    // }
-    // if( $courseexperts->first()->course_timing_thursday != ""){
-    //     $check =1;
-    // }
-    // if( $courseexperts->first()->course_timing_friday != ""){
-    //     $check =1;
-    // }
-    // if( $courseexperts->first()->course_timing_saturday != ""){
-    //     $check =1;
-    // }
-    // return $check;
 }
 
 
