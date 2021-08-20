@@ -1,215 +1,210 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <title> Student Search </title>
-  <meta name="viewport" content="width=, initial-scale=1.0">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<?php
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link href="{{ asset('css/common.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16">
+namespace App\Http\Controllers;
+use App\Models\accepted_appointment;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use DB;
+use App\Mail\MyTestMail;
+use Mail;
 
+class StudentRequest extends Controller
+{
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    function index()
+    {
     
-<style>
-    .form-control:focus {
-            border-color: forestgreen;
-            box-shadow: none;
+        $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+        // $courseexpert_id=1;    
+        
+        $appointment_images_data = DB::select("SELECT DISTINCT C.course_code1, A.problem_text ,A.is_accepted,A.accepted_appointment_id, A.drive_link
+        FROM accepted_appointments AS A , courses AS C
+        WHERE A.course_id = C.course_id
+        AND A.is_accepted =0
+        AND A.courseexpert_id = $courseexpert_id");
+
+        // dd($appointment_images_data);
+
+        //dd( $courseexperts->first()->course_timing_tuesday );
+        $check_timing = $this->timing_is_filled();
+
+        $courseexpert_times = DB::table('courseexpert_times')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->get()
+        ->first();
+//dd($courses);
+        $check_timing = 0;
+        if( $courseexpert_times ){
+        $check_timing = 1;
+        }
+        
+        // dd($check);
+        $courses = DB::table('courses')
+                        ->where('courseexpert_id', '=', $courseexpert_id)
+                        ->get()
+                        ->first();
+        //dd($courses);
+        $check_courses = 0;
+        if( $courses ){
+            $check_courses = 1;
+        }
+
+        //dd($check_courses);
+        return view('courseexperts.studentrequest',
+        ['appointment_images_data' => $appointment_images_data ,'check_timing' => $check_timing ,'check_courses' => $check_courses   ]);
+
     }
-</style>
- </head>
- <body>
-    @extends('courseexperts.courseexpertnavbar')
-    <div class="owl_hub_background">
-        <br />
-        <div class="container box">
-        <br />
-        <br />
-        <br />
-        <br />
-        <h2 style="color: white;font-weight:Bold ; font-size:30px; text-align: center">Add Times</h2><br />
 
+    function allrequest()
+    {
+        $student_id  =Auth::guard('student')->user()->student_id;
 
-        <form action="test" method="POST" >
-        @csrf
-        <div class="panel panel-default">
-            
-            <div class="table-responsive">            
-                <table class="table table-striped table-bordered " style="background-color:#FFFFFF" >
-                    <thead>
-                    {{ csrf_field() }}
-                        <tr>
-                            <th>Day</th>
-                            <th>Time</th>
-                            <th> <a href="javascript:;" class="btn btn-primary addRow"> Add Time </a> </th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-          
-                        <tr>
+        $accepted_appointments = DB::table('accepted_appointments')
+        ->where('student_id', '=', $student_id)
+        ->get();
 
-                        <td>
-                            <select class="form-control" name="day[]">
-                                
-                            <option disabled ="disabled" selected ="selected">--choose Day</option>
-                                <option>Saturday</option>
-                                <option>Sunday</option>
-                                <option>Monday</option>
-                                <option>Tuesday</option>
-                                <option>Wednesday</option>
-                                <option>Thursday</option>
-                                <option>Friday</option>
+        $appointment_images_data = DB::select("SELECT DISTINCT A.accepted_appointment_id, 
+        A.courseexpert_id,A.is_accepted, A.appointment_transaction_id , A.is_confirmed,
+        C.course_code1, A.problem_text
+        FROM accepted_appointments AS A, courses AS C
+        WHERE A.course_id = C.course_id
+        AND A.student_id = $student_id");
 
-                            </select>
-                        </td>
-                        
-                        <td>
-                            <select class="form-control" name="time[]">
-                              
-                                <option disabled ="disabled" selected ="selected">--choose Times</option>
-                                
-                                <option> 8:00AM - 9:00AM</option>
-                                <option> 8:30AM - 9:30AM</option>
-                                <option> 9:00AM - 10:00AM</option>
-                                <option> 9:30AM - 10:30AM</option>
-                                <option> 10:00AM - 11:00AM</option>
-                                <option> 10:30AM - 11:30AM</option>
-                                <option> 11:00AM - 12:00PM</option>
-                                <option> 11:30AM - 12:30PM</option>
-                                <option> 12:00PM - 1:00PM</option>
-                                <option> 12:30PM - 1:30PM</option>
-                                <option> 1:00PM - 2:00PM</option>
-                                <option> 1:30PM - 2:30PM</option>
-                                <option> 2:00PM - 3:00PM</option>
-                                <option> 2:30PM - 3:30PM</option>
-                                <option> 3:00PM - 4:00PM</option>
-                                <option> 3:30PM - 4:30PM</option>
-                                <option> 4:00PM - 5:00PM</option>
-                                <option> 4:30PM - 5:30PM</option>
-                                <option> 5:00PM - 6:00PM</option>
-                                <option> 5:30PM - 6:30PM</option>
-                                <option> 6:00PM - 7:00PM</option>
-                                <option> 6:30PM - 7:30PM</option>
-                                <option> 7:00PM - 8:00PM</option>
-                                <option> 7:30PM - 8:30PM</option>
-                                <option> 8:00PM - 9:00PM</option>
-                                <option> 8:30PM - 9:30PM</option>
-                                <option> 9:00PM - 10:00PM</option>
-                                <option> 10:30PM - 11:30PM</option>
-                                <option> 11:00PM - 12:00AM</option>
+        //dd($appointment_images_data);
+        return view('students.allstudentrequests', 
+                ['accepted_appointments' => $appointment_images_data ] );
 
-                            </select>
-                        </td>
-                        </tr>
+    }
 
-                    </tbody>
+    function transaction_id(Request $request , $accepted_appointment_id )
+    {
+        $data = $request->all();
+        // dd($data['transaction_id']);
 
-                </table>
+        $email = "pritthi17@gmail.com";
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col text-center">
-                            <button type="submit"  class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </div>
+        // $email = "shayekhnavid20@gmail.com";
 
-            </div>
-            
-            </div>
+        $myEmail = $email;
+        $message = "Transaction Key Entered, please confirm for accepted_appointment_id =" . $accepted_appointment_id ;
+        $url = config('app.url'). '/' ;
+        
+        $details = [
+            'title' => 'New appointment request received.',
+            'url' => $url,
+            'message' => $message
+        ];
 
-            </div>
-        </div>
-        </form>
-    </div>
- </body>
+        Mail::to($myEmail)->send(new MyTestMail($details));
 
-
- <script>
-
-$('thead').on('click',('.addRow'),function(){
-            
-            var tr= '<tr>'+
-
-            '<td>'+
-                '<select class="form-control" name="day[]">'+
-                    
-                '<option disabled ="disabled" selected ="selected">--choose Day</option>'+
-                '<option>Saturday</option>'+
-                '<option>Sunday</option>'+
-                '<option>Monday</option>'+
-                '<option>Tuesday</option>'+
-                '<option>Wednesday</option>'+
-                '<option>Thursday</option>'+
-                '<option>Friday</option>'+
-                    
-                '</select>'+
-              '</td>'+
-
+        // accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        // ->update( array(
+        //                 'is_accepted' => 1
+        //         ) );
+        
+        accepted_appointment::where('accepted_appointment_id', '=', $accepted_appointment_id )
+        ->update( array(
+                        'appointment_transaction_id' => $data['transaction_id']
+                ) );
 
         
+        return view('students.appointment_thank_you');
+    }
 
-        '<td>'+
-            '<select class="form-control" name="time[]">'+
-                '<option disabled ="disabled" selected ="selected">--choose Times</option>'+
-                
-                '<option> 8:00AM - 9:00AM</option>'+
-                '<option> 8:30AM - 9:30AM</option>'+
-                '<option> 9:00AM - 10:00AM</option>'+
-                '<option> 9:30AM - 10:30AM</option>'+
-                '<option> 10:00AM - 11:00AM</option>'+
-                '<option> 10:30AM - 11:30AM</option>'+
-                '<option> 11:00AM - 12:00PM</option>'+
-                '<option> 11:30AM - 12:30PM</option>'+
-                '<option> 12:00PM - 1:00PM</option>'+
-                '<option> 12:30PM - 1:30PM</option>'+
-                '<option> 1:00PM - 2:00PM</option>'+
-                '<option> 1:30PM - 2:30PM</option>'+
-                '<option> 2:00PM - 3:00PM</option>'+
-                '<option> 2:30PM - 3:30PM</option>'+
-                '<option> 3:00PM - 4:00PM</option>'+
-                '<option> 3:30PM - 4:30PM</option>'+
-                '<option> 4:00PM - 5:00PM</option>'+
-                '<option> 4:30PM - 5:30PM</option>'+
-                '<option> 5:00PM - 6:00PM</option>'+
-                '<option> 5:30PM - 6:30PM</option>'+
-                '<option> 6:00PM - 7:00PM</option>'+
-                '<option> 6:30PM - 7:30PM</option>'+
-                '<option> 7:00PM - 8:00PM</option>'+
-                '<option> 7:30PM - 8:30PM</option>'+
-                '<option> 8:00PM - 9:00PM</option>'+
-                '<option> 8:30PM - 9:30PM</option>'+
-                '<option> 9:00PM - 10:00PM</option>'+
-                '<option> 10:30PM - 11:30PM</option>'+
-                '<option> 11:00PM - 12:00AM</option>'+
 
-            '</select>'+
-        '</td>'+
+    public function StudentProfile(){
+
+        return view('students.studentprofile');
+    
+    }
+
+
+
+    function updateStudentProfile(){
+
+
+        $user = auth()->user();
+        $expert = DB::table('courses')->where('courseexpert_id', Auth::id())->get();
         
-        '<th> <a href="javascript:;" class="btn btn-danger deleteRow">-</a> </th>'+
-        '</tr>';
-
-        $('tbody').append(tr);
-        });
-
-
-        $('tbody').on('click', '.deleteRow', function(){
-
-        $(this).parent().parent().remove();
-
-})
-
-</script>
+        return view('students.editstudentprofile');
+    
+    }
+    
 
 
+    
+    function updateStudentProfilePost(Request $request){
+        
+        $name=$request->name;
+        $phone=$request->phone;
+
+        $student_id = AUTH::guard('student')->user()->student_id;
+        
+        $update = DB::update('update students set name =? where student_id= ? ',[$name,$student_id]);
+        $update = DB::update('update students set phone =? where student_id= ? ',[$phone,$student_id]);
+
+        return redirect()->action('StudentRequest@StudentProfile')->with('status','Profile updated');
+    }
 
 
+        public function studentAppointments(){
 
-</html>
+            $student_id  =Auth::guard('student')->user()->student_id;
+
+            $accepted_appointments = DB::table('accepted_appointments')
+                ->where('student_id', '=', $student_id)
+                ->get();
+
+
+            $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.is_confirmed,A.course_id,A.appointment_timing,
+            B.course_id,B.course_code1
+            FROM accepted_appointments AS A , courses AS B
+            WHERE A.course_id = B.course_id
+            AND A.is_confirmed = 1
+            AND A.student_id = $student_id");
+    
+    
+            return view('students.studentAppointments', 
+                    ['accepted_appointments' => $courses_data] );
+
+        }
+
+       public  function timing_is_filled(){
+
+            // Returning 1 means one of the timing field was filled
+
+            $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+            $courseexperts = DB::table('courseexperts')
+            ->where('courseexpert_id', '=', $courseexpert_id)
+            ->get();
+
+            $check = 0;
+            if( $courseexperts->first()->course_timing_sunday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_monday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_tuesday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_wednesday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_thursday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_friday != ""){
+                $check =1;
+            }
+            if( $courseexperts->first()->course_timing_saturday != ""){
+                $check =1;
+            }
+            return $check;
+        }
+
+
+    
+
+}

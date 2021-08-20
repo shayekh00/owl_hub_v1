@@ -27,6 +27,16 @@ class StudentRequest extends Controller
 
         //dd( $courseexperts->first()->course_timing_tuesday );
         $check_timing = $this->timing_is_filled();
+
+        $courseexpert_times = DB::table('courseexpert_times')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->get()
+        ->first();
+//dd($courses);
+        $check_timing = 0;
+        if( $courseexpert_times ){
+        $check_timing = 1;
+        }
         
         // dd($check);
         $courses = DB::table('courses')
