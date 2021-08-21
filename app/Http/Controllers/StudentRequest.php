@@ -28,15 +28,15 @@ class StudentRequest extends Controller
         //dd( $courseexperts->first()->course_timing_tuesday );
         $check_timing = $this->timing_is_filled();
 
-        $courseexpert_times = DB::table('courseexpert_times')
-        ->where('courseexpert_id', '=', $courseexpert_id)
-        ->get()
-        ->first();
-//dd($courses);
-        $check_timing = 0;
-        if( $courseexpert_times ){
-        $check_timing = 1;
-        }
+//         $courseexpert_times = DB::table('courseexpert_times')
+//         ->where('courseexpert_id', '=', $courseexpert_id)
+//         ->get()
+//         ->first();
+// //dd($courses);
+//         $check_timing = 0;
+//         if( $courseexpert_times ){
+//         $check_timing = 1;
+//         }
         
         // dd($check);
         $courses = DB::table('courses')
@@ -172,36 +172,49 @@ class StudentRequest extends Controller
        public  function timing_is_filled(){
 
             // Returning 1 means one of the timing field was filled
+        $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
 
-            $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+        $courseexpert_times = DB::table('courseexpert_times')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->get()
+        ->first();
 
-            $courseexperts = DB::table('courseexperts')
-            ->where('courseexpert_id', '=', $courseexpert_id)
-            ->get();
+        $check = 0;
+        if( $courseexpert_times ){
+        $check = 1;
+        }
 
-            $check = 0;
-            if( $courseexperts->first()->course_timing_sunday != ""){
-                $check =1;
-            }
-            if( $courseexperts->first()->course_timing_monday != ""){
-                $check =1;
-            }
-            if( $courseexperts->first()->course_timing_tuesday != ""){
-                $check =1;
-            }
-            if( $courseexperts->first()->course_timing_wednesday != ""){
-                $check =1;
-            }
-            if( $courseexperts->first()->course_timing_thursday != ""){
-                $check =1;
-            }
-            if( $courseexperts->first()->course_timing_friday != ""){
-                $check =1;
-            }
-            if( $courseexperts->first()->course_timing_saturday != ""){
-                $check =1;
-            }
-            return $check;
+        return $check;
+
+        //     $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+        //     $courseexperts = DB::table('courseexperts')
+        //     ->where('courseexpert_id', '=', $courseexpert_id)
+        //     ->get();
+
+        //     $check = 0;
+        //     if( $courseexperts->first()->course_timing_sunday != ""){
+        //         $check =1;
+        //     }
+        //     if( $courseexperts->first()->course_timing_monday != ""){
+        //         $check =1;
+        //     }
+        //     if( $courseexperts->first()->course_timing_tuesday != ""){
+        //         $check =1;
+        //     }
+        //     if( $courseexperts->first()->course_timing_wednesday != ""){
+        //         $check =1;
+        //     }
+        //     if( $courseexperts->first()->course_timing_thursday != ""){
+        //         $check =1;
+        //     }
+        //     if( $courseexperts->first()->course_timing_friday != ""){
+        //         $check =1;
+        //     }
+        //     if( $courseexperts->first()->course_timing_saturday != ""){
+        //         $check =1;
+        //     }
+        //     return $check;
         }
 
 
