@@ -17,7 +17,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >My Times</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >My Timing</h1>
 
    
 

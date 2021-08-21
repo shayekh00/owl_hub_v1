@@ -18,7 +18,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Delete Times</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Delete Timing</h1>
 
    
 

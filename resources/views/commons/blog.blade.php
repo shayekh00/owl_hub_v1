@@ -75,6 +75,11 @@
 								<li>
 									<a href="{{route('contact_us')}}">Contact</a>
 								</li>
+
+								<li>
+									<a href="{{route('landing')}}">Login/Sign up</a>
+								</li>
+
 							</ul>
 						</nav>
 					</div>
@@ -115,6 +120,10 @@
 
 			<li class="t-center m-b-33">
 				<a href="{{route('contact_us')}}" class="txt19">Contact</a>
+			</li>
+
+			<li class="t-center m-b-33">
+				<a href="{{route('landing')}}" class="txt19">Login/Sign up</a>
 			</li>
 
 			<li class="t-center">

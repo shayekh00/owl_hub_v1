@@ -57,7 +57,7 @@
             <!-- <a class="dropdown-item" href="{{route('TeacherController.courseExpertTiming')}}">Add Timing</a> -->
             <a  class="dropdown-item" href="/expert_time">Add Timing</a>
             <a  class="dropdown-item" href="/view_timing">View Timing</a>
-            <a  class="dropdown-item" href="/delete_expert_time">Delete Times</a>
+            <a  class="dropdown-item" href="/delete_expert_time">Delete Timing</a>
 
           </div>
       </li>

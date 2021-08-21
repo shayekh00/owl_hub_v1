@@ -96,8 +96,11 @@
             </div>
             <div class="simform__actions ">
               <div class="center">
-                <button type="submit" name="action" value="student" class="btn btn-success">Student</button>
+              <button type="submit" name="action" value="student" class="btn btn-success" >Student</button>
+                </div>
+                <div class="center">
                 <button type="submit" name="action" value="courseexpert" class="btn btn-success">Course Expert</button>
+              </div>
               </div>
               <!-- <input class="sumbit" name="commit" type="sumbit" value="Student" /> 
               <input class="sumbit" name="commit" type="sumbit" value="Course Expert"/> -->
