@@ -17,7 +17,6 @@ class CreateAppointmentImagesTable extends Migration
             $table->id('appointment_images_id');
 
             $table->unsignedBigInteger('accepted_appointment_id');
-            // $table->foreign('accepted_appointment_id')->references('accepted_appointment_id')->on('accepted_appointments');
 
             $table->string('problem_text');
             $table->string('filename');

@@ -35,21 +35,6 @@ class CreateCoursesTable extends Migration
             $table->string('course_code1');
             $table->string('university_name1');
 
-            // $table->string('course_code2');
-            // $table->string('university_name2');
-            // $table->string('course_code3');
-            // $table->string('university_name3');
-            // $table->string('course_code4');
-            // $table->string('university_name4');
-            // $table->string('course_code5');
-            // $table->string('university_name5');
-            // $table->string('course_code6');
-            // $table->string('university_name6');
-            // $table->string('course_code7');
-            // $table->string('university_name7');
-            // $table->string('course_code8');
-            // $table->string('university_name8');
-            // $table->foreign('courseexpert_id')->nullable()->references('courseexpert_id')->on('courseexperts');
             
             $table->timestamps();
 

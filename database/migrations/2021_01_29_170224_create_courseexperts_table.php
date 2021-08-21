@@ -26,13 +26,14 @@ class CreateCourseexpertsTable extends Migration
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             
-            $table->string('course_timing_saturday');
-            $table->string('course_timing_sunday');
-            $table->string('course_timing_monday');
-            $table->string('course_timing_tuesday');
-            $table->string('course_timing_wednesday');
-            $table->string('course_timing_thursday');
-            $table->string('course_timing_friday');
+            // $table->string('course_timing_saturday');
+            // $table->string('course_timing_sunday');
+            // $table->string('course_timing_monday');
+            // $table->string('course_timing_tuesday');
+            // $table->string('course_timing_wednesday');
+            // $table->string('course_timing_thursday');
+            // $table->string('course_timing_friday');
+
             $table->string('teachers_skype_link');
 
             $table->string('varification_drive_link');

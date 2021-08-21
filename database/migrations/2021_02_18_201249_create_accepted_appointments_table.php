@@ -18,16 +18,10 @@ class CreateAcceptedAppointmentsTable extends Migration
             $table->string('problem_text');
             $table->string('drive_link');
             $table->string('deadline_date');
-            // $table->unsignedBigInteger('requested_appointment_id');
-            // $table->unsignedBigInteger('student_id,');
             $table->unsignedBigInteger('courseexpert_id');
             $table->unsignedBigInteger('course_id');
-            // $table->unsignedBigInteger('appointment_images_id');
             $table->unsignedBigInteger('student_id');
 
-            // $table->foreign('courseexpert_id')->references('courseexpert_id')->on('courseexperts');
-            // $table->foreign('student_id')->references('student_id')->on('students');
-            // $table->foreign('course_id')->references('course_id')->on('courses');
 
             $table->string('appointment_timing');
 
