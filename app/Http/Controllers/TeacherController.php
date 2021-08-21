@@ -238,8 +238,9 @@ class TeacherController extends Controller
 
         return view('courseexperts.updateexpertcourses', 
                 ['courses' => $courses] );
-    } 
-
+    }
+    
+    
 
     public function deleteCourse($course_id){
 
@@ -249,6 +250,29 @@ class TeacherController extends Controller
             return redirect('update_expert_course')->with('status','Course successfully deleted');
        
     }
+
+    public function updateExpertTimes(){
+
+
+        $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
+
+        $courseexpert_times = DB::table('courseexpert_times')
+        ->where('courseexpert_id', '=', $courseexpert_id)
+        ->get();
+
+
+        return view('courseexperts.updateexperttimes', 
+                ['courseexpert_times' => $courseexpert_times] );
+    } 
+
+    public function deleteTime($time_id){
+
+        $data = courseexpert_time::find($time_id);
+        $data -> delete();
+
+        return redirect('delete_expert_time')->with('status','Time successfully deleted');
+   
+}
     
  
 

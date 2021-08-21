@@ -97,6 +97,8 @@ Route::group(['middleware' => ['auth:courseexpert'] ], function () {
     Route::get('/update_expert_profile', 'TeacherController@updateExpertProfile');
     Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost');
     Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
+    Route::get('/delete_expert_time', 'TeacherController@updateExpertTimes');
+    Route::get('/delete/{time_id}', 'TeacherController@deleteTime');
     Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
     Route::get('/appointments', 'TeacherController@myAppointments');
     Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
