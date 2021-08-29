@@ -140,10 +140,11 @@ class UploadController extends Controller
 
         //Adding 0 to the number
         $num = $phone[0]->phone;
-        $num = "0{$num}";
+        // $num = "0{$num}";
         $num = rawurlencode($num);
         $message = "You have received a new request for a course on OwlHubBD.com, please log into your account to confirm.";
         $message= rawurlencode($message);
+        // dd($num);
 
         // dd('http://api.greenweb.com.bd/api.php?token=2da4132046e8848440c4973dcebaab7e&to='.$num.'&message='.$message');
 

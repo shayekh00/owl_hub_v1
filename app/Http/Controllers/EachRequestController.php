@@ -77,10 +77,11 @@ class EachRequestController extends Controller
 
         // dd($phone);
 
-        //Adding 0 to the number
+        
         $num = $phone[0]->phone;
-        $num = "0{$num}";
+        // $num = "0{$num}";
         $num = rawurlencode($num);
+        // dd($num);
         $message = "Your request has been accepted on OwlHubBD.com, please log into your account to pay and confrim.";
         $message= rawurlencode($message);
 
@@ -128,9 +129,9 @@ class EachRequestController extends Controller
 
         // dd($phone);
         
-        //Adding 0 to the number
+        
         $num = $phone[0]->phone;
-        $num = "0{$num}";
+        // $num = "0{$num}";
         $num = rawurlencode($num);
         $message = "Your request has been rejected on OwlHubBD.com, please log into your account to request another appointment.";
         $message= rawurlencode($message);

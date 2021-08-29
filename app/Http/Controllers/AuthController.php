@@ -175,6 +175,8 @@ class AuthController extends Controller
  
     public function postRegister(Request $request)
     { 
+        //dd($request->all());
+
         $data = DB::table('admin_settings')->select('accepting_course_expert')->get();
 
         switch ($request->input('action')) {
