@@ -1,18 +1,13 @@
-@component('mail::message')
-# {{ $details['title'] }}
-
-
-
-Greetings from Owl Hub,
-
-{{ $details['message'] }}
-
-
-@component('mail::button', ['url' => $details['url']])
-Click Here
-@endcomponent
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OwlHubBD.com</title>
+</head>
+<body>
+    <h1>{{ $details['title'] }}</h1>
+    <p>{{ $details['body'] }}</p>
+    <p>{{ $details['url'] }}</p>
    
-Thanks,
-
-{{ config('app.name') }}
-@endcomponent
+    <p>Thank you</p>
+</body>
+</html>

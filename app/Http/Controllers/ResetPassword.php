@@ -69,10 +69,13 @@ class ResetPassword extends Controller
         //     'url' => $url,
         //     'message' => $message
         // ];
+        $details = [
+            'title' => 'Mail from OwlHubBd.com',
+            'body' => 'This is for testing email using smtp, please click on the link below to reset your password.',
+            'url' => $url
+        ];
 
-        // Mail::to($myEmail)->send(new MyTestMail($details));
-        
-        Mail::to($myEmail)->send(new OwlMail($url));
+        Mail::to($myEmail)->send(new OwlMail($details));
         //$this->senddraw_mail();
 
         return view('commons.reset_email_sent');
@@ -152,15 +155,24 @@ class ResetPassword extends Controller
         // postEmail($email , $url , $message);
         $myEmail = $email;
 
+        // $details = [
+        //     'title' => 'Password Reset Email from OwlHubBD.com',
+        //     'url' => $url,
+        //     'message' => $message
+        // ];
+
+        // Mail::to( $myEmail )->send(new OwlMail( $url ));
+        
+
         $details = [
-            'title' => 'Password Reset Email from OwlHubBD.com',
-            'url' => $url,
-            'message' => $message
+            'title' => 'Mail from OwlHubBd.com',
+            'body' => 'This is for testing email using smtp, please click on the link below to reset your password.',
+            'url' => $url
         ];
 
-//        Mail::to($myEmail)->send(new MyTestMail($details));
-        Mail::to( $myEmail )->send(new OwlMail( $url ));
-        
+                
+        Mail::to($myEmail)->send(new OwlMail($details));
+
         return view('commons.reset_email_sent');
     }
 

@@ -9,18 +9,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class OwlMail extends Mailable
 {
     use Queueable, SerializesModels;
-    
-    public $email_content;
-    
+  
+    public $details;
+  
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($email_content)
+    public function __construct($details)
     {
-        $this->email_content = $email_content;
+        $this->details = $details;
     }
+  
     /**
      * Build the message.
      *
@@ -28,6 +29,7 @@ class OwlMail extends Mailable
      */
     public function build()
     {
-        return $this->from('shayekhnavid@gmail.com')->view('commons.emails.tpl');
+        return $this->subject('Mail from OwlHubBd.com')
+                    ->view('commons.emails.myTestMail');
     }
 }

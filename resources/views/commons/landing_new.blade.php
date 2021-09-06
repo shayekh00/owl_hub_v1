@@ -274,7 +274,7 @@
 									</h4></a>
 	
 									<p class="m-b-20">
-										Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
+									Avail on help from course experts for any problems within all range of courses for any university.
 									</p>
 	
 									<a href="#" class="txt4">
@@ -298,7 +298,7 @@
 									</h4></a>
 	
 									<p class="m-b-20">
-										Aliquam eget aliquam magna, quis posuere risus ac justo ipsum nibh urna
+									Both your and the course expert’s identity shall remain hidden so that the student doesn’t feel hesitant to ask questions.
 									</p>
 	
 									<a href="#" class="txt4">
@@ -321,11 +321,11 @@
 	
 								<div class="wrap-text-blo1 p-t-35">
 									<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-										48 HOURS
+									On Demand Service
 									</h4></a>
 	
 									<p class="m-b-20">
-										Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
+									All the course experts will be informed immediately via text message once you request them for solving any problem. 
 									</p>
 	
 									<a href="#" class="txt4">
