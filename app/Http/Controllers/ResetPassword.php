@@ -71,7 +71,7 @@ class ResetPassword extends Controller
         // ];
         $details = [
             'title' => 'Mail from OwlHubBd.com',
-            'body' => 'This is for testing email using smtp, please click on the link below to reset your password.',
+            'body' => 'Please click on the link below to reset your password.',
             'url' => $url
         ];
 
@@ -166,7 +166,7 @@ class ResetPassword extends Controller
 
         $details = [
             'title' => 'Mail from OwlHubBd.com',
-            'body' => 'This is for testing email using smtp, please click on the link below to reset your password.',
+            'body' => 'Please click on the link below to reset your password.',
             'url' => $url
         ];
 
