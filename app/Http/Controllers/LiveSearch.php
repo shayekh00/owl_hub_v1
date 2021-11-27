@@ -33,6 +33,7 @@ function action(Request $request)
         {
             $data = DB::table('courses')
                 ->where('course_code1', 'like', '%'.$query.'%')
+                ->where('is_verified',1)
                 ->orWhere('university_name1', 'like', '%'.$query.'%')
                 ->get();
 
