@@ -38,7 +38,8 @@
       </li>
       
       <!-- <a class="nav-item nav-link" href="/student_profile">Profile</a> -->
-      <a class="nav-item nav-link" href="{{route('student.allrequest')}}">My Requests</a>
+      <!-- <a class="nav-item nav-link" href="{{route('student.allrequest')}}">My Requests</a> -->
+      <a class="nav-item nav-link" href="/requests">My Requests</a>
       <a class="nav-item nav-link" href="{{route('logout')}}">Logout</a>
     </div>
   </div>

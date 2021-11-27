@@ -34,6 +34,8 @@ Route::get('/login_signup', function () {
 Route::get('/not_a_teacher', 'Commons@not_teacher');
 Route::get('/not_a_student', 'Commons@not_student');
 
+// Route::get('/requests', 'students@not_student');
+Route::get('/requests', 'StudentRequest@requests');
 // Route::get('/test', 'Commons@test');
 
 // Route::get('/test', 'Commons@testt');

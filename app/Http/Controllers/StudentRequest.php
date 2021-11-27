@@ -55,6 +55,29 @@ class StudentRequest extends Controller
 
     }
 
+    function requests(){
+    
+        $student_id  =Auth::guard('student')->user()->student_id;
+
+        $accepted_appointments = DB::table('accepted_appointments')
+        ->where('student_id', '=', $student_id)
+        ->get();
+
+        $appointment_images_data = DB::select("SELECT DISTINCT A.accepted_appointment_id, 
+        A.courseexpert_id,A.is_accepted, A.appointment_transaction_id , A.is_confirmed,
+        C.course_code1, A.problem_text
+        FROM accepted_appointments AS A, courses AS C
+        WHERE A.course_id = C.course_id
+        AND A.student_id = $student_id");
+
+        //dd($appointment_images_data);
+        return view('students.newRequest', 
+                ['accepted_appointments' => $appointment_images_data ] );
+        
+        // return view('students.newRequest');
+
+    }
+
     function allrequest()
     {
         $student_id  =Auth::guard('student')->user()->student_id;
@@ -71,7 +94,7 @@ class StudentRequest extends Controller
         AND A.student_id = $student_id");
 
         //dd($appointment_images_data);
-        return view('students.allstudentrequests', 
+        return view('students.newRequest', 
                 ['accepted_appointments' => $appointment_images_data ] );
 
     }
@@ -216,6 +239,8 @@ class StudentRequest extends Controller
         //     }
         //     return $check;
         }
+
+        
 
 
     
