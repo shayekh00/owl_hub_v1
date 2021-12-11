@@ -40,10 +40,10 @@
                                 <p > <b> Problem Description: </b>    {{ $data->problem_text }} </p>
                                 
                                 <!-- check if the appointment is accepted by a course expert  -->
-                                @if(  ($data->is_accepted) == 1   )
+                                @if(  ($data->is_accepted) == 1 )
 
                                     <!-- if the bkash transaction id is not given and confirmed  -->
-                                    @if ($data->appointment_transaction_id == '')
+                                    @if ( ($data->is_confirmed) == 0)
                                     <div class="alert alert-success" role="alert">
                                             Your appointment request has been <b>accepted</b> by the Course Expert.
                                     
@@ -60,26 +60,14 @@
 
                                     <form action="/students/thankyou/{{$data->accepted_appointment_id}}" method="post">
                                         {{ csrf_field() }}
-                                        <!-- <label for="exampleFormControlInput1"> Bkash Transaction ID :</label>
-                                        <input name="transaction_id" class="form-control" type="text" placeholder="Bkash Transaction ID">
-                                        <br> -->
-                                        <!-- <p>To pay please <a href="https://shop.bkash.com/owl-hub01790323997/paymentlink">Click here</a>.</p> -->
-                                        <p>To pay please <a href="https://shop.bkash.com/owl-hub01790323997/paymentlink" target="_blank" rel="noopener noreferrer">click here</a>.</p>
-                                        <!-- <button type="submit" class="button">Submit</button> -->
-                                
-                                        <!-- <p>Please put your reference ID on the next page.</p> -->
+                                            <p>To pay please <a href="https://shop.bkash.com/owl-hub01790323997/paymentlink" target="_blank" rel="noopener noreferrer">click here</a>.</p>
+                                            If you have already paid please wait and check accepted appointment page.
                                     </form>
 
-                                    <!-- if the bkash transaction id is given and not confirmed -->
-                                    @elseif( $data->appointment_transaction_id !== ''  && $data->is_confirmed !==1 )
-                                    <div class="alert alert-primary" role="alert">
-                                            Your appointment is being confirmed .
-                                    </div>
-
-
+                                   
                                     <!-- if the bkash transaction id is given and confirmed -->
 
-                                    @endif
+                                @endif
 
                                 @elseif(  ($data->is_accepted) == 0   )
                                     <div class="alert alert-primary" role="alert">

@@ -39,22 +39,23 @@
         <form action="skypeLink"  method="POST">
                 {{ csrf_field() }}
             <div class="container">
+                        
                         <p>
                            <b> <label for="">Skype link</label> </b>
-                            <input type="text" name="skype_link" class= "form-control" value ="">
+                            <input type="text" name="skype_link" class= "form-control" value ="{{Auth::guard('courseexpert')->user()->teachers_skype_link}}">
 
                         </p>
 
 
                         <p>
                            <b> <label for="">Verification Drive link</label> </b>
-                            <input type="text" name="varification_drive_link" class= "form-control" value ="">
+                            <input type="text" name="varification_drive_link" class= "form-control" value ="{{Auth::guard('courseexpert')->user()->varification_drive_link}}">
 
                         </p>
 
                         <p>
                            <b> <label for="">Appointment Drive Link</label> </b>
-                            <input type="text" name="appointment_drive_link" class= "form-control" value ="">
+                            <input type="text" name="appointment_drive_link" class= "form-control" value ="{{Auth::guard('courseexpert')->user()->appointment_drive_link}}">
 
                         </p>
 
@@ -71,9 +72,9 @@
                         </div>
 
                     
-                        <iframe width="410" height="350"
+                        <!-- <iframe width="410" height="350"
                             src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
+                        </iframe> -->
             </div>
             
         </form>

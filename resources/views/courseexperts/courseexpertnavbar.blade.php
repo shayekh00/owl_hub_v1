@@ -43,7 +43,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{route('TeacherController.courseExpertCourses')}}">Add Course</a>
           <a  class="dropdown-item" href="/view_courses">View Courses</a>
-          <a  class="dropdown-item" href="/update_expert_course">Delete Courses</a>
+          <a  class="dropdown-item" href="/update_expert_courses">Delete Courses</a>
 
           </div>
       </li>

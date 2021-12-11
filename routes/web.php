@@ -92,16 +92,21 @@ Route::group(['middleware' => ['auth:courseexpert'] ], function () {
     Route::get('/view_timing', 'TeacherController@viewExpertTiming');
     Route::get('/view_timing', 'TeacherController@viewExpertTiming');
     Route::get('/view_courses', 'TeacherController@viewExpertCourses');
-    Route::get('/update_courses', 'TeacherController@updateExpertCourses');
-    Route::post('/update_courses', 'TeacherController@updatecourses');
+    
+    // Route::get('/update_courses', 'TeacherController@updateExpertCourses');
+    // Route::post('/update_courses', 'TeacherController@updatecourses');
+    
     Route::get('/welcome', 'TeacherController@welcomeMessage');
     Route::get('/expert_profile', 'TeacherController@viewExpertProfile')->name('courseexperts.expertProfile');
     Route::get('/update_expert_profile', 'TeacherController@updateExpertProfile');
     Route::post('/update_expert_profile', 'TeacherController@updateExpertProfilePost');
-    Route::get('/update_expert_course', 'TeacherController@updateExpertCourses');
+    
     Route::get('/delete_expert_time', 'TeacherController@updateExpertTimes');
     Route::get('/delete/{time_id}', 'TeacherController@deleteTime');
-    Route::get('/delete/{course_id}', 'TeacherController@deleteCourse');
+    
+    Route::get('/update_expert_courses', 'TeacherController@updateExpertCourses');
+    Route::get('/deletes/{course_id}', 'TeacherController@deleteCourse');
+    
     Route::get('/appointments', 'TeacherController@myAppointments');
     Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
     // Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');

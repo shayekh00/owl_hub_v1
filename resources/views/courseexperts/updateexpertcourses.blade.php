@@ -18,7 +18,7 @@
 
 @extends('courseexperts.courseexpertnavbar')
 <div class="center">
-    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Delete Courses</h1>
+    <h1 style="color: white;font-weight:Bold ; font-size:30px; text-align: center" >Delete Course</h1>
 
    
 
@@ -31,7 +31,7 @@
 
 <!-- Page content -->
 
-@foreach ($courses as  $key => $item )
+@foreach ($courses as  $keys => $item1 )
         
         <div class="row">
 
@@ -40,15 +40,16 @@
                 <div class="card">
                 
 
+
                     <br>
                     <div class="container">
-                                <p > <b> Course: </b>  {{$item->course_code1}} </p>
-                                <p > <b> University: </b>  {{$item->university_name1}} </p>
+                                <p > <b> Course: </b>  {{$item1->course_code1}} </p>
+                                <p > <b> University: </b>  {{$item1->university_name1}} </p>
 
                                 <div class="container">
                                     <div class="row">
                                         <div class="col text-center">
-                                            <a class ="btn btn-danger" href={{"delete/".$item->course_id}}>Delete</a>                                                        
+                                            <a class ="btn btn-danger" href={{"deletes/".$item1->course_id}}>Delete</a>                                                        
                                         </div>
                                     </div>
                                 </div>

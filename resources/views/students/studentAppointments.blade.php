@@ -18,6 +18,8 @@
 
 @foreach ($accepted_appointments as  $key => $data )
 
+    @if(  ($data->is_confirmed) == 1   )
+
         <div class="row">
 
             <div class="column">
@@ -29,11 +31,13 @@
                                 <p > <b> Appointment ID: </b>  {{ $data->accepted_appointment_id }} </p>
                                 <p > <b> Course Name: </b>  {{ $data->course_code1 }} </p>
                                 <p > <b> Appointment Timing: </b>  {{ $data->appointment_timing }} </p>
+                                <p > <b> Meeting link: </b>  {{ $data->teachers_skype_link }} </p>
 
                     </div>
                 </div>
             </div>
         </div>
         <br>
+    @endif
 @endforeach
 @endsection

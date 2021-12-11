@@ -17,10 +17,10 @@ class StudentRequest extends Controller
         $courseexpert_id  =Auth::guard('courseexpert')->user()->courseexpert_id;
         // $courseexpert_id=1;    
         
-        $appointment_images_data = DB::select("SELECT DISTINCT C.course_code1, A.problem_text ,A.is_accepted,A.accepted_appointment_id, A.drive_link
-        FROM accepted_appointments AS A , courses AS C
+        $appointment_images_data = DB::select("SELECT DISTINCT C.course_code1, A.problem_text ,A.is_accepted,A.accepted_appointment_id,B.teachers_skype_link,B.varification_drive_link,B.appointment_drive_link, A.drive_link
+        FROM accepted_appointments AS A , courses AS C, courseexperts AS B
         WHERE A.course_id = C.course_id
-        AND A.is_accepted =0
+        AND A.is_accepted = 0
         AND A.courseexpert_id = $courseexpert_id");
 
         // dd($appointment_images_data);
@@ -39,6 +39,14 @@ class StudentRequest extends Controller
 //         }
         
         // dd($check);
+        // $accepted_appointments = DB::table('accepted_appointments')
+        $skypelink = DB::table('courseexperts')
+                        ->where('courseexpert_id', '=', $courseexpert_id)
+                        // ->where('teachers_skype_link',NULL)
+                        ->get();
+                          
+
+
         $courses = DB::table('courses')
                         ->where('courseexpert_id', '=', $courseexpert_id)
                         ->get()
@@ -51,7 +59,48 @@ class StudentRequest extends Controller
 
         //dd($check_courses);
         return view('courseexperts.studentrequest',
-        ['appointment_images_data' => $appointment_images_data ,'check_timing' => $check_timing ,'check_courses' => $check_courses   ]);
+        ['appointment_images_data' => $appointment_images_data ,'check_timing' => $check_timing ,'skypelink' => $skypelink,'check_courses' => $check_courses   ]);
+
+    }
+
+    public function studentAppointments(){
+
+        // $student_id  =Auth::guard('student')->user()->student_id;
+
+        // $accepted_appointments = DB::table('accepted_appointments')
+        //     ->where('student_id', '=', $student_id)
+        //     ->get();
+
+
+        // $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.is_confirmed,A.course_id,A.appointment_timing,
+        // B.course_id,B.course_code1
+        // FROM accepted_appointments AS A , courses AS B
+        // WHERE A.course_id = B.course_id
+        // AND A.is_confirmed = 1
+        // AND A.student_id = $student_id");
+
+
+        // return view('students.studentAppointments', 
+        //         ['accepted_appointments' => $courses_data] );
+
+
+        $student_id  =Auth::guard('student')->user()->student_id;
+
+        $accepted_appointments = DB::table('accepted_appointments')
+        ->where('student_id', '=', $student_id)
+        ->get();
+
+        $appointment_images_data = DB::select("SELECT DISTINCT A.accepted_appointment_id, 
+        A.courseexpert_id,A.is_accepted,A.appointment_timing, A.appointment_transaction_id , A.is_confirmed,
+        C.course_code1, A.problem_text, B.teachers_skype_link
+        FROM accepted_appointments AS A, courses AS C, courseexperts AS B
+        WHERE A.course_id = C.course_id
+        AND A.courseexpert_id = B.courseexpert_id
+        AND A.student_id = $student_id");
+
+
+        return view('students.studentAppointments', 
+                ['accepted_appointments' => $appointment_images_data] );
 
     }
 
@@ -170,27 +219,7 @@ class StudentRequest extends Controller
     }
 
 
-        public function studentAppointments(){
 
-            $student_id  =Auth::guard('student')->user()->student_id;
-
-            $accepted_appointments = DB::table('accepted_appointments')
-                ->where('student_id', '=', $student_id)
-                ->get();
-
-
-            $courses_data = DB::select("SELECT DISTINCT A.accepted_appointment_id,A.is_confirmed,A.course_id,A.appointment_timing,
-            B.course_id,B.course_code1
-            FROM accepted_appointments AS A , courses AS B
-            WHERE A.course_id = B.course_id
-            AND A.is_confirmed = 1
-            AND A.student_id = $student_id");
-    
-    
-            return view('students.studentAppointments', 
-                    ['accepted_appointments' => $courses_data] );
-
-        }
 
        public  function timing_is_filled(){
 

@@ -244,10 +244,10 @@ class TeacherController extends Controller
 
     public function deleteCourse($course_id){
 
-            $data = course::find($course_id);
-            $data -> delete();
+            $datacourse = course::find($course_id);
+            $datacourse -> delete();
 
-            return redirect('update_expert_course')->with('status','Course successfully deleted');
+            return redirect('update_expert_courses')->with('status','Course successfully deleted');
        
     }
 
@@ -259,6 +259,7 @@ class TeacherController extends Controller
         $courseexpert_times = DB::table('courseexpert_times')
         ->where('courseexpert_id', '=', $courseexpert_id)
         ->get();
+
 
 
         return view('courseexperts.updateexperttimes', 

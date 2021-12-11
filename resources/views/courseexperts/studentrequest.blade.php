@@ -49,6 +49,19 @@ a {
     </div>
 @endif
 
+@foreach ($skypelink as  $key => $data )
+    @if ($data->teachers_skype_link == "" || $data->varification_drive_link == "" || $data->appointment_drive_link == "" )
+        <div class="alert alert-danger" role="alert">
+            Please 
+            <a href="/skypeLink"> click here </a>
+            to insert your necessary documents and meeting link.
+        </div>
+    @endif
+
+
+@endforeach
+
+
 @if( count($appointment_images_data)== 0 )
             <div class="alert alert-primary" role="alert">
                 You still didn't receive any request from a student.
