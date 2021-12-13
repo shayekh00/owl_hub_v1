@@ -201,7 +201,7 @@
 							</a>
 
 							<span class="dis-block t-center txt35 p-b-25">
-								xyz
+							Chief Executive Officer
 							</span>
 
 							<p class="t-center">
@@ -225,7 +225,7 @@
 							</a>
 
 							<span class="dis-block t-center txt35 p-b-25">
-								xyz
+								Chief Technology Officer
 							</span>
 
 							<p class="t-center">
