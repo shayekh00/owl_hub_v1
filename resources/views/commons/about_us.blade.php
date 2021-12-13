@@ -205,7 +205,8 @@
 							</span>
 
 							<p class="t-center">
-								Donec porta eleifend mauris ut effici-tur. Quisque non velit vestibulum, lob-ortis mi eget, rhoncus nunc
+							Siam is a Creative, Passionate and Dedicated UI UX, frontend web & graphic designer, he takes pride in exploring alternative solutions and experimenting with approaches to create different types of ideas. He brings years of experience to the table that he’s ready to leverage to improve websites, mobile applications , UX research, Ul design, wireframe prototypes, and frontend web development & graphic design. Owlhub is one of his many projects that he’s currently working on.
+							His vision is to aid the students both financially and help them achieve the grades they are destined for.
 							</p>
 						</div>
 					</div>
@@ -228,7 +229,8 @@
 							</span>
 
 							<p class="t-center">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies felis a sem tempus tempus.
+							Shayekh is a professional in the field of Cloud and Data Science and also has experience in working with Web and Mobile application systems. His versatility in working with different aspects of technology is what makes him unique in providing guidance and direction for Owl Hub.
+							Shayekh graduated from North South University. His vision and knowledge of cutting edge technologies makes him the a valuable asset to the team.
 							</p>
 						</div>
 					</div>
@@ -248,11 +250,12 @@
 							</a>
 
 							<span class="dis-block t-center txt35 p-b-25">
-								Developer
+								Software Engineer
 							</span>
 
 							<p class="t-center">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies felis a sem tempus tempus.
+								Asif is one of the many bright young minds working with the Tech Department of Owl Hub. Asif is a NSU graduate. 
+								His ability to work independently as full stack developer makes him a valuable asset to the company.
 							</p>
 						</div>
 					</div>
@@ -267,7 +270,7 @@
 
 						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
 							<a href="#" class="txt34 dis-block p-b-6">
-								Ritu
+							Software Engineer
 							</a>
 
 							<span class="dis-block t-center txt35 p-b-25">
@@ -275,7 +278,8 @@
 							</span>
 
 							<p class="t-center">
-								Phasellus aliquam libero a nisi varius, vitae placerat sem aliquet. Ut at velit nec ipsum iaculis posuere quis in sapien
+								Ritu is a Software Engineer ar Owl Hub and is also pursing her Masters Degree in Computer Science from renowned German university.
+								Her ability to handle pressure and work intelligently makes her a remarkable resouce for Owl Hub.
 							</p>
 						</div>
 					</div>
