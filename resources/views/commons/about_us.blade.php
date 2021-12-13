@@ -270,11 +270,11 @@
 
 						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
 							<a href="#" class="txt34 dis-block p-b-6">
-							Software Engineer
+							Ritu
 							</a>
 
 							<span class="dis-block t-center txt35 p-b-25">
-								xyz
+							Software Engineer
 							</span>
 
 							<p class="t-center">
