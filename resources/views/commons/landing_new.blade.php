@@ -482,7 +482,8 @@
 			<div class="wrap-video-mo-01"> 
 				<div class="w-full wrap-pic-w op-0-0"><img src="{{ asset('images/video-16-9.jpg') }}" alt="IMG"></div>
 				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+					<!-- <iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0" allowfullscreen></iframe> -->
+					<iframe src="https://www.youtube.com/watch?v=iIqWV1eYzKM" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
