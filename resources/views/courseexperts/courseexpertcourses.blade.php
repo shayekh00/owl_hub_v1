@@ -47,7 +47,7 @@
                         <tr>
                             <th>Course Code</th>
                             <th>University</th>
-                            <th> <a href="javascript:;" class="btn btn-primary addRow"> Add Courses </a> </th>
+                            <th> <a href="javascript:;" class="btn btn-success addRow"> Add Courses </a> </th>
                         </tr>
                     </thead>
                     
