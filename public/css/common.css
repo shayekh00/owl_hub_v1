@@ -55,3 +55,7 @@ body{
 .dropdown-item.active, .dropdown-item:active {
   background-color: #1A9957 !important;
 }
+
+.nav-link {
+  color: #1A9957 !important;
+  }
