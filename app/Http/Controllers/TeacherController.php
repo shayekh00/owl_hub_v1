@@ -290,7 +290,8 @@ class TeacherController extends Controller
             FROM accepted_appointments AS A , courses AS B
             WHERE A.course_id = B.course_id
             AND A.is_accepted = 1
-            AND A.courseexpert_id = $courseexpert_id");
+            AND A.courseexpert_id = $courseexpert_id
+              ");
     
     
             return view('courseexperts.appointments', 

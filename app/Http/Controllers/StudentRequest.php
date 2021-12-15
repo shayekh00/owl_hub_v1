@@ -96,7 +96,8 @@ class StudentRequest extends Controller
         FROM accepted_appointments AS A, courses AS C, courseexperts AS B
         WHERE A.course_id = C.course_id
         AND A.courseexpert_id = B.courseexpert_id
-        AND A.student_id = $student_id");
+        AND A.student_id = $student_id
+        ORDER BY  A.accepted_appointment_id DESC ");
 
 
         return view('students.studentAppointments', 
@@ -108,16 +109,19 @@ class StudentRequest extends Controller
     
         $student_id  =Auth::guard('student')->user()->student_id;
 
-        $accepted_appointments = DB::table('accepted_appointments')
-        ->where('student_id', '=', $student_id)
-        ->get();
+        // $accepted_appointments = DB::table('accepted_appointments')
+        // ->where('student_id', '=', $student_id)
+        // ->get();
 
         $appointment_images_data = DB::select("SELECT DISTINCT A.accepted_appointment_id, 
         A.courseexpert_id,A.is_accepted, A.appointment_transaction_id , A.is_confirmed,
         C.course_code1, A.problem_text
         FROM accepted_appointments AS A, courses AS C
         WHERE A.course_id = C.course_id
-        AND A.student_id = $student_id");
+        AND A.student_id = $student_id 
+        ORDER BY  A.accepted_appointment_id DESC ")
+
+        ;
 
         //dd($appointment_images_data);
         return view('students.newRequest', 
