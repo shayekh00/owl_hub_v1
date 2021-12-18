@@ -156,6 +156,10 @@
 							OWLHUB
 						</h2>
 
+						<h4 class="caption2-slide1 tit1 t-center animated visible-false m-b-15" data-appear="fadeInUp" style="font-size:25px;">
+							BETA
+						</h3>
+
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
 							<!-- Button1 -->
 							<a href="{{route('landing')}}" class="btn1 flex-c-m size1 txt3 trans-0-4">
@@ -220,7 +224,7 @@
 						</span>
 
 						<h3 class="tit3 t-center m-b-35 m-t-5">
-							OWL HUB
+							OWL HUB BETA
 						</h3>
 
 						<p class="t-center m-b-22 size3 m-l-r-auto">

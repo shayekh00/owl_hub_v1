@@ -85,7 +85,9 @@ function action(Request $request)
         {
             $output = '
             <tr>
-                <td align="center" colspan="5"> No Courses Found </td>
+                <td align="center" colspan="5"> No Courses Found. Text us on our Facebook Page.
+                    <a href="https://www.facebook.com/theowlhubbd"> Click Here </a>
+                </td>
             </tr>
             ';
             }
