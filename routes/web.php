@@ -115,6 +115,8 @@ Route::group(['middleware' => ['auth:courseexpert'] ], function () {
     Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
     Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
 
+    Route::post('/student/decision/{accepted_appointment_id}', 'EachRequestController@decide')->name('multiuploads.decide');
+
 });
 
 //STUDENT ROUTES
