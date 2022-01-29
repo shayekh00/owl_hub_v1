@@ -112,8 +112,8 @@ Route::group(['middleware' => ['auth:courseexpert'] ], function () {
     // Route::get('/studentrequest', 'StudentRequest@index')->name('student_request.index');
     Route::get('/courseexperts/eachrequest', 'EachRequestController@eachrequest')->name('courseexperts.eachrequest');
     Route::get('/courseexperts/eachrequest/{course_id}/{accepted_appointment_id}/', 'EachRequestController@index')->name('courseexperts.eachrequest');
-    Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
-    Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
+    // Route::get('/student/accepted/{accepted_appointment_id}/', 'EachRequestController@accepted')->name('multiuploads.accepted');
+    // Route::get('/student/rejected/{accepted_appointment_id}/', 'EachRequestController@rejected')->name('multiuploads.rejected');
 
     Route::post('/student/decision/{accepted_appointment_id}', 'EachRequestController@decide')->name('multiuploads.decide');
 

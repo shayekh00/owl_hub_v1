@@ -90,7 +90,7 @@ class StudentRequest extends Controller
         ->where('student_id', '=', $student_id)
         ->get();
 
-        $appointment_images_data = DB::select("SELECT DISTINCT A.accepted_appointment_id, 
+        $appointment_images_data = DB::select("SELECT DISTINCT A.appointment_link, A.accepted_appointment_id, 
         A.courseexpert_id,A.is_accepted,A.appointment_timing, A.appointment_transaction_id , A.is_confirmed,
         C.course_code1, A.problem_text, B.teachers_skype_link
         FROM accepted_appointments AS A, courses AS C, courseexperts AS B

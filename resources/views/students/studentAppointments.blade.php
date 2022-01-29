@@ -31,7 +31,7 @@
                                 <p > <b> Appointment ID: </b>  {{ $data->accepted_appointment_id }} </p>
                                 <p > <b> Course Name: </b>  {{ $data->course_code1 }} </p>
                                 <p > <b> Appointment Timing: </b>  {{ $data->appointment_timing }} </p>
-                                <p > <b> Meeting link: </b>  {{ $data->teachers_skype_link }} </p>
+                                <p > <b> Meeting link: </b>  {{ $data->appointment_link }} </p>
 
                     </div>
                 </div>
