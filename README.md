@@ -1,3 +1,24 @@
+
+# Owl Hub - Empowering Education in Bangladesh
+
+**Owl Hub** is a web platform built with **Laravel**, dedicated to revolutionizing the learning experience for university students in Bangladesh. By connecting students with subject-matter experts, Owl Hub provides personalized guidance and support to enhance academic success.
+
+## Key Features
+- **Expert Guidance**: Connect with course experts for mentorship and advice.
+- **Skill Development**: Showcase your competencies and build a strong academic profile.
+- **Earn as You Learn**: Empower students to monetize their skills and knowledge.
+- **User-Centric Design**: A seamless and engaging web app experience powered by Laravel.
+
+## Technologies Used
+- **Framework**: Laravel
+- **Frontend**: Blade Templating, Bootstrap
+- **Backend**: PHP, MySQL
+- **Other Tools**: RESTful APIs, Authentication (Laravel Sanctum/Passport)
+
+## Purpose
+Owl Hub is more than just a platform—it's a community-driven initiative to foster passion, growth, and opportunity for students across Bangladesh.
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
